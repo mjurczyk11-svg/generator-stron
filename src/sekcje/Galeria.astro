@@ -1,6 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import { zdjecie } from '../lib/zdjecia';
 import Sekcja from '../components/Sekcja.astro';
 import Obraz from '../components/Obraz.astro';
@@ -9,14 +9,14 @@ interface Props { lang: Jezyk; tlo?: string }
 const { lang, tlo } = Astro.props;
 const { t, u } = tlumacz(lang);
 const pozycje = await Promise.all(
-  strona.galeria.lista.map(async (p: any) => {
-    const o = typeof p === 'string' ? { plik: p } : p;
+  strona.galeria.lista.map(async (x: any, i: number) => {
+    const o = typeof x === 'string' ? { plik: x } : x;
     const src = await zdjecie(o.plik);
     const duze = src ? await getImage({ src, width: Math.min(1800, src.width), format: 'webp', quality: 80 }) : undefined;
-    return { ...o, opis: t(o.opis), kategoria: t(o.kategoria), duze: duze?.src };
+    return { ...o, i, opis: t(o.opis), kategoria: t(o.kategoria), duze: duze?.src };
   }),
 );
-const kategorie = [...new Set(pozycje.map((p) => p.kategoria).filter(Boolean))];
+const kategorie = [...new Set(pozycje.map((x) => x.kategoria).filter(Boolean))];
 ---
 <Sekcja klucz="galeria" lang={lang} tlo={tlo}>
   {kategorie.length > 1 && (
@@ -26,9 +26,9 @@ const kategorie = [...new Set(pozycje.map((p) => p.kategoria).filter(Boolean))];
     </div>
   )}
   <div class="galeria">
-    {pozycje.map((p) => (
-      <button type="button" data-kat={p.kategoria} data-duze={p.duze} data-opis={p.opis} aria-label={p.opis || u('sekcja.galeria')}>
-        <Obraz plik={p.plik} alt={p.opis} szerokosci={[400, 640]} sizes="(max-width: 600px) 100vw, 33vw" />
+    {pozycje.map((x) => (
+      <button type="button" data-kat={x.kategoria} data-duze={x.duze} data-opis={x.opis} aria-label={x.opis || u('sekcja.galeria')}>
+        <Obraz plik={x.plik} pole={`galeria.lista.${x.i}.plik`} alt={x.opis} szerokosci={[400, 640]} sizes="(max-width: 600px) 100vw, 33vw" />
       </button>
     ))}
   </div>

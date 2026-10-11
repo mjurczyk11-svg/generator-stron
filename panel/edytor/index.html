@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Edytor stron</title>
+    <link rel="stylesheet" href="./edytor.css" />
+  </head>
+  <body>
+    <div id="logowanie" class="logowanie" hidden>
+      <form class="karta" id="form-logowanie">
+        <h1>Edytor stron</h1>
+        <p>Wklej klucz z GitHuba (zaczyna się od <code>github_pat_</code>). Ten sam, którym logujesz się w formularzach.</p>
+        <input id="pole-token" type="password" placeholder="github_pat_…" autocomplete="off" required />
+        <button class="btn glowny" type="submit">Zaloguj się</button>
+        <p class="blad" id="blad-logowania" hidden></p>
+      </form>
+    </div>
+
+    <div id="aplikacja" class="aplikacja" hidden>
+      <header class="pasek">
+        <strong class="nazwa-aplikacji">Edytor stron</strong>
+        <label class="wybor-klienta">
+          <span class="ukryte">Strona klienta</span>
+          <select id="klient"></select>
+        </label>
+        <button class="btn" id="przycisk-nowa" type="button">+ Nowa strona</button>
+        <span class="odstep"></span>
+        <div class="przelacznik" id="jezyk" role="group" aria-label="Język podglądu">
+          <button type="button" data-lang="pl" aria-pressed="true">PL</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <div class="przelacznik" id="urzadzenie" role="group" aria-label="Widok">
+          <button type="button" data-widok="komputer" aria-pressed="true">Komputer</button>
+          <button type="button" data-widok="telefon" aria-pressed="false">Telefon</button>
+        </div>
+        <button class="btn" id="przycisk-ustawienia" type="button">Ustawienia strony</button>
+        <button class="btn" id="przycisk-cofnij" type="button" disabled>Cofnij</button>
+        <button class="btn glowny" id="przycisk-zapisz" type="button" disabled>Zapisano</button>
+        <details class="menu">
+          <summary class="btn" aria-label="Więcej">⋯</summary>
+          <div class="menu-lista">
+            <a id="link-strona" href="#" target="_blank" rel="noopener">Otwórz stronę w nowej karcie</a>
+            <a href="./formularze/" target="_blank" rel="noopener">Wszystkie pola (formularze)</a>
+            <button type="button" id="przycisk-klucz">Klucz AI (Claude)</button>
+            <button type="button" id="przycisk-wyloguj">Wyloguj</button>
+          </div>
+        </details>
+      </header>
+
+      <main class="uklad">
+        <section class="podglad" aria-label="Podgląd strony">
+          <div class="podpowiedz">Kliknij tekst, aby go zmienić. Kliknij zdjęcie, aby je podmienić.</div>
+          <div class="ramka-kontener" id="ramka-kontener">
+            <iframe id="ramka" title="Podgląd strony"></iframe>
+            <div class="zaslona" id="zaslona" hidden><div><div class="krecik"></div><p id="zaslona-tekst">Ładuję…</p></div></div>
+          </div>
+        </section>
+
+        <aside class="czat" aria-label="Asystent AI">
+          <div class="czat-glowka">
+            <strong>Asystent AI</strong>
+            <span>Napisz, co zmienić na stronie.</span>
+          </div>
+          <div class="czat-klucz" id="czat-klucz" hidden>
+            <p>Asystent działa na Claude. Wklej klucz API (zaczyna się od <code>sk-ant-</code>). Klucz zrobisz na <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</p>
+            <form id="form-klucz">
+              <input id="pole-klucz" type="password" placeholder="sk-ant-…" autocomplete="off" required />
+              <button class="btn glowny" type="submit">Zapisz klucz</button>
+            </form>
+            <p class="drobne">Klucz zostaje tylko w tej przeglądarce.</p>
+          </div>
+          <div class="wiadomosci" id="wiadomosci" aria-live="polite"></div>
+          <div class="zaznaczone" id="zaznaczone" hidden>
+            <span>Zaznaczone: <em id="zaznaczone-tekst"></em></span>
+            <button type="button" id="odznacz" aria-label="Odznacz">×</button>
+          </div>
+          <form class="czat-forma" id="form-czat">
+            <textarea id="pole-czat" rows="3" placeholder="np. Zmień godziny w sobotę na 9–14 i dodaj pytanie o parking" required></textarea>
+            <button class="btn glowny" type="submit" id="przycisk-wyslij">Wyślij</button>
+          </form>
+        </aside>
+      </main>
+
+      <div class="szuflada" id="szuflada" hidden>
+        <div class="szuflada-glowka">
+          <strong>Ustawienia strony</strong>
+          <button class="btn" type="button" id="zamknij-szuflade">Gotowe</button>
+        </div>
+        <div class="szuflada-tresc" id="ustawienia"></div>
+      </div>
+
+      <dialog class="okno" id="okno-nowa">
+        <form id="form-nowa" method="dialog">
+          <h2>Nowa strona</h2>
+          <p class="drobne">Wybierz kilka opcji i wklej, co wiesz o firmie. Asystent napisze całą stronę.</p>
+          <label>Nazwa firmy<input name="nazwa" required /></label>
+          <fieldset class="kafle" data-pole="szablon">
+            <legend>Rodzaj firmy</legend>
+            <label><input type="radio" name="szablon" value="gabinet" checked /><span>Gabinet<small>dentysta, lekarz, fizjoterapeuta</small></span></label>
+            <label><input type="radio" name="szablon" value="warsztat" /><span>Warsztat<small>mechanik, opony, blacharz</small></span></label>
+            <label><input type="radio" name="szablon" value="remonty" /><span>Remonty<small>remonty, hydraulik, elektryk</small></span></label>
+          </fieldset>
+          <div class="dwa">
+            <label>Miasto<input name="miasto" required /></label>
+            <label>Telefon<input name="telefon" required /></label>
+          </div>
+          <div class="dwa">
+            <label>E-mail<input name="email" type="email" /></label>
+            <label>Ulica i numer<input name="ulica" /></label>
+          </div>
+          <label>Stara strona i wizytówka Google (adresy, opcjonalnie)<input name="adresy" placeholder="https://… https://maps.google.com/…" /></label>
+          <label>Wszystko, co wiesz o firmie
+            <textarea name="informacje" rows="7" placeholder="Wklej usługi, godziny, ceny, krótki opis, opinie z Google, tekst ze starej strony…"></textarea>
+          </label>
+          <label>Zdjęcia (pierwsze będzie zdjęciem głównym)<input name="zdjecia" type="file" accept="image/*" multiple /></label>
+          <fieldset class="kafle male" data-pole="wyglad">
+            <legend>Styl</legend>
+            <label><input type="radio" name="wyglad" value="" checked /><span>Domyślny</span></label>
+            <label><input type="radio" name="wyglad" value="spokojny" /><span>Spokojny</span></label>
+            <label><input type="radio" name="wyglad" value="czysty" /><span>Czysty</span></label>
+            <label><input type="radio" name="wyglad" value="elegancki" /><span>Elegancki</span></label>
+            <label><input type="radio" name="wyglad" value="mocny" /><span>Mocny</span></label>
+            <label><input type="radio" name="wyglad" value="rzemieslniczy" /><span>Rzemieślniczy</span></label>
+          </fieldset>
+          <div class="dwa">
+            <label class="obok"><input type="checkbox" name="en" /> Wersja angielska</label>
+            <label class="obok"><input type="checkbox" name="kolor-wlasny" /> Własny kolor <input type="color" name="kolor" value="#2f6f73" /></label>
+          </div>
+          <label>Adres podglądu<span class="adres-podgladu"><span id="adres-baza"></span><input name="slug" pattern="[a-z0-9\-]+" required /></span></label>
+          <p class="blad" id="blad-nowa" hidden></p>
+          <div class="przyciski-okna">
+            <button class="btn" type="button" id="anuluj-nowa">Anuluj</button>
+            <button class="btn glowny" type="submit" id="utworz-nowa">Utwórz stronę</button>
+          </div>
+        </form>
+      </dialog>
+
+      <input type="file" id="plik-zdjecia" accept="image/*" hidden />
+      <div class="komunikat" id="komunikat" role="status" hidden></div>
+    </div>
+    <script type="module" src="./edytor.js"></script>
+  </body>
+</html>

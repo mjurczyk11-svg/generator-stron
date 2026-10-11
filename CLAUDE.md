@@ -13,8 +13,9 @@ Właściciel (Michał) nie programuje i pisze po polsku. Odpowiadaj po polsku, p
 
 ## Panel edycji (/admin)
 
-- Michał edytuje strony w panelu `<adres podglądu>/admin/` (Sveltia CMS, logowanie tokenem GitHub). Panel zapisuje zmiany prosto do gałęzi `main`, Netlify przebudowuje podgląd.
-- Pola panelu opisuje `panel/pola.mjs`. Nowe pole w `strona.yaml` = dopisz je też tam, inaczej Michał go nie zobaczy w panelu.
+- Michał edytuje strony w edytorze `<adres podglądu>/admin/` (kod w `panel/edytor/`, budowany esbuildem w `scripts/panel.mjs`): podgląd strony w ramce z edycją po kliknięciu, czat z asystentem AI (Claude, klucz API w przeglądarce Michała), proste „Ustawienia strony” i „+ Nowa strona” pisana przez AI. Logowanie tokenem GitHub; zapis jednym commitem prosto do `main`, Netlify przebudowuje podgląd.
+- Klikalne elementy podglądu mają atrybut `data-pole="<ścieżka w strona.yaml>"`, dodawany tylko w buildzie podglądu przez `{...p('sciezka')}` z `src/lib/dane.ts` (zdjęcia: prop `pole` w `Obraz`). Nowa sekcja albo nowy tekst na stronie = dodaj `p(...)`, inaczej nie da się go kliknąć.
+- Stary panel z formularzami (Sveltia CMS) jest pod `/admin/formularze/`. Pola formularzy i opis pól dla asystenta AI pochodzą z `panel/pola.mjs`. Nowe pole w `strona.yaml` = dopisz je też tam.
 - Panel wymaga tekstów zawsze w postaci `{ pl: "...", en: "..." }` (także na stronach tylko po polsku) i sekcji-list jako `{ lista: [...] }`. Po ręcznej edycji plików klienta uruchom `npm run porzadkuj`; `npm run sprawdz` zgłasza pliki, które tego wymagają.
 - Przed własnymi zmianami w `klienci/` pobierz najnowszy `main`, bo Michał mógł coś zmienić w panelu.
 

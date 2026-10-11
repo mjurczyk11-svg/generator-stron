@@ -1,6 +1,6 @@
 ---
 // Rezerwacja online: link do systemu (Booksy, ZnanyLekarz, Cal.com), osadzona ramka albo własny kod widżetu.
-import { strona, tlumacz, tel, tytulSekcji, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, tel, tytulSekcji, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Ikona from '../components/Ikona.astro';
 interface Props { lang: Jezyk; tlo?: string }
@@ -15,8 +15,8 @@ const k = strona.kontakt;
     <div class="kontener">
       <div class="cta-pas">
         <div>
-          <h2>{t(d.naglowek) || tytulSekcji('rezerwacja', lang)}</h2>
-          {t(d.wstep) && <p>{t(d.wstep)}</p>}
+          <h2 {...p('rezerwacja.naglowek')}>{t(d.naglowek) || tytulSekcji('rezerwacja', lang)}</h2>
+          {t(d.wstep) && <p {...p('rezerwacja.wstep')}>{t(d.wstep)}</p>}
         </div>
         <div class="przyciski">
           <a class="btn btn-jasny" href={d.url} target="_blank" rel="noopener">{t(d.przycisk) || u('rezerwacja.przejdz')}<Ikona n="external-link" rozmiar={18} /></a>

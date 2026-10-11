@@ -28,11 +28,18 @@ Przykłady (zmyślone firmy): `klienci/przyklad-gabinet`, `klienci/przyklad-wars
 
 ## Panel edycji
 
-Pod adresem `https://<podglad>.netlify.app/admin/` jest panel, w którym widać wszystkie strony klientów i można je zmieniać bez programowania: teksty, godziny, cennik, usługi, zdjęcia (przeciągnij plik), kolejność sekcji i pozycji (przeciągnij), kolory i styl. Zapis w panelu trafia do repozytorium, a Netlify po 1–3 minutach publikuje nową wersję podglądu (i strony klienta, jeśli ma własną stronę na Netlify).
+Pod adresem `https://<podglad>.netlify.app/admin/` jest edytor stron (kod: `panel/edytor/`):
 
-Logowanie: przycisk „Zaloguj się tokenem” i token GitHub z prawem zapisu do tego repozytorium (Fine-grained token, Repository access: tylko to repozytorium, Permissions → Contents: Read and write).
+- podgląd strony klienta, na którym klikasz tekst, żeby go zmienić, albo zdjęcie, żeby je podmienić;
+- asystent AI (Claude) obok podglądu: piszesz, co zmienić, a on zmienia dane strony;
+- „Ustawienia strony”: styl, kolory, widoczne sekcje i ich kolejność, kontakt, godziny;
+- „+ Nowa strona”: kilka pól i wklejone informacje o firmie, resztę pisze asystent.
 
-Pola panelu opisuje `panel/pola.mjs`. Panel wymaga zapisu tekstów jako `{ pl: ..., en: ... }`; `npm run porzadkuj` przerabia pliki do tej postaci.
+Zapis trafia jednym commitem do repozytorium, a Netlify po 1–3 minutach publikuje nową wersję podglądu (i strony klienta, jeśli ma własną stronę na Netlify).
+
+Logowanie: token GitHub z prawem zapisu do tego repozytorium (Fine-grained token, Repository access: tylko to repozytorium, Permissions → Contents: Read and write). Asystent potrzebuje klucza API Claude (console.anthropic.com → API keys); klucz jest zapisany tylko w przeglądarce i wysyłany prosto do Anthropic.
+
+Wszystkie pola w formularzach (Sveltia CMS) są pod `/admin/formularze/`. Pola opisuje `panel/pola.mjs`. Formularze wymagają zapisu tekstów jako `{ pl: ..., en: ... }`; `npm run porzadkuj` przerabia pliki do tej postaci.
 
 ## Polecenia
 

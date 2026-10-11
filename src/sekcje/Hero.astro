@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, tel, glownaAkcja, ocena, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, tel, glownaAkcja, ocena, p, type Jezyk } from '../lib/dane';
 import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
 import Obraz from '../components/Obraz.astro';
 import Ikona from '../components/Ikona.astro';
@@ -26,17 +26,17 @@ const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) =>
 ---
 {uklad === 'zdjecie' && (
   <section class="hero hero--zdjecie">
-    <div class="hero-tlo"><Obraz plik={h.zdjecie} alt={t(h.zdjecie_opis)} szerokosci={[640, 1024, 1600, 2200]} sizes="100vw" priorytet /></div>
+    <div class="hero-tlo"><Obraz plik={h.zdjecie} pole="hero.zdjecie" alt={t(h.zdjecie_opis)} szerokosci={[640, 1024, 1600, 2200]} sizes="100vw" priorytet /></div>
     <div class="kontener hero-tresc">
       {op?.ocena && <a class="ocena-znaczek" href={op.link ?? '#opinie'}><Gwiazdki ocena={op.ocena} /><span>{`${ocena(op.ocena, lang)} · ${op.liczba} ${u('opinie.opinii')} Google`}</span></a>}
-      {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
-      <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
-      {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+      {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
+      <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
+      {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
       <div class="hero-przyciski">
         <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
         {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
       </div>
-      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
     </div>
     {maGodziny() && (
       <div class="hero-godziny"><div class="kontener"><span><Ikona n="clock" rozmiar={19} />{u('godziny')}:</span>{godzinyKrotko.map((g) => <span>{g}</span>)}</div></div>
@@ -47,17 +47,17 @@ const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) =>
   <section class="hero hero--podzielony">
     <div class="kontener">
       <div class="hero-tresc">
-        {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
-        <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
-        {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+        {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
+        <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
+        {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
         <div class="hero-przyciski">
           <a class="btn btn-glowny" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
           {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
         </div>
-        {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+        {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
       </div>
       <div class="hero-zdjecie">
-        <Obraz plik={h.zdjecie} alt={t(h.zdjecie_opis)} szerokosci={[480, 800, 1100]} sizes="(max-width: 880px) 100vw, 46vw" priorytet />
+        <Obraz plik={h.zdjecie} pole="hero.zdjecie" alt={t(h.zdjecie_opis)} szerokosci={[480, 800, 1100]} sizes="(max-width: 880px) 100vw, 46vw" priorytet />
         {op?.ocena && (
           <a class="hero-karta" href={op.link ?? '#opinie'} style="text-decoration:none">
             <Ikona n="google" rozmiar={30} />
@@ -71,14 +71,14 @@ const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) =>
 {uklad === 'prosty' && (
   <section class="hero hero--prosty">
     <div class="kontener hero-tresc">
-      {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
-      <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
-      {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+      {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
+      <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
+      {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
       <div class="hero-przyciski">
         <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}</a>
         {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
       </div>
-      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
     </div>
   </section>
 )}

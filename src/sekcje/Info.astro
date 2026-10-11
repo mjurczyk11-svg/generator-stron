@@ -1,6 +1,6 @@
 ---
 // Blok informacyjny z tekstem i listą punktów (np. "dofinansowania").
-import { tlumacz, daneSekcji, tytulSekcji, type Jezyk } from '../lib/dane';
+import { tlumacz, daneSekcji, tytulSekcji, p, type Jezyk } from '../lib/dane';
 import Ikona from '../components/Ikona.astro';
 interface Props { lang: Jezyk; tlo?: string; klucz: string }
 const { lang, tlo, klucz } = Astro.props;
@@ -11,7 +11,7 @@ const d = daneSekcji(klucz);
   <div class="kontener info-blok">
     <div>
       <div class="etykieta">{tytulSekcji(klucz, lang)}</div>
-      <h2>{t(d.naglowek) || tytulSekcji(klucz, lang)}</h2>
+      <h2 {...p(`${klucz}.naglowek`)}>{t(d.naglowek) || tytulSekcji(klucz, lang)}</h2>
       {t(d.tekst).split(/\n\s*\n/).map((a) => <p style="color:var(--tekst-2);font-size:1.08rem">{a}</p>)}
     </div>
     {d.punkty?.length > 0 && <div class="karta"><ul>{d.punkty.map((p: any) => <li><Ikona n="circle-check" />{t(p)}</li>)}</ul></div>}

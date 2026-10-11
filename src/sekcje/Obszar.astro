@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, tytulSekcji, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, tytulSekcji, p, type Jezyk } from '../lib/dane';
 interface Props { lang: Jezyk; tlo?: string }
 const { lang, tlo } = Astro.props;
 const { t } = tlumacz(lang);
@@ -10,8 +10,8 @@ const miejscowosci = d.miejscowosci ?? d.lista ?? [];
   <div class="kontener obszar">
     <div>
       <div class="etykieta">{tytulSekcji('obszar', lang)}</div>
-      <h2>{t(d.naglowek) || tytulSekcji('obszar', lang)}</h2>
-      {t(d.tekst ?? d.wstep) && <p style="color:var(--tekst-2);font-size:1.08rem">{t(d.tekst ?? d.wstep)}</p>}
+      <h2 {...p('obszar.naglowek')}>{t(d.naglowek) || tytulSekcji('obszar', lang)}</h2>
+      {t(d.tekst ?? d.wstep) && <p style="color:var(--tekst-2);font-size:1.08rem" {...p(d.tekst ? 'obszar.tekst' : 'obszar.wstep')}>{t(d.tekst ?? d.wstep)}</p>}
     </div>
     <ul class="znaczniki">{miejscowosci.map((m: string) => <li>{m}</li>)}</ul>
   </div>

@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, type Jezyk, p } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Ikona from '../components/Ikona.astro';
 import Obraz from '../components/Obraz.astro';
@@ -13,21 +13,21 @@ const cena = (c: any) => (c == null ? '' : typeof c === 'number' ? `${u('cennik.
 <Sekcja klucz="uslugi" lang={lang} tlo={tlo}>
   {d.styl === 'lista' && (
     <div class="uslugi-lista">
-      {d.lista.map((s: any) => (
+      {d.lista.map((s: any, i: number) => (
         <div class="usluga-wiersz">
           <div class="ikona-tlo"><Ikona n={s.ikona ?? domyslnaIkona} /></div>
-          <div><h3>{t(s.nazwa)}</h3>{t(s.opis) && <p>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
+          <div><h3 {...p(`uslugi.lista.${i}.nazwa`)}>{t(s.nazwa)}</h3>{t(s.opis) && <p {...p(`uslugi.lista.${i}.opis`)}>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
         </div>
       ))}
     </div>
   )}
   {d.styl === 'kafelki' && (
     <div class="siatka siatka-4">
-      {d.lista.map((s: any) => (
+      {d.lista.map((s: any, i: number) => (
         <div class="karta usluga-kafel">
           <div class="ikona-tlo"><Ikona n={s.ikona ?? domyslnaIkona} rozmiar={24} /></div>
-          <h3>{t(s.nazwa)}</h3>
-          {t(s.opis) && <p>{t(s.opis)}</p>}
+          <h3 {...p(`uslugi.lista.${i}.nazwa`)}>{t(s.nazwa)}</h3>
+          {t(s.opis) && <p {...p(`uslugi.lista.${i}.opis`)}>{t(s.opis)}</p>}
           {s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}
         </div>
       ))}
@@ -35,10 +35,10 @@ const cena = (c: any) => (c == null ? '' : typeof c === 'number' ? `${u('cennik.
   )}
   {d.styl === 'zdjecia' && (
     <div class="siatka siatka-3">
-      {d.lista.map((s: any) => (
+      {d.lista.map((s: any, i: number) => (
         <div class="karta usluga-zdjecie usluga-kafel">
-          <Obraz plik={s.zdjecie} alt={t(s.nazwa)} szerokosci={[400, 700]} sizes="(max-width: 700px) 100vw, 33vw" />
-          <div class="tresc"><h3>{t(s.nazwa)}</h3>{t(s.opis) && <p>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
+          <Obraz plik={s.zdjecie} pole={`uslugi.lista.${i}.zdjecie`} alt={t(s.nazwa)} szerokosci={[400, 700]} sizes="(max-width: 700px) 100vw, 33vw" />
+          <div class="tresc"><h3 {...p(`uslugi.lista.${i}.nazwa`)}>{t(s.nazwa)}</h3>{t(s.opis) && <p {...p(`uslugi.lista.${i}.opis`)}>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
         </div>
       ))}
     </div>

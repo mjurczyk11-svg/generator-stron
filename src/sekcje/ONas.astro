@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, tytulSekcji, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, tytulSekcji, p, type Jezyk } from '../lib/dane';
 import Obraz from '../components/Obraz.astro';
 interface Props { lang: Jezyk; tlo?: string }
 const { lang, tlo } = Astro.props;
@@ -9,13 +9,13 @@ const akapity = t(d.tekst).split(/\n\s*\n/).filter(Boolean);
 ---
 <section class="sekcja" id="o-nas" data-tlo={tlo}>
   <div class="kontener o-nas">
-    <div class="o-nas-zdjecie"><Obraz plik={d.zdjecie} alt={t(d.zdjecie_opis) || strona.firma.nazwa} sizes="(max-width: 880px) 100vw, 50vw" /></div>
+    <div class="o-nas-zdjecie"><Obraz plik={d.zdjecie} pole="o_nas.zdjecie" alt={t(d.zdjecie_opis) || strona.firma.nazwa} sizes="(max-width: 880px) 100vw, 50vw" /></div>
     <div class="o-nas-tekst">
       <div class="etykieta">{tytulSekcji('o-nas', lang)}</div>
-      <h2>{t(d.naglowek) || strona.firma.nazwa}</h2>
-      {akapity.map((a) => <p>{a}</p>)}
+      <h2 {...p('o_nas.naglowek')}>{t(d.naglowek) || strona.firma.nazwa}</h2>
+      <div {...p('o_nas.tekst')}>{akapity.map((a) => <p>{a}</p>)}</div>
       {d.liczby?.length > 0 && (
-        <div class="liczby">{d.liczby.map((l: any) => <div><strong>{t(l.wartosc)}</strong><span>{t(l.opis)}</span></div>)}</div>
+        <div class="liczby">{d.liczby.map((l: any, i: number) => <div><strong {...p(`o_nas.liczby.${i}.wartosc`)}>{t(l.wartosc)}</strong><span {...p(`o_nas.liczby.${i}.opis`)}>{t(l.opis)}</span></div>)}</div>
       )}
     </div>
   </div>

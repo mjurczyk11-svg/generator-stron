@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Obraz from '../components/Obraz.astro';
 interface Props { lang: Jezyk; tlo?: string }
@@ -8,12 +8,12 @@ const { t } = tlumacz(lang);
 ---
 <Sekcja klucz="zespol" lang={lang} tlo={tlo}>
   <div class="siatka siatka-4">
-    {strona.zespol.lista.map((o: any) => (
+    {strona.zespol.lista.map((o: any, i: number) => (
       <article class="osoba">
-        <Obraz plik={o.zdjecie} alt={o.imie} szerokosci={[360, 600]} sizes="(max-width: 600px) 100vw, 25vw" />
-        <h3>{o.imie}</h3>
-        {t(o.rola) && <p class="rola">{t(o.rola)}</p>}
-        {t(o.opis) && <p>{t(o.opis)}</p>}
+        <Obraz plik={o.zdjecie} pole={`zespol.lista.${i}.zdjecie`} alt={o.imie} szerokosci={[360, 600]} sizes="(max-width: 600px) 100vw, 25vw" />
+        <h3 {...p(`zespol.lista.${i}.imie`)}>{o.imie}</h3>
+        {t(o.rola) && <p class="rola" {...p(`zespol.lista.${i}.rola`)}>{t(o.rola)}</p>}
+        {t(o.opis) && <p {...p(`zespol.lista.${i}.opis`)}>{t(o.opis)}</p>}
       </article>
     ))}
   </div>
