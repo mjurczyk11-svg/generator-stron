@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Ikona from '../components/Ikona.astro';
 interface Props { lang: Jezyk; tlo?: string }
@@ -8,11 +8,11 @@ const { t } = tlumacz(lang);
 ---
 <Sekcja klucz="dlaczego-my" lang={lang} tlo={tlo}>
   <div class="siatka siatka-3">
-    {strona.dlaczego_my.lista.map((p: any) => (
+    {strona.dlaczego_my.lista.map((x: any, i: number) => (
       <div class="karta">
-        <div class="ikona-tlo"><Ikona n={p.ikona ?? 'shield-check'} rozmiar={24} /></div>
-        <h3>{t(p.tytul ?? p)}</h3>
-        {t(p.opis) && <p>{t(p.opis)}</p>}
+        <div class="ikona-tlo"><Ikona n={x.ikona ?? 'shield-check'} rozmiar={24} /></div>
+        <h3 {...p(`dlaczego_my.lista.${i}.tytul`)}>{t(x.tytul ?? x)}</h3>
+        {t(x.opis) && <p {...p(`dlaczego_my.lista.${i}.opis`)}>{t(x.opis)}</p>}
       </div>
     ))}
   </div>

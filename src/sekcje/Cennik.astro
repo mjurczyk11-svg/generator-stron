@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 interface Props { lang: Jezyk; tlo?: string }
 const { lang, tlo } = Astro.props;
@@ -10,12 +10,12 @@ const cena = (c: any) => (typeof c === 'number' ? `${d.od === false ? '' : u('ce
 ---
 <Sekcja klucz="cennik" lang={lang} tlo={tlo}>
   <div class="cennik">
-    {kategorie.map((k: any) => (
+    {kategorie.map((k: any, ki: number) => (
       <div>
-        {t(k.nazwa) && <h3>{t(k.nazwa)}</h3>}
-        <dl>{(k.pozycje ?? k.lista).map((p: any) => <div class="cennik-poz"><dt>{t(p.nazwa)}</dt><dd>{cena(p.cena)}</dd></div>)}</dl>
+        {t(k.nazwa) && <h3 {...p(`cennik.kategorie.${ki}.nazwa`)}>{t(k.nazwa)}</h3>}
+        <dl>{(k.pozycje ?? k.lista).map((poz: any, pi: number) => <div class="cennik-poz"><dt {...p(`cennik.kategorie.${ki}.pozycje.${pi}.nazwa`)}>{t(poz.nazwa)}</dt><dd>{cena(poz.cena)}</dd></div>)}</dl>
       </div>
     ))}
   </div>
-  {t(d.uwaga) && <p class="cennik-uwaga">{t(d.uwaga)}</p>}
+  {t(d.uwaga) && <p class="cennik-uwaga" {...p('cennik.uwaga')}>{t(d.uwaga)}</p>}
 </Sekcja>

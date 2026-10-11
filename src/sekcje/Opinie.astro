@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, ocena, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, ocena, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Gwiazdki from '../components/Gwiazdki.astro';
 import Ikona from '../components/Ikona.astro';
@@ -18,10 +18,10 @@ const d = strona.opinie;
     </div>
   )}
   <div class="siatka siatka-3">
-    {d.lista.map((o: any) => (
+    {d.lista.map((o: any, i: number) => (
       <figure class="karta opinia" style="margin:0">
         <Gwiazdki ocena={o.ocena ?? 5} />
-        <blockquote>„{t(o.tekst)}”</blockquote>
+        <blockquote>„<span {...p(`opinie.lista.${i}.tekst`)}>{t(o.tekst)}</span>”</blockquote>
         <footer><span class="inicjal" aria-hidden="true">{o.autor?.[0]}</span><span>{o.autor}{o.data && <small>{t(o.data)}</small>}</span></footer>
       </figure>
     ))}

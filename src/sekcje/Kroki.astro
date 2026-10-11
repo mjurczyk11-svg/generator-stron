@@ -1,16 +1,17 @@
 ---
 // Kroki: "pierwsza-wizyta" (gabinet) i "proces" (remonty).
-import { tlumacz, daneSekcji, type Jezyk } from '../lib/dane';
+import { tlumacz, daneSekcji, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 interface Props { lang: Jezyk; tlo?: string; klucz: string }
 const { lang, tlo, klucz } = Astro.props;
 const { t } = tlumacz(lang);
 const d = daneSekcji(klucz);
 const kroki = d.kroki ?? d.lista;
+const s = `${klucz.replace(/-/g, '_')}.${d.kroki ? 'kroki' : 'lista'}`;
 ---
 <Sekcja klucz={klucz} lang={lang} tlo={tlo}>
   <ol class="kroki">
-    {kroki.map((k: any) => <li><h3>{t(k.tytul)}</h3>{t(k.opis) && <p>{t(k.opis)}</p>}</li>)}
+    {kroki.map((k: any, i: number) => <li><h3 {...p(`${s}.${i}.tytul`)}>{t(k.tytul)}</h3>{t(k.opis) && <p {...p(`${s}.${i}.opis`)}>{t(k.opis)}</p>}</li>)}
   </ol>
-  {t(d.uwagi) && <div class="uwagi"><p>{t(d.uwagi)}</p></div>}
+  {t(d.uwagi) && <div class="uwagi"><p {...p(`${klucz.replace(/-/g, '_')}.uwagi`)}>{t(d.uwagi)}</p></div>}
 </Sekcja>

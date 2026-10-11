@@ -11,6 +11,9 @@ export type Tekst = string | { pl?: string; en?: string } | undefined | null;
 export const KLIENT = process.env.KLIENT || fs.readdirSync('klienci').filter((d) => !d.startsWith('_') && fs.existsSync(path.join('klienci', d, 'strona.yaml')))[0];
 export const PODGLAD = process.env.PODGLAD === '1';
 
+// W podglądzie oznacza elementy, które edytor (/admin) pozwala kliknąć i zmienić. Na stronie klienta nic nie dodaje.
+export const p = (sciezka: string) => (PODGLAD ? { 'data-pole': sciezka } : {});
+
 function wczytaj(): any {
   const plik = path.join('klienci', KLIENT, 'strona.yaml');
   if (!fs.existsSync(plik)) throw new Error(`Brak pliku ${plik}. Ustaw KLIENT=<nazwa-folderu>.`);

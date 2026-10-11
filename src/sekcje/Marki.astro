@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 interface Props { lang: Jezyk; tlo?: string }
 const { lang, tlo } = Astro.props;
@@ -8,5 +8,5 @@ const d = strona.marki;
 ---
 <Sekcja klucz="marki" lang={lang} tlo={tlo}>
   <ul class="znaczniki">{d.lista.map((m: any) => <li>{t(m)}</li>)}</ul>
-  {t(d.uwaga) && <p class="cennik-uwaga">{t(d.uwaga)}</p>}
+  {t(d.uwaga) && <p class="cennik-uwaga" {...p('marki.uwaga')}>{t(d.uwaga)}</p>}
 </Sekcja>

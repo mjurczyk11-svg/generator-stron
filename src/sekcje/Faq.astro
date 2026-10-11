@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Ikona from '../components/Ikona.astro';
 interface Props { lang: Jezyk; tlo?: string }
@@ -10,10 +10,10 @@ const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntit
 ---
 <Sekcja klucz="faq" lang={lang} tlo={tlo}>
   <div class="faq waski" style="margin-inline:0">
-    {lista.map((p: any, i: number) => (
+    {lista.map((x: any, i: number) => (
       <details open={i === 0}>
-        <summary>{t(p.pytanie)}<Ikona n="chevron-down" /></summary>
-        <div>{t(p.odpowiedz).split(/\n\s*\n/).map((a) => <p>{a}</p>)}</div>
+        <summary><span {...p(`faq.lista.${i}.pytanie`)}>{t(x.pytanie)}</span><Ikona n="chevron-down" /></summary>
+        <div {...p(`faq.lista.${i}.odpowiedz`)}>{t(x.odpowiedz).split(/\n\s*\n/).map((a) => <p>{a}</p>)}</div>
       </details>
     ))}
   </div>

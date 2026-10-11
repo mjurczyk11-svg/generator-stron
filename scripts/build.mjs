@@ -25,7 +25,7 @@ if (process.env.KLIENT) {
   fs.writeFileSync('dist/index.html', '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Podgląd</title><p style="font-family:system-ui;padding:40px">Podgląd stron.</p>');
   fs.writeFileSync('dist/robots.txt', 'User-agent: *\nDisallow: /\n');
   // Panel edycji stron: <podgląd>/admin/
-  zbudujPanel('dist/admin');
+  await zbudujPanel('dist/admin');
   console.log(`\nGotowe: ${klienci.length - bledy.length} z ${klienci.length} stron w dist/`);
   if (bledy.length) {
     console.error(`Nie udało się zbudować: ${bledy.join(', ')} (szczegóły wyżej).`);

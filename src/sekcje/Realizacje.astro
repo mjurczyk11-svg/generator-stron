@@ -1,5 +1,5 @@
 ---
-import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, p, type Jezyk } from '../lib/dane';
 import Sekcja from '../components/Sekcja.astro';
 import Obraz from '../components/Obraz.astro';
 import Ikona from '../components/Ikona.astro';
@@ -18,19 +18,19 @@ const rozmiary = '(max-width: 700px) 100vw, 50vw';
     </div>
   )}
   <div class="siatka siatka-2 realizacje-lista">
-    {lista.map((r: any) => (
+    {lista.map((r: any, i: number) => (
       <article class="karta realizacja" data-kat={t(r.kategoria)}>
         {r.przed && r.po ? (
           <div class="przed-po">
-            <Obraz plik={r.przed} alt={`${u('przed')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} />
-            <div class="po"><Obraz plik={r.po} alt={`${u('po')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} /></div>
+            <Obraz plik={r.przed} pole={`realizacje.lista.${i}.przed`} alt={`${u('przed')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} />
+            <div class="po"><Obraz plik={r.po} pole={`realizacje.lista.${i}.po`} alt={`${u('po')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} /></div>
             <span class="napis l">{u('przed')}</span><span class="napis r">{u('po')}</span>
             <span class="linia"></span>
             <input type="range" min="0" max="100" value="50" aria-label={`${u('przed')} / ${u('po')}`} />
           </div>
         ) : (
           <div class="realizacja-zdjecia">
-            {(r.zdjecia ?? []).map((z: string) => <Obraz plik={z} alt={t(r.tytul)} szerokosci={[480, 800, 1100]} sizes={rozmiary} />)}
+            {(r.zdjecia ?? []).map((z: string, zi: number) => <Obraz plik={z} pole={`realizacje.lista.${i}.zdjecia.${zi}`} alt={t(r.tytul)} szerokosci={[480, 800, 1100]} sizes={rozmiary} />)}
           </div>
         )}
         <div class="tresc">
@@ -39,8 +39,8 @@ const rozmiary = '(max-width: 700px) 100vw, 50vw';
             {t(r.czas) && <span><Ikona n="clock" rozmiar={16} />{t(r.czas)}</span>}
             {t(r.kategoria) && <span><Ikona n="tag" rozmiar={16} />{t(r.kategoria)}</span>}
           </div>
-          <h3>{t(r.tytul)}</h3>
-          {t(r.opis) && <p>{t(r.opis)}</p>}
+          <h3 {...p(`realizacje.lista.${i}.tytul`)}>{t(r.tytul)}</h3>
+          {t(r.opis) && <p {...p(`realizacje.lista.${i}.opis`)}>{t(r.opis)}</p>}
         </div>
       </article>
     ))}

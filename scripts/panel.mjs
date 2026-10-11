@@ -1,8 +1,11 @@
-// Panel edycji stron (Sveltia CMS) pod adresem <podgląd>/admin/.
-// Wywoływany z scripts/build.mjs przy budowaniu podglądu. Pola panelu opisuje panel/pola.mjs.
+// Panel edycji stron pod adresem <podgląd>/admin/:
+//   /admin/             edytor na podglądzie strony z asystentem AI (panel/edytor/)
+//   /admin/formularze/  wszystkie pola w formularzach (Sveltia CMS, pola opisuje panel/pola.mjs)
+// Wywoływany z scripts/build.mjs przy budowaniu podglądu.
 //   node scripts/panel.mjs [folder]   -> sam panel do dist/admin (albo podanego folderu)
 import fs from 'node:fs';
 import path from 'node:path';
+import { build } from 'esbuild';
 import { dump } from 'js-yaml';
 import { FIELDS } from '../panel/pola.mjs';
 
@@ -66,16 +69,33 @@ export function konfiguracja({ backend } = {}) {
   };
 }
 
-export function zbudujPanel(cel = 'dist/admin', opcje = {}) {
-  const cms = 'node_modules/@sveltia/cms/dist';
+export async function zbudujPanel(cel = 'dist/admin', opcje = {}) {
+  // Edytor
   fs.mkdirSync(cel, { recursive: true });
-  fs.copyFileSync(path.join(cms, 'sveltia-cms.js'), path.join(cel, 'sveltia-cms.js'));
-  fs.cpSync(path.join(cms, 'chunks'), path.join(cel, 'chunks'), { recursive: true, filter: (p) => !p.endsWith('.map') });
-  fs.copyFileSync('panel/index.html', path.join(cel, 'index.html'));
-  fs.writeFileSync(path.join(cel, 'config.yml'), '# Plik tworzony automatycznie z panel/pola.mjs. Nie edytuj.\n' + dump(konfiguracja(opcje), { lineWidth: -1, noRefs: true }));
+  for (const plik of ['index.html', 'edytor.css']) fs.copyFileSync(path.join('panel/edytor', plik), path.join(cel, plik));
+  await build({
+    entryPoints: ['panel/edytor/main.js'],
+    outfile: path.join(cel, 'edytor.js'),
+    bundle: true,
+    format: 'esm',
+    platform: 'browser',
+    target: 'es2022',
+    minify: true,
+    legalComments: 'none',
+    logLevel: 'warning',
+  });
+
+  // Formularze (Sveltia CMS)
+  const formularze = path.join(cel, 'formularze');
+  const cms = 'node_modules/@sveltia/cms/dist';
+  fs.mkdirSync(formularze, { recursive: true });
+  fs.copyFileSync(path.join(cms, 'sveltia-cms.js'), path.join(formularze, 'sveltia-cms.js'));
+  fs.cpSync(path.join(cms, 'chunks'), path.join(formularze, 'chunks'), { recursive: true, filter: (p) => !p.endsWith('.map') });
+  fs.copyFileSync('panel/index.html', path.join(formularze, 'index.html'));
+  fs.writeFileSync(path.join(formularze, 'config.yml'), '# Plik tworzony automatycznie z panel/pola.mjs. Nie edytuj.\n' + dump(konfiguracja(opcje), { lineWidth: -1, noRefs: true }));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  zbudujPanel(process.argv[2]);
+  await zbudujPanel(process.argv[2]);
   console.log(`Panel gotowy: ${process.argv[2] || 'dist/admin'}`);
 }
