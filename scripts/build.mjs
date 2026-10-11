@@ -1,9 +1,10 @@
 // Buduje strony.
 //   KLIENT=nazwa npm run build  -> jedna strona klienta w dist/ (produkcja, własna domena)
-//   npm run build               -> wszystkie strony w dist/<nazwa>/ (podgląd dla klientów, ukryty przed Google)
+//   npm run build               -> wszystkie strony w dist/<nazwa>/ (podgląd dla klientów, ukryty przed Google) + panel edycji w dist/admin/
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { zbudujPanel } from './panel.mjs';
 
 const astro = (env) => execSync('npx astro build', { stdio: 'inherit', env: { ...process.env, ...env } });
 
@@ -23,6 +24,8 @@ if (process.env.KLIENT) {
   }
   fs.writeFileSync('dist/index.html', '<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>Podgląd</title><p style="font-family:system-ui;padding:40px">Podgląd stron.</p>');
   fs.writeFileSync('dist/robots.txt', 'User-agent: *\nDisallow: /\n');
+  // Panel edycji stron: <podgląd>/admin/
+  zbudujPanel('dist/admin');
   console.log(`\nGotowe: ${klienci.length - bledy.length} z ${klienci.length} stron w dist/`);
   if (bledy.length) {
     console.error(`Nie udało się zbudować: ${bledy.join(', ')} (szczegóły wyżej).`);

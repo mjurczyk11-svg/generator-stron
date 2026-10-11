@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "node scripts/build.mjs",
     "nowy": "node scripts/nowy.mjs",
-    "sprawdz": "node scripts/sprawdz.mjs"
+    "sprawdz": "node scripts/sprawdz.mjs",
+    "porzadkuj": "node scripts/porzadkuj.mjs",
+    "panel": "node scripts/panel.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.3.0",
@@ -15,6 +17,7 @@
     "@fontsource-variable/manrope": "^5.3.0",
     "@fontsource-variable/playfair-display": "^5.3.0",
     "@fontsource/dm-serif-display": "^5.3.0",
+    "@sveltia/cms": "0.235.0",
     "astro": "^5.18.2",
     "js-yaml": "^5.4.3",
     "lucide-static": "^1.55.0",

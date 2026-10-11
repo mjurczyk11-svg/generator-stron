@@ -26,12 +26,21 @@ Przykłady (zmyślone firmy): `klienci/przyklad-gabinet`, `klienci/przyklad-wars
 - język polski i opcjonalnie angielski (przełącznik PL/EN),
 - zdjęcia automatycznie zmniejszane i zapisywane w nowoczesnym formacie.
 
+## Panel edycji
+
+Pod adresem `https://<podglad>.netlify.app/admin/` jest panel, w którym widać wszystkie strony klientów i można je zmieniać bez programowania: teksty, godziny, cennik, usługi, zdjęcia (przeciągnij plik), kolejność sekcji i pozycji (przeciągnij), kolory i styl. Zapis w panelu trafia do repozytorium, a Netlify po 1–3 minutach publikuje nową wersję podglądu (i strony klienta, jeśli ma własną stronę na Netlify).
+
+Logowanie: przycisk „Zaloguj się tokenem” i token GitHub z prawem zapisu do tego repozytorium (Fine-grained token, Repository access: tylko to repozytorium, Permissions → Contents: Read and write).
+
+Pola panelu opisuje `panel/pola.mjs`. Panel wymaga zapisu tekstów jako `{ pl: ..., en: ... }`; `npm run porzadkuj` przerabia pliki do tej postaci.
+
 ## Polecenia
 
 ```
 npm install                                   # raz, na początku
 npm run nowy -- nazwa-klienta gabinet         # nowy klient z przykładu niszy
 npm run sprawdz                               # sprawdza pliki klientów i wypisuje, co poprawić
+npm run porzadkuj                             # zapisuje pliki klientów w postaci zgodnej z panelem
 npm run build                                 # buduje podgląd wszystkich klientów: dist/<klient>/
 KLIENT=nazwa-klienta npm run build            # buduje jedną stronę klienta do dist/
 KLIENT=nazwa-klienta npm run dev              # podgląd na żywo podczas edycji

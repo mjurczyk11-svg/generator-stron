@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'js-yaml';
+import { uporzadkuj } from './porzadkuj.mjs';
 
 const SZABLONY = ['gabinet', 'warsztat', 'remonty'];
 const WYGLADY = ['spokojny', 'czysty', 'elegancki', 'mocny', 'rzemieslniczy'];
@@ -56,6 +57,7 @@ for (const k of klienci) {
     if (typeof v === 'string' && ZDJECIE.test(v) && !/^https?:/.test(v) && !fs.existsSync(path.join('klienci', k, 'zdjecia', v))) bledy.push(`${sciezka}: brak pliku zdjecia/${v}.`);
   };
   przejdz(d, '');
+  if (JSON.stringify(uporzadkuj(d)) !== JSON.stringify(d)) bledy.push(`Plik nie jest w formacie panelu edycji (panel nie pokazałby części tekstów). Uruchom: npm run porzadkuj -- ${k}`);
 
   if (bledy.length) bledyRazem += bledy.length;
   console.log(`\n${bledy.length ? '✗' : '✓'} ${k}`);
