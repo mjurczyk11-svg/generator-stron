@@ -1,0 +1,22 @@
+---
+// Wspólna oprawa sekcji: etykieta (nazwa sekcji), nagłówek i wstęp.
+import { tlumacz, daneSekcji, tytulSekcji, type Jezyk } from '../lib/dane';
+interface Props { klucz: string; lang: Jezyk; tlo?: string; srodek?: boolean; bezGlowki?: boolean }
+const { klucz, lang, tlo, srodek = false, bezGlowki = false } = Astro.props;
+const { t } = tlumacz(lang);
+const d = daneSekcji(klucz) ?? {};
+const tytul = tytulSekcji(klucz, lang);
+const naglowek = t(d.naglowek);
+const wstep = t(d.wstep);
+---
+<section class="sekcja" id={klucz} data-tlo={tlo} aria-label={tytul}>
+  <div class="kontener">
+    {!bezGlowki && (
+      <div class:list={['sekcja-glowka', { srodek }]}>
+        {naglowek ? <><div class="etykieta">{tytul}</div><h2>{naglowek}</h2></> : <h2>{tytul}</h2>}
+        {wstep && <p>{wstep}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

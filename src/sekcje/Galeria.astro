@@ -1,0 +1,66 @@
+---
+import { getImage } from 'astro:assets';
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { zdjecie } from '../lib/zdjecia';
+import Sekcja from '../components/Sekcja.astro';
+import Obraz from '../components/Obraz.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const pozycje = await Promise.all(
+  strona.galeria.lista.map(async (p: any) => {
+    const o = typeof p === 'string' ? { plik: p } : p;
+    const src = await zdjecie(o.plik);
+    const duze = src ? await getImage({ src, width: Math.min(1800, src.width), format: 'webp', quality: 80 }) : undefined;
+    return { ...o, opis: t(o.opis), kategoria: t(o.kategoria), duze: duze?.src };
+  }),
+);
+const kategorie = [...new Set(pozycje.map((p) => p.kategoria).filter(Boolean))];
+---
+<Sekcja klucz="galeria" lang={lang} tlo={tlo}>
+  {kategorie.length > 1 && (
+    <div class="filtry" role="group">
+      <button class="filtr" type="button" aria-pressed="true" data-kat="">{u('wszystkie')}</button>
+      {kategorie.map((k) => <button class="filtr" type="button" aria-pressed="false" data-kat={k}>{k}</button>)}
+    </div>
+  )}
+  <div class="galeria">
+    {pozycje.map((p) => (
+      <button type="button" data-kat={p.kategoria} data-duze={p.duze} data-opis={p.opis} aria-label={p.opis || u('sekcja.galeria')}>
+        <Obraz plik={p.plik} alt={p.opis} szerokosci={[400, 640]} sizes="(max-width: 600px) 100vw, 33vw" />
+      </button>
+    ))}
+  </div>
+  <dialog class="lightbox">
+    <button class="lightbox-zamknij" type="button" aria-label={u('zamknij')}><Ikona n="x" /></button>
+    <img alt="" /><p></p>
+  </dialog>
+</Sekcja>
+<script>
+  document.querySelectorAll<HTMLElement>('.sekcja').forEach((s) => {
+    const dlg = s.querySelector<HTMLDialogElement>('dialog.lightbox');
+    if (!dlg) return;
+    const img = dlg.querySelector('img')!;
+    const opis = dlg.querySelector('p')!;
+    s.querySelectorAll<HTMLButtonElement>('.galeria button').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (!b.dataset.duze) return;
+        img.src = b.dataset.duze;
+        img.alt = b.dataset.opis ?? '';
+        opis.textContent = b.dataset.opis ?? '';
+        dlg.showModal();
+      }),
+    );
+    dlg.addEventListener('click', (e) => { if (e.target === dlg || (e.target as Element).closest('.lightbox-zamknij')) dlg.close(); });
+    const filtry = s.querySelectorAll<HTMLButtonElement>('.filtr');
+    filtry.forEach((f) =>
+      f.addEventListener('click', () => {
+        filtry.forEach((x) => x.setAttribute('aria-pressed', String(x === f)));
+        s.querySelectorAll<HTMLElement>('.galeria [data-kat]').forEach((el) => {
+          el.hidden = Boolean(f.dataset.kat) && el.dataset.kat !== f.dataset.kat;
+        });
+      }),
+    );
+  });
+</script>

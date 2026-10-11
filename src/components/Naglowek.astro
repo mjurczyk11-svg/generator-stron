@@ -1,0 +1,40 @@
+---
+import { strona, tlumacz, tel, aktywneSekcje, tytulSekcji, glownaAkcja, type Jezyk } from '../lib/dane';
+import Logo from './Logo.astro';
+import Ikona from './Ikona.astro';
+interface Props { lang: Jezyk; sciezka?: string; glowna?: boolean }
+const { lang, sciezka = '' } = Astro.props;
+const { u, url } = tlumacz(lang);
+const pomin = ['rezerwacja', 'marki', 'obszar', 'dofinansowania', 'pierwsza-wizyta'];
+const menu = aktywneSekcje().filter((s) => !pomin.includes(s)).slice(0, 5).map((s) => ({ href: url(`#${s}`), tekst: tytulSekcji(s, lang) }));
+const inny = strona.jezyki.find((j) => j !== lang);
+const akcja = glownaAkcja(lang);
+const k = strona.kontakt;
+---
+<header class="naglowek" id="naglowek">
+  <div class="kontener naglowek-pasek">
+    <Logo lang={lang} />
+    <nav class="nav" aria-label="Menu">
+      {menu.map((m) => <a href={m.href}>{m.tekst}</a>)}
+    </nav>
+    <div class="naglowek-akcje">
+      {inny && <a class="jezyk" href={tlumacz(inny).url(sciezka)} hreflang={inny} lang={inny}>{inny.toUpperCase()}</a>}
+      {k.telefon && <a class="naglowek-tel" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} /><span>{k.telefon}</span></a>}
+      <a class="btn btn-glowny btn-maly" href={akcja.href} {...(akcja.zewnetrzny ? { target: '_blank', rel: 'noopener' } : {})}>{akcja.tekst}</a>
+      <button class="menu-przycisk" type="button" aria-expanded="false" aria-controls="menu-mobilne"><span class="sr-only">{u('nav.menu')}</span><Ikona n="menu" rozmiar={26} /></button>
+    </div>
+  </div>
+  <nav class="menu-mobilne kontener" id="menu-mobilne" aria-label="Menu">
+    {menu.map((m) => <a href={m.href}>{m.tekst}</a>)}
+    {k.telefon && <a href={tel(k.telefon)}>{u('zadzwon')}: {k.telefon}</a>}
+  </nav>
+</header>
+<script>
+  const n = document.getElementById('naglowek')!;
+  const p = n.querySelector<HTMLButtonElement>('.menu-przycisk')!;
+  p.addEventListener('click', () => {
+    const o = n.classList.toggle('otwarte');
+    p.setAttribute('aria-expanded', String(o));
+  });
+  n.querySelectorAll('.menu-mobilne a').forEach((a) => a.addEventListener('click', () => { n.classList.remove('otwarte'); p.setAttribute('aria-expanded', 'false'); }));
+</script>

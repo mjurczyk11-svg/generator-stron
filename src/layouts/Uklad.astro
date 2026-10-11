@@ -1,0 +1,106 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/playfair-display';
+import '@fontsource/dm-serif-display';
+import '../styles/globalne.css';
+import { getImage } from 'astro:assets';
+import { strona, tlumacz, adresTekst, PODGLAD, type Jezyk } from '../lib/dane';
+import { zdjecie } from '../lib/zdjecia';
+import { tekstNa } from '../lib/kolory';
+import { godzinySchema } from '../lib/godziny';
+import Naglowek from '../components/Naglowek.astro';
+import Stopka from '../components/Stopka.astro';
+import PasekMobilny from '../components/PasekMobilny.astro';
+
+interface Props { lang: Jezyk; tytul?: string; opis?: string; sciezka?: string; glowna?: boolean; bezIndeksu?: boolean }
+const { lang, tytul, opis, sciezka = '', glowna = false, bezIndeksu = false } = Astro.props;
+const { t, url } = tlumacz(lang);
+const f = strona.firma;
+const k = strona.kontakt;
+const w = strona.wyglad;
+const miasto = k.adres?.miasto;
+
+const tytulStrony = tytul ?? (t(strona.seo?.tytul) || [t(f.branza) && miasto ? `${t(f.branza)} ${miasto}` : t(f.branza), f.nazwa].filter(Boolean).join(' – '));
+const opisStrony = opis ?? (t(strona.seo?.opis) || t(f.opis) || t(strona.hero?.podtytul));
+
+const domena = (strona.domena ?? '').replace(/\/$/, '');
+const kanoniczny = domena ? domena + url(sciezka).replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') : undefined;
+const alternatywne = strona.jezyki.map((j) => ({ j, href: (domena || '') + tlumacz(j).url(sciezka) }));
+
+const zdjecieOg = await zdjecie(strona.seo?.zdjecie ?? strona.hero?.zdjecie);
+const og = zdjecieOg ? await getImage({ src: zdjecieOg, width: 1200, height: 630, fit: 'cover', format: 'jpg' }) : undefined;
+const logo = await zdjecie(f.logo);
+const ikonaPlik = await zdjecie(f.ikona ?? (logo && logo.format !== 'svg' ? f.logo : undefined));
+const favicon = ikonaPlik ? await getImage({ src: ikonaPlik, width: 64, height: 64, fit: 'contain', format: 'png' }) : undefined;
+const literaSvg = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${strona.kolory.glowny}"/><text x="32" y="44" font-family="Arial,sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="${tekstNa(strona.kolory.glowny)}">${(f.nazwa ?? '?').trim()[0]}</text></svg>`)}`;
+
+const glowny = strona.kolory.glowny;
+const akcent = strona.kolory.akcent;
+const zmienne = `
+  --glowny:${glowny}; --akcent:${akcent};
+  --na-glownym:${tekstNa(glowny)}; --na-akcencie:${tekstNa(akcent)};
+  --glowny-ciemny: color-mix(in srgb, ${glowny} 78%, #000);
+  --ciemny: ${strona.kolory.ciemny ?? `color-mix(in srgb, ${glowny} 22%, #0d0f10)`};
+  --tlo:${w.tlo}; --tlo2:${w.tlo2}; --tekst:${w.tekstKolor};
+  --tekst-2: color-mix(in srgb, ${w.tekstKolor} 72%, ${w.tlo});
+  --linia: color-mix(in srgb, ${w.tekstKolor} 12%, transparent);
+  --linia-mocna: color-mix(in srgb, ${w.tekstKolor} 22%, transparent);
+  --font-h:${w.naglowki}; --font-t:${w.tekst}; --r:${w.promien}; --r-btn:${strona.wyglad_przyciski === 'okragle' ? '999px' : w.promien};
+`;
+
+const schema = glowna ? {
+  '@context': 'https://schema.org',
+  '@type': strona.schema,
+  name: f.nazwa,
+  description: opisStrony,
+  url: domena || undefined,
+  telephone: k.telefon,
+  email: k.email,
+  image: og ? (domena ? domena + og.src : undefined) : undefined,
+  address: k.adres ? { '@type': 'PostalAddress', streetAddress: k.adres.ulica, postalCode: k.adres.kod, addressLocality: k.adres.miasto, addressCountry: 'PL' } : undefined,
+  geo: k.wspolrzedne ? { '@type': 'GeoCoordinates', latitude: k.wspolrzedne[0], longitude: k.wspolrzedne[1] } : undefined,
+  openingHoursSpecification: godzinySchema(),
+  areaServed: strona.obszar?.miejscowosci,
+  priceRange: f.przedzial_cen,
+  sameAs: Object.values(k.social ?? {}).filter(Boolean),
+  vatID: f.nip,
+} : null;
+---
+<!doctype html>
+<html lang={lang} class={w.naglowkiStyl === 'uppercase' ? 'naglowki-wielkie' : ''} style={zmienne}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{tytulStrony}</title>
+  <meta name="description" content={opisStrony} />
+  {(PODGLAD || bezIndeksu) && <meta name="robots" content="noindex, nofollow" />}
+  {kanoniczny && <link rel="canonical" href={kanoniczny} />}
+  {strona.jezyki.length > 1 && alternatywne.map((a) => <link rel="alternate" hreflang={a.j} href={a.href} />)}
+  <meta name="theme-color" content={glowny} />
+  <link rel="icon" href={favicon?.src ?? literaSvg} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={tytulStrony} />
+  <meta property="og:description" content={opisStrony} />
+  <meta property="og:locale" content={lang === 'pl' ? 'pl_PL' : 'en_GB'} />
+  {og && <meta property="og:image" content={(domena || '') + og.src} />}
+  {kanoniczny && <meta property="og:url" content={kanoniczny} />}
+  <meta name="twitter:card" content="summary_large_image" />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  {strona.statystyki?.plausible && <script defer data-domain={strona.statystyki.plausible} src="https://plausible.io/js/script.js"></script>}
+</head>
+<body>
+  {strona.komunikat && t(strona.komunikat.tekst ?? strona.komunikat) && (
+    <div class="komunikat">
+      {strona.komunikat.link ? <a href={strona.komunikat.link}>{t(strona.komunikat.tekst)}</a> : t(strona.komunikat.tekst ?? strona.komunikat)}
+    </div>
+  )}
+  <Naglowek lang={lang} sciezka={sciezka} glowna={glowna} />
+  <main id="tresc">
+    <slot />
+  </main>
+  <Stopka lang={lang} />
+  <PasekMobilny lang={lang} />
+</body>
+</html>

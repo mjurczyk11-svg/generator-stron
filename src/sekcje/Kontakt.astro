@@ -1,0 +1,73 @@
+---
+import { strona, tlumacz, tel, adresTekst, mapaZapytanie, linkNawigacji, type Jezyk } from '../lib/dane';
+import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
+import Sekcja from '../components/Sekcja.astro';
+import Ikona from '../components/Ikona.astro';
+import Formularz from '../components/Formularz.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const k = strona.kontakt;
+const dni = u('dni') as string[];
+const tydzien = godzinyTydzien();
+const mapaUrl = `https://maps.google.com/maps?q=${encodeURIComponent(mapaZapytanie())}&z=15&output=embed`;
+---
+<Sekcja klucz="kontakt" lang={lang} tlo={tlo}>
+  <div class="kontakt">
+    <div class="kontakt-dane">
+      {k.telefon && (
+        <div class="kontakt-pozycja"><div class="ikona-tlo"><Ikona n="phone" /></div><div><h3>{u('telefon')}</h3><a href={tel(k.telefon)}>{k.telefon}</a>{k.telefon2 && <><br /><a href={tel(k.telefon2)}>{k.telefon2}</a></>}</div></div>
+      )}
+      {k.email && (
+        <div class="kontakt-pozycja"><div class="ikona-tlo"><Ikona n="mail" /></div><div><h3>{u('email')}</h3><a href={`mailto:${k.email}`}>{k.email}</a></div></div>
+      )}
+      {adresTekst() && (
+        <div class="kontakt-pozycja"><div class="ikona-tlo"><Ikona n="map-pin" /></div><div><h3>{u('adres')}</h3><p>{adresTekst()}</p><p class="drobne"><a href={linkNawigacji()} target="_blank" rel="noopener" style="text-decoration:underline">{u('nawiguj')} →</a></p></div></div>
+      )}
+      {maGodziny() && (
+        <div class="kontakt-pozycja">
+          <div class="ikona-tlo"><Ikona n="clock" /></div>
+          <div>
+            <h3>{u('godziny')}</h3>
+            <table class="godziny-tabela" data-godziny={JSON.stringify(tydzien.map((d) => d.przedzialy))}>
+              {tydzien.map((d, i) => <tr data-dzien={i}><td>{dni[i]}</td><td>{d.przedzialy.length ? pokazGodziny(d.przedzialy) : u('zamkniete')}</td></tr>)}
+            </table>
+            <span class="status-otwarcia" hidden data-otwarte={u('otwarte_teraz')} data-zamkniete={u('zamkniete_teraz')}></span>
+            {t(k.godziny_uwaga) && <p class="drobne" style="margin-top:8px">{t(k.godziny_uwaga)}</p>}
+          </div>
+        </div>
+      )}
+      {t(k.dojazd) && <div class="kontakt-pozycja"><div class="ikona-tlo"><Ikona n="circle-parking" /></div><div><h3>{u('dojazd')}</h3><p class="drobne">{t(k.dojazd)}</p></div></div>}
+      {t(k.dostepnosc) && <div class="kontakt-pozycja"><div class="ikona-tlo"><Ikona n="accessibility" /></div><div><h3>{u('dostepnosc')}</h3><p class="drobne">{t(k.dostepnosc)}</p></div></div>}
+      {adresTekst() && (
+        <div class="mapa" data-src={mapaUrl}>
+          <div><button class="btn btn-obrys btn-maly" type="button"><Ikona n="map" rozmiar={18} />{u('mapa.pokaz')}</button><small>{u('mapa.info')}</small></div>
+        </div>
+      )}
+    </div>
+    <Formularz lang={lang} />
+  </div>
+</Sekcja>
+<script>
+  // Mapa Google ładuje się dopiero po kliknięciu (szybkość strony i brak ciasteczek Google bez zgody).
+  document.querySelectorAll<HTMLElement>('.mapa[data-src]').forEach((m) =>
+    m.querySelector('button')?.addEventListener('click', () => {
+      m.innerHTML = `<iframe src="${m.dataset.src}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa"></iframe>`;
+    }),
+  );
+  // Podświetla dzisiejszy dzień i pokazuje, czy firma jest teraz otwarta (czas polski).
+  const tab = document.querySelector<HTMLElement>('.godziny-tabela');
+  if (tab) {
+    const cz = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Warsaw', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    const wd = cz.find((p) => p.type === 'weekday')!.value;
+    const dzien = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(wd);
+    const teraz = `${cz.find((p) => p.type === 'hour')!.value}:${cz.find((p) => p.type === 'minute')!.value}`;
+    tab.querySelector(`tr[data-dzien="${dzien}"]`)?.classList.add('dzis');
+    const godz: [string, string][][] = JSON.parse(tab.dataset.godziny!);
+    const otwarte = godz[dzien]?.some(([a, b]) => teraz >= a && teraz < b);
+    const st = tab.parentElement!.querySelector<HTMLElement>('.status-otwarcia')!;
+    st.textContent = otwarte ? st.dataset.otwarte! : st.dataset.zamkniete!;
+    st.classList.add(otwarte ? 'otwarte' : 'zamkniete');
+    st.hidden = false;
+  }
+</script>

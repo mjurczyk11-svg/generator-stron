@@ -1,0 +1,86 @@
+---
+// Formularz kontaktowy. Typ zależy od szablonu: kontakt | termin | warsztat | wycena.
+// Wysyłka: Netlify Forms (domyślnie, obsługuje zdjęcia) albo Web3Forms (dowolny hosting).
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+interface Props { lang: Jezyk }
+const { lang } = Astro.props;
+const { t, u, url } = tlumacz(lang);
+const f = strona.formularz;
+const typ: string = f.typ;
+const netlify = f.dostawca !== 'web3forms';
+const nazwa = `kontakt-${strona.slug}`;
+const uslugi = (strona.uslugi?.lista ?? []).map((s: any) => t(s.nazwa));
+const rodzaje = (f.rodzaje_prac ?? strona.uslugi?.lista ?? []).map((s: any) => t(s.nazwa ?? s));
+const zdjecia = netlify && (typ === 'warsztat' || typ === 'wycena');
+const klauzula = u('formularz.klauzula').replace('{firma}', strona.firma.nazwa_prawna ?? strona.firma.nazwa);
+const tytul = t(f.tytul) || u(typ === 'kontakt' ? 'formularz.tytul' : `formularz.tytul.${typ}`);
+---
+<form
+  class="formularz" id="formularz" name={nazwa} method="POST"
+  action={netlify ? url('dziekujemy/') : 'https://api.web3forms.com/submit'}
+  enctype={zdjecia ? 'multipart/form-data' : undefined}
+  data-netlify={netlify ? 'true' : undefined}
+  netlify-honeypot={netlify ? 'bot-field' : undefined}
+>
+  <h3>{tytul}</h3>
+  {netlify ? <input type="hidden" name="form-name" value={nazwa} /> : (
+    <>
+      <input type="hidden" name="access_key" value={f.klucz} />
+      <input type="hidden" name="subject" value={`Nowa wiadomość ze strony ${strona.firma.nazwa}`} />
+      <input type="hidden" name="redirect" value="" data-dziekujemy={url('dziekujemy/')} />
+    </>
+  )}
+  <p class="ukryte"><label>Nie wypełniaj: <input name={netlify ? 'bot-field' : 'botcheck'} tabindex="-1" autocomplete="off" /></label></p>
+  <div class="pola">
+    <div class="pole"><label for="f-imie">{u('pole.imie')} *</label><input id="f-imie" name="imie" required autocomplete="name" /></div>
+    <div class="pole"><label for="f-tel">{u('pole.telefon')} *</label><input id="f-tel" name="telefon" type="tel" required autocomplete="tel" /></div>
+    {typ !== 'warsztat' && <div class="pole szerokie"><label for="f-email">{u('pole.email')}{typ === 'kontakt' ? ' *' : ''}</label><input id="f-email" name="email" type="email" required={typ === 'kontakt'} autocomplete="email" /></div>}
+
+    {typ === 'termin' && uslugi.length > 0 && (
+      <div class="pole"><label for="f-usl">{u('pole.usluga')}</label><select id="f-usl" name="usluga"><option value="">{u('pole.usluga.wybierz')}</option>{uslugi.map((s: string) => <option>{s}</option>)}</select></div>
+    )}
+    {(typ === 'termin' || typ === 'warsztat') && (
+      <div class:list={['pole', { szerokie: typ === 'termin' && !uslugi.length }]}><label for="f-termin">{u('pole.termin')}</label><input id="f-termin" name="termin" placeholder={u('pole.termin.podpowiedz')} /></div>
+    )}
+
+    {typ === 'warsztat' && (
+      <>
+        <div class="pole"><label for="f-usl">{u('pole.usluga')}</label><select id="f-usl" name="usluga"><option value="">{u('pole.usluga.wybierz')}</option>{uslugi.map((s: string) => <option>{s}</option>)}</select></div>
+        <div class="pole"><label for="f-marka">{u('pole.marka')}</label><input id="f-marka" name="marka" /></div>
+        <div class="pole"><label for="f-model">{u('pole.model')}</label><input id="f-model" name="model" /></div>
+        <div class="pole"><label for="f-rok">{u('pole.rok')}</label><input id="f-rok" name="rok" inputmode="numeric" /></div>
+        <div class="pole szerokie"><label for="f-opis">{u('pole.opis')}</label><textarea id="f-opis" name="opis"></textarea></div>
+      </>
+    )}
+
+    {typ === 'wycena' && (
+      <>
+        <div class="pole"><label for="f-rodzaj">{u('pole.rodzaj')}</label><select id="f-rodzaj" name="rodzaj"><option value="">{u('pole.usluga.wybierz')}</option>{rodzaje.map((s: string) => <option>{s}</option>)}</select></div>
+        <div class="pole"><label for="f-miejsc">{u('pole.miejscowosc')}</label><input id="f-miejsc" name="miejscowosc" /></div>
+        <div class="pole"><label for="f-zakres">{u('pole.zakres')}</label><input id="f-zakres" name="zakres" /></div>
+        <div class="pole"><label for="f-termin">{u('pole.termin')}</label><input id="f-termin" name="termin" /></div>
+        <div class="pole szerokie"><label for="f-opis">{u('pole.opis_prac')}</label><textarea id="f-opis" name="opis"></textarea></div>
+      </>
+    )}
+
+    {(typ === 'kontakt' || typ === 'termin') && (
+      <div class="pole szerokie"><label for="f-wiad">{u('pole.wiadomosc')}</label><textarea id="f-wiad" name="wiadomosc" required={typ === 'kontakt'}></textarea></div>
+    )}
+
+    {zdjecia && (
+      <>
+        <div class="pole"><label for="f-zdj1">{u('pole.zdjecie')}</label><input id="f-zdj1" name="zdjecie1" type="file" accept="image/*" /></div>
+        <div class="pole"><label for="f-zdj2">{u('pole.zdjecie2')}</label><input id="f-zdj2" name="zdjecie2" type="file" accept="image/*" /></div>
+      </>
+    )}
+
+    <label class="zgoda"><input type="checkbox" name="zgoda" value="tak" required /><span>{u('pole.zgoda')} *</span></label>
+  </div>
+  <button class="btn btn-glowny" type="submit">{u('formularz.wyslij')}</button>
+  <p class="klauzula">{klauzula} <a href={url('polityka-prywatnosci/')}>{u('polityka').toLowerCase()}</a>.</p>
+</form>
+{!netlify && (
+  <script>
+    document.querySelectorAll<HTMLInputElement>('input[data-dziekujemy]').forEach((i) => { i.value = new URL(i.dataset.dziekujemy!, location.href).href; });
+  </script>
+)}

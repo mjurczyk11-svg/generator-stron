@@ -1,0 +1,141 @@
+# ============================================================
+#  PLIK STRONY KLIENTA (opis pól: zobacz klienci/przyklad-gabinet/strona.yaml)
+#  Tekst z przecinkiem w nawiasach { } wpisuj w cudzysłowie "...".
+#  UWAGA: to przykładowa, zmyślona firma.
+# ============================================================
+
+szablon: remonty
+wyglad: rzemieslniczy
+kolory:
+  glowny: "#1f3d36"
+  akcent: "#e08a2c"
+jezyki: [pl]
+domena: https://www.nowak-remonty.pl
+
+firma:
+  nazwa: Nowak Remonty
+  nazwa_prawna: Nowak Remonty Paweł Nowak
+  branza: Remonty łazienek i mieszkań
+  typ_schema: GeneralContractor
+  opis: Remonty łazienek, kuchni i mieszkań w Lublinie i okolicach. Umowa na piśmie, stała cena i 3 lata gwarancji.
+
+seo:
+  tytul: Remonty łazienek Lublin – Nowak Remonty
+
+kontakt:
+  telefon: "+48 500 600 700"
+  email: kontakt@nowak-remonty.pl
+  adres:
+    ulica: ul. Mełgiewska 30
+    kod: 20-234
+    miasto: Lublin
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+
+godziny:
+  pon: "8:00-17:00"
+  wt: "8:00-17:00"
+  sr: "8:00-17:00"
+  czw: "8:00-17:00"
+  pt: "8:00-17:00"
+  sob: "9:00-13:00"
+  nd: zamknięte
+
+hero:
+  etykieta: Lublin i okolice do 40 km
+  tytul: Remonty łazienek i mieszkań pod klucz
+  podtytul: Od projektu do sprzątania po ekipie. Podpisujemy umowę ze stałą ceną i terminem, a na prace dajemy 3 lata gwarancji.
+  zdjecie: hero.jpg
+  uklad: zdjecie
+
+wyrozniki:
+  - { ikona: file-signature, tekst: Umowa i stała cena }
+  - { ikona: shield-check, tekst: 3 lata gwarancji }
+  - { ikona: calendar-check, tekst: Termin wpisany w umowę }
+
+cta: Bezpłatna wycena
+
+uslugi:
+  naglowek: Czym się zajmujemy
+  lista:
+    - { nazwa: Remonty łazienek, opis: "Kompleksowo: hydraulika, płytki, zabudowy, biały montaż.", zdjecie: lazienka-1.jpg, ikona: bath }
+    - { nazwa: Remonty kuchni, opis: "Instalacje, płytki, przygotowanie pod meble i AGD.", zdjecie: kuchnia-1.jpg, ikona: cooking-pot }
+    - { nazwa: Mieszkania pod klucz, opis: "Wykończenie nowych mieszkań i odświeżenie starszych.", zdjecie: mieszkanie-1.jpg, ikona: house }
+
+realizacje:
+  naglowek: Zobacz, jak pracujemy
+  wstep: Wybrane realizacje z ostatnich miesięcy. Przesuń suwak, aby porównać stan przed i po.
+  lista:
+    - tytul: Łazienka w bloku, 4,5 m²
+      miejscowosc: Lublin, Czechów
+      czas: 3 tygodnie
+      kategoria: Łazienki
+      opis: Skucie starych płytek, nowa hydraulika, prysznic walk-in i płytki wielkoformatowe.
+      przed: lazienka-przed.jpg
+      po: lazienka-po.jpg
+    - tytul: Kuchnia otwarta na salon
+      miejscowosc: Świdnik
+      czas: 4 tygodnie
+      kategoria: Kuchnie
+      opis: Przeniesienie instalacji, wyburzenie ścianki, nowe tynki i podłoga.
+      zdjecia: [kuchnia-1.jpg, kuchnia-2.jpg]
+    - tytul: Mieszkanie 52 m² pod klucz
+      miejscowosc: Lublin, Wrotków
+      czas: 8 tygodni
+      kategoria: Mieszkania
+      opis: "Wykończenie mieszkania od dewelopera: łazienka, kuchnia, podłogi, malowanie."
+      zdjecia: [mieszkanie-1.jpg, mieszkanie-2.jpg]
+    - tytul: Łazienka w domu jednorodzinnym
+      miejscowosc: Motycz
+      czas: 4 tygodnie
+      kategoria: Łazienki
+      opis: Wanna wolnostojąca, ogrzewanie podłogowe i zabudowa stelaża.
+      zdjecia: [lazienka-1.jpg]
+
+proces:
+  naglowek: Od telefonu do odbioru
+  kroki:
+    - { tytul: Kontakt, opis: "Dzwonisz albo wysyłasz zdjęcia przez formularz." }
+    - { tytul: Oględziny, opis: "Przyjeżdżamy bezpłatnie, mierzymy i doradzamy." }
+    - { tytul: Wycena i umowa, opis: "Dostajesz szczegółową wycenę i umowę ze stałą ceną." }
+    - { tytul: Realizacja, opis: "Pracujemy w ustalonym terminie i informujemy o postępach." }
+    - { tytul: Odbiór, opis: "Odbieramy prace razem, sprzątamy i dajemy gwarancję." }
+
+dlaczego_my:
+  naglowek: Dlaczego warto nam zaufać
+  lista:
+    - { ikona: file-signature, tytul: Umowa na piśmie, opis: "Zakres, cena i termin zapisane przed rozpoczęciem prac." }
+    - { ikona: shield-check, tytul: 3 lata gwarancji, opis: "Na wszystkie wykonane przez nas prace." }
+    - { ikona: hard-hat, tytul: Własna ekipa, opis: "Nie podzlecamy prac. Na budowie są zawsze ci sami ludzie." }
+    - { ikona: truck, tytul: Materiały po naszej stronie, opis: "Kupujemy i dowozimy materiały w cenach hurtowych." }
+    - { ikona: sparkles, tytul: Porządek, opis: "Zabezpieczamy mieszkanie i sprzątamy po każdym dniu pracy." }
+    - { ikona: award, tytul: 15 lat doświadczenia, opis: "Ponad 400 wyremontowanych łazienek w regionie." }
+
+obszar:
+  naglowek: Pracujemy w Lublinie i okolicach
+  tekst: Dojeżdżamy do klientów w promieniu około 40 km od Lublina. Oględziny i wycena są bezpłatne.
+  miejscowosci: [Lublin, Świdnik, Lubartów, Łęczna, Bełżyce, Motycz, Konopnica, Niemce, Jastków, Głusk]
+
+opinie:
+  ocena: 5.0
+  liczba: 64
+  link: https://www.google.com/maps
+  lista:
+    - { autor: Joanna L., tekst: "Łazienka gotowa w terminie z umowy. Ekipa sprzątała po sobie codziennie." }
+    - { autor: Krzysztof B., tekst: "Uczciwa wycena bez ukrytych kosztów. Wszystko zgodnie z ustaleniami." }
+    - { autor: Marta i Adam, tekst: "Wykończyli nam całe mieszkanie, efekt lepszy niż na wizualizacji." }
+
+faq:
+  - pytanie: Ile kosztuje remont łazienki?
+    odpowiedz: Remont łazienki o powierzchni 4–5 m² kosztuje zwykle od 18 000 do 30 000 zł z robocizną, zależnie od zakresu i materiałów. Dokładną cenę podajemy po bezpłatnych oględzinach.
+  - pytanie: Jak długo czeka się na termin?
+    odpowiedz: Zwykle od 4 do 8 tygodni. Termin rozpoczęcia wpisujemy do umowy.
+  - pytanie: Czy kupujecie materiały?
+    odpowiedz: Tak, możemy kupić i dowieźć wszystkie materiały. Możesz też wybrać je sam, a my doradzimy.
+  - pytanie: Czy trzeba się wyprowadzić na czas remontu?
+    odpowiedz: Przy remoncie łazienki nie. Przy remoncie całego mieszkania zwykle tak.
+
+formularz:
+  typ: wycena
+  dostawca: netlify

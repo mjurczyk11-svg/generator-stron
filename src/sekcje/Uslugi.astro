@@ -1,0 +1,46 @@
+---
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Ikona from '../components/Ikona.astro';
+import Obraz from '../components/Obraz.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const d = strona.uslugi;
+const domyslnaIkona = { gabinet: 'stethoscope', warsztat: 'wrench', remonty: 'hammer' }[strona.szablon as string] ?? 'check';
+const cena = (c: any) => (c == null ? '' : typeof c === 'number' ? `${u('cennik.od')} ${c} zł` : t(c));
+---
+<Sekcja klucz="uslugi" lang={lang} tlo={tlo}>
+  {d.styl === 'lista' && (
+    <div class="uslugi-lista">
+      {d.lista.map((s: any) => (
+        <div class="usluga-wiersz">
+          <div class="ikona-tlo"><Ikona n={s.ikona ?? domyslnaIkona} /></div>
+          <div><h3>{t(s.nazwa)}</h3>{t(s.opis) && <p>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
+        </div>
+      ))}
+    </div>
+  )}
+  {d.styl === 'kafelki' && (
+    <div class="siatka siatka-4">
+      {d.lista.map((s: any) => (
+        <div class="karta usluga-kafel">
+          <div class="ikona-tlo"><Ikona n={s.ikona ?? domyslnaIkona} rozmiar={24} /></div>
+          <h3>{t(s.nazwa)}</h3>
+          {t(s.opis) && <p>{t(s.opis)}</p>}
+          {s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}
+        </div>
+      ))}
+    </div>
+  )}
+  {d.styl === 'zdjecia' && (
+    <div class="siatka siatka-3">
+      {d.lista.map((s: any) => (
+        <div class="karta usluga-zdjecie usluga-kafel">
+          <Obraz plik={s.zdjecie} alt={t(s.nazwa)} szerokosci={[400, 700]} sizes="(max-width: 700px) 100vw, 33vw" />
+          <div class="tresc"><h3>{t(s.nazwa)}</h3>{t(s.opis) && <p>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
+        </div>
+      ))}
+    </div>
+  )}
+</Sekcja>

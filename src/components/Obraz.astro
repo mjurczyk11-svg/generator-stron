@@ -1,0 +1,13 @@
+---
+// Zoptymalizowane zdjęcie klienta. Gdy pliku brak, pokazuje estetyczne tło w kolorach firmy.
+import { Image } from 'astro:assets';
+import { zdjecie } from '../lib/zdjecia';
+interface Props { plik?: string | null; alt?: string; szerokosci?: number[]; sizes?: string; class?: string; priorytet?: boolean }
+const { plik, alt = '', szerokosci = [480, 800, 1200], sizes = '(max-width: 800px) 100vw, 50vw', class: klasa = '', priorytet = false } = Astro.props;
+const src = await zdjecie(plik);
+---
+{src ? (
+  <Image src={src} alt={alt} widths={src.format === 'svg' ? undefined : szerokosci.filter((w) => w <= src.width).concat(src.width < szerokosci[0] ? [src.width] : [])} sizes={sizes} class={klasa} loading={priorytet ? 'eager' : 'lazy'} fetchpriority={priorytet ? 'high' : 'auto'} quality={78} />
+) : (
+  <div class={`obraz-zastepczy ${klasa}`} role="img" aria-label={alt}></div>
+)}

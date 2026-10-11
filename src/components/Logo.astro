@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import { zdjecie } from '../lib/zdjecia';
+interface Props { lang: Jezyk }
+const { t, url } = tlumacz(Astro.props.lang);
+const f = strona.firma;
+const logo = await zdjecie(f.logo);
+---
+<a class="logo" href={url()} aria-label={f.nazwa}>
+  {logo ? (
+    <Image src={logo} alt={f.nazwa} height={92} />
+  ) : (
+    <>
+      <span class="logo-znak" aria-hidden="true">{(f.nazwa ?? '?').trim()[0]}</span>
+      <span>{f.nazwa}{t(f.branza) && <small>{t(f.branza)}{strona.kontakt.adres?.miasto ? ` · ${strona.kontakt.adres.miasto}` : ''}</small>}</span>
+    </>
+  )}
+</a>

@@ -1,0 +1,19 @@
+---
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t } = tlumacz(lang);
+---
+<Sekcja klucz="dlaczego-my" lang={lang} tlo={tlo}>
+  <div class="siatka siatka-3">
+    {strona.dlaczego_my.lista.map((p: any) => (
+      <div class="karta">
+        <div class="ikona-tlo"><Ikona n={p.ikona ?? 'shield-check'} rozmiar={24} /></div>
+        <h3>{t(p.tytul ?? p)}</h3>
+        {t(p.opis) && <p>{t(p.opis)}</p>}
+      </div>
+    ))}
+  </div>
+</Sekcja>

@@ -1,0 +1,29 @@
+---
+import { strona, tlumacz, ocena, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Gwiazdki from '../components/Gwiazdki.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const d = strona.opinie;
+---
+<Sekcja klucz="opinie" lang={lang} tlo={tlo}>
+  {d.ocena && (
+    <div class="opinie-podsumowanie">
+      <Ikona n="google" rozmiar={30} />
+      <span class="wynik">{ocena(d.ocena, lang)}</span>
+      <div><Gwiazdki ocena={d.ocena} rozmiar={20} /><div style="font-size:.95rem;color:var(--tekst-2)">{`${u('opinie.na')} ${d.liczba} ${u('opinie.opinii')} ${d.zrodlo ?? 'Google'}`}</div></div>
+      {d.link && <a class="btn btn-obrys btn-maly" href={d.link} target="_blank" rel="noopener" style="margin-left:auto">{u('opinie.zobacz')}</a>}
+    </div>
+  )}
+  <div class="siatka siatka-3">
+    {d.lista.map((o: any) => (
+      <figure class="karta opinia" style="margin:0">
+        <Gwiazdki ocena={o.ocena ?? 5} />
+        <blockquote>„{t(o.tekst)}”</blockquote>
+        <footer><span class="inicjal" aria-hidden="true">{o.autor?.[0]}</span><span>{o.autor}{o.data && <small>{t(o.data)}</small>}</span></footer>
+      </figure>
+    ))}
+  </div>
+</Sekcja>

@@ -1,0 +1,195 @@
+# ============================================================
+#  PLIK STRONY KLIENTA
+#  Zmieniasz tylko teksty po dwukropku. Wcięcia (spacje na początku linii) muszą zostać.
+#  Teksty w dwóch językach zapisuj tak:   pl: "Tekst po polsku"   en: "Text in English"
+#  Jeśli strona jest tylko po polsku, wystarczy sam tekst.
+#  Zdjęcia wrzucasz do folderu "zdjecia" obok tego pliku i wpisujesz tu nazwę pliku.
+#  Sekcja bez treści (pusta lub usunięta) sama znika ze strony.
+#  UWAGA: to przykładowa, zmyślona firma.
+# ============================================================
+
+szablon: gabinet          # gabinet | warsztat | remonty
+wyglad: spokojny          # spokojny | czysty | elegancki | mocny | rzemieslniczy
+kolory:
+  glowny: "#2f6f73"       # kolor firmy (przyciski, akcenty)
+  akcent: "#d9a441"       # drugi kolor (detale)
+jezyki: [pl, en]          # [pl] albo [pl, en]
+domena: https://www.dentica-radom.pl   # docelowy adres strony (do SEO); można zostawić puste
+
+firma:
+  nazwa: Dentica
+  nazwa_prawna: Dentica Gabinet Stomatologiczny lek. dent. Anna Wiśniewska
+  nip: ""
+  branza: { pl: "Gabinet stomatologiczny", en: "Dental clinic" }
+  typ_schema: Dentist      # dla Google: Dentist | MedicalClinic | Physiotherapy
+  logo: ""                 # np. logo.png (bez logo pokazuje się nazwa)
+  opis:
+    pl: Gabinet stomatologiczny w centrum Radomia. Leczenie zachowawcze, endodoncja, protetyka, implanty i higienizacja dla dorosłych i dzieci.
+    en: Dental clinic in the centre of Radom. Fillings, root canal treatment, prosthetics, implants and hygiene for adults and children.
+
+seo:
+  tytul: { pl: "Dentysta Radom – Dentica, Gabinet Stomatologiczny", en: "Dentist in Radom – Dentica Dental Clinic" }
+
+kontakt:
+  telefon: "+48 500 100 200"
+  email: rejestracja@dentica-radom.pl
+  adres: { ulica: ul. Żeromskiego 12, kod: 26-600, miasto: Radom }
+  dojazd:
+    pl: Bezpłatny parking dla pacjentów za budynkiem. 3 minuty pieszo od przystanku „Żeromskiego”.
+    en: Free patient parking behind the building. 3 minutes on foot from the „Żeromskiego” bus stop.
+  dostepnosc:
+    pl: Gabinet na parterze, wejście bez progów, toaleta dostosowana dla osób z niepełnosprawnościami.
+    en: Ground-floor clinic, step-free entrance and an accessible toilet.
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+
+godziny:                  # puste albo "zamknięte" = nieczynne
+  pon: "8:00-20:00"
+  wt: "8:00-20:00"
+  sr: "8:00-20:00"
+  czw: "8:00-20:00"
+  pt: "8:00-16:00"
+  sob: "9:00-13:00"
+  nd: zamknięte
+
+hero:
+  etykieta: { pl: "Gabinet stomatologiczny · Radom", en: "Dental clinic · Radom" }
+  tytul: { pl: "Spokojne leczenie zębów w centrum Radomia", en: "Calm, careful dentistry in the centre of Radom" }
+  podtytul:
+    pl: Leczymy dorosłych i dzieci. Na pierwszej wizycie omawiamy plan leczenia i koszty, zanim cokolwiek zaczniemy.
+    en: We treat adults and children. At the first visit we discuss the treatment plan and costs before anything starts.
+  zdjecie: hero.jpg
+  uklad: podzielony        # zdjecie | podzielony | prosty
+
+wyrozniki:                # krótkie informacje pod przyciskami
+  - { ikona: badge-check, tekst: { pl: "Przyjmujemy na NFZ i prywatnie", en: "NFZ and private patients" } }
+  - { ikona: credit-card, tekst: { pl: "Płatność kartą i raty 0%", en: "Card payments and 0% instalments" } }
+  - { ikona: baby, tekst: { pl: "Leczymy dzieci", en: "We treat children" } }
+
+cta: { pl: "Umów wizytę", en: "Book a visit" }
+
+uslugi:
+  naglowek: { pl: "Pełen zakres leczenia w jednym miejscu", en: "Complete dental care in one place" }
+  lista:
+    - nazwa: { pl: "Leczenie zachowawcze", en: "Fillings" }
+      opis: { pl: "Leczenie próchnicy i odbudowa zębów materiałami w kolorze zęba.", en: "Treating decay and restoring teeth with tooth-coloured materials." }
+      ikona: zab
+    - nazwa: { pl: "Leczenie kanałowe", en: "Root canal treatment" }
+      opis: { pl: "Leczenie pod mikroskopem, które pozwala uratować ząb.", en: "Microscope-assisted treatment that saves the tooth." }
+      ikona: microscope
+    - nazwa: { pl: "Implanty", en: "Implants" }
+      opis: { pl: "Uzupełnienie brakującego zęba implantem i koroną.", en: "Replacing a missing tooth with an implant and crown." }
+      ikona: anchor
+    - nazwa: { pl: "Protetyka", en: "Prosthetics" }
+      opis: { pl: "Korony, mosty i protezy wykonywane we współpracy z pracownią techniczną.", en: "Crowns, bridges and dentures made with our dental lab." }
+      ikona: layers
+    - nazwa: { pl: "Higienizacja", en: "Hygiene" }
+      opis: { pl: "Skaling, piaskowanie i fluoryzacja co pół roku.", en: "Scaling, polishing and fluoride every six months." }
+      ikona: sparkles
+    - nazwa: { pl: "Stomatologia dziecięca", en: "Children's dentistry" }
+      opis: { pl: "Spokojne wizyty adaptacyjne i leczenie zębów mlecznych.", en: "Gentle first visits and treatment of baby teeth." }
+      ikona: baby
+
+o_nas:
+  naglowek: { pl: "Gabinet, w którym wszystko jest wyjaśnione", en: "A clinic where everything is explained" }
+  tekst:
+    pl: |
+      Dentica działa w Radomiu od 2009 roku. Przyjmujemy pacjentów w dwóch gabinetach wyposażonych w mikroskop, radiowizjografię i aparat do zdjęć pantomograficznych.
+
+      Przed leczeniem pokazujemy zdjęcia, tłumaczymy możliwe rozwiązania i podajemy koszty. Decyzja zawsze należy do pacjenta.
+    en: |
+      Dentica has been working in Radom since 2009. We see patients in two surgeries equipped with a microscope, digital X-ray and a panoramic X-ray unit.
+
+      Before treatment we show you the images, explain the options and give you the costs. The decision is always yours.
+  zdjecie: gabinet-1.jpg
+  liczby:
+    - { wartosc: "15", opis: { pl: "lat w Radomiu", en: "years in Radom" } }
+    - { wartosc: "4", opis: { pl: "lekarzy", en: "dentists" } }
+    - { wartosc: "2", opis: { pl: "gabinety", en: "surgeries" } }
+
+zespol:
+  - imie: lek. dent. Anna Wiśniewska
+    rola: { pl: "Właścicielka, endodoncja", en: "Owner, endodontics" }
+    opis: { pl: "Zajmuje się leczeniem kanałowym pod mikroskopem.", en: "Specialises in microscope root canal treatment." }
+    zdjecie: osoba-1.jpg
+  - imie: lek. dent. Tomasz Zieliński
+    rola: { pl: "Implantologia i protetyka", en: "Implants and prosthetics" }
+    opis: { pl: "Planuje leczenie implantologiczne i protetyczne.", en: "Plans implant and prosthetic treatment." }
+    zdjecie: osoba-2.jpg
+  - imie: lek. dent. Karolina Mazur
+    rola: { pl: "Stomatologia dziecięca", en: "Children's dentistry" }
+    opis: { pl: "Przyjmuje dzieci od 3. roku życia.", en: "Sees children from the age of 3." }
+    zdjecie: osoba-3.jpg
+  - imie: Magdalena Lis
+    rola: { pl: "Higienistka stomatologiczna", en: "Dental hygienist" }
+    opis: { pl: "Prowadzi higienizacje i instruktaż higieny.", en: "Hygiene visits and home-care advice." }
+    zdjecie: osoba-4.jpg
+
+pierwsza_wizyta:
+  naglowek: { pl: "Jak wygląda pierwsza wizyta", en: "What happens at your first visit" }
+  kroki:
+    - tytul: { pl: "Rozmowa", en: "A conversation" }
+      opis: { pl: "Pytamy o dolegliwości, leki i wcześniejsze leczenie.", en: "We ask about symptoms, medication and past treatment." }
+    - tytul: { pl: "Przegląd i zdjęcie", en: "Check-up and X-ray" }
+      opis: { pl: "Oglądamy zęby i w razie potrzeby robimy zdjęcie RTG na miejscu.", en: "We examine your teeth and take an X-ray on site if needed." }
+    - tytul: { pl: "Plan leczenia", en: "Treatment plan" }
+      opis: { pl: "Dostajesz plan na piśmie z kosztami poszczególnych etapów.", en: "You receive a written plan with the cost of each stage." }
+    - tytul: { pl: "Ustalenie terminów", en: "Scheduling" }
+      opis: { pl: "Umawiamy kolejne wizyty w dogodnych dla Ciebie godzinach.", en: "We book the next visits at times that suit you." }
+  uwagi:
+    pl: "Zabierz ze sobą: dowód osobisty, listę przyjmowanych leków i ostatnie zdjęcia RTG, jeśli je masz. Pierwsza wizyta trwa około 40 minut."
+    en: "Please bring: an ID, a list of your medication and any recent X-rays. The first visit takes about 40 minutes."
+
+cennik:
+  wstep: { pl: "Ceny orientacyjne. Dokładny koszt podajemy po badaniu.", en: "Indicative prices. We confirm the exact cost after the examination." }
+  kategorie:
+    - nazwa: { pl: "Diagnostyka i profilaktyka", en: "Diagnostics and prevention" }
+      pozycje:
+        - { nazwa: { pl: "Przegląd z planem leczenia", en: "Check-up with treatment plan" }, cena: 150 }
+        - { nazwa: { pl: "Zdjęcie pantomograficzne", en: "Panoramic X-ray" }, cena: 120 }
+        - { nazwa: { pl: "Higienizacja (skaling + piaskowanie)", en: "Hygiene (scaling + polishing)" }, cena: 300 }
+    - nazwa: { pl: "Leczenie", en: "Treatment" }
+      pozycje:
+        - { nazwa: { pl: "Wypełnienie kompozytowe", en: "Composite filling" }, cena: 250 }
+        - { nazwa: { pl: "Leczenie kanałowe pod mikroskopem", en: "Microscope root canal treatment" }, cena: 900 }
+        - { nazwa: { pl: "Implant z koroną", en: "Implant with crown" }, cena: 4500 }
+  uwaga: { pl: "Akceptujemy płatność kartą, BLIK i raty 0% (Medi Raty).", en: "We accept cards, BLIK and 0% instalments (Medi Raty)." }
+
+galeria:
+  - { plik: gabinet-1.jpg, opis: { pl: "Gabinet zabiegowy", en: "Treatment room" } }
+  - { plik: gabinet-2.jpg, opis: { pl: "Poczekalnia", en: "Waiting room" } }
+  - { plik: gabinet-3.jpg, opis: { pl: "Mikroskop zabiegowy", en: "Dental microscope" } }
+
+opinie:
+  ocena: 4.9
+  liczba: 187
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Katarzyna M.
+      tekst: { pl: "Pierwszy raz nie bałam się u dentysty. Pani doktor wszystko wytłumaczyła i leczenie było bezbolesne.", en: "For the first time I wasn't afraid at the dentist. The doctor explained everything and the treatment was painless." }
+    - autor: Piotr S.
+      tekst: { pl: "Leczenie kanałowe zrobione na jednej wizycie, ząb uratowany. Dokładnie i bez pośpiechu.", en: "Root canal done in one visit and the tooth was saved. Thorough and unhurried." }
+    - autor: Agnieszka W.
+      tekst: { pl: "Chodzimy tu z dziećmi. Bardzo cierpliwe podejście do maluchów.", en: "We come here with our children. Very patient with little ones." }
+
+faq:
+  - pytanie: { pl: "Czy przyjmujecie na NFZ?", en: "Do you accept NFZ patients?" }
+    odpowiedz: { pl: "Tak, mamy umowę z NFZ na leczenie zachowawcze dorosłych i dzieci. Terminy NFZ ustalamy telefonicznie.", en: "Yes, we have an NFZ contract for basic treatment of adults and children. Please call to book an NFZ appointment." }
+  - pytanie: { pl: "Czy leczycie dzieci?", en: "Do you treat children?" }
+    odpowiedz: { pl: "Tak, przyjmujemy dzieci od 3. roku życia. Pierwsza wizyta jest wizytą adaptacyjną.", en: "Yes, from the age of 3. The first visit is a gentle introduction." }
+  - pytanie: { pl: "Jak mogę zapłacić?", en: "How can I pay?" }
+    odpowiedz: { pl: "Gotówką, kartą, BLIK-iem lub w ratach 0% przez Medi Raty.", en: "Cash, card, BLIK or 0% instalments via Medi Raty." }
+  - pytanie: { pl: "Co zrobić, gdy boli mnie ząb?", en: "What if I have toothache?" }
+    odpowiedz: { pl: "Zadzwoń do nas. Codziennie zostawiamy wolne terminy dla pacjentów z bólem.", en: "Call us. We keep emergency slots free every day." }
+
+rezerwacja:
+  typ: link               # link | ramka | (albo pole "kod" z kodem widżetu np. ZnanyLekarz)
+  url: https://www.znanylekarz.pl/
+  wstep: { pl: "Wolne terminy sprawdzisz i zarezerwujesz w serwisie ZnanyLekarz.", en: "Check availability and book on ZnanyLekarz." }
+  przycisk: { pl: "Zarezerwuj w ZnanyLekarz", en: "Book on ZnanyLekarz" }
+
+formularz:
+  typ: termin              # kontakt | termin | warsztat | wycena
+  dostawca: netlify        # netlify (domyślnie) | web3forms (wtedy wpisz klucz)

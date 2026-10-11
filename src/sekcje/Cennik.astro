@@ -1,0 +1,21 @@
+---
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const d = strona.cennik;
+const kategorie = d.kategorie ?? [{ lista: d.lista }];
+const cena = (c: any) => (typeof c === 'number' ? `${d.od === false ? '' : u('cennik.od') + ' '}${c} zł` : t(c));
+---
+<Sekcja klucz="cennik" lang={lang} tlo={tlo}>
+  <div class="cennik">
+    {kategorie.map((k: any) => (
+      <div>
+        {t(k.nazwa) && <h3>{t(k.nazwa)}</h3>}
+        <dl>{(k.pozycje ?? k.lista).map((p: any) => <div class="cennik-poz"><dt>{t(p.nazwa)}</dt><dd>{cena(p.cena)}</dd></div>)}</dl>
+      </div>
+    ))}
+  </div>
+  {t(d.uwaga) && <p class="cennik-uwaga">{t(d.uwaga)}</p>}
+</Sekcja>

@@ -1,0 +1,33 @@
+---
+// Rezerwacja online: link do systemu (Booksy, ZnanyLekarz, Cal.com), osadzona ramka albo własny kod widżetu.
+import { strona, tlumacz, tel, tytulSekcji, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const d = strona.rezerwacja;
+const typ = d.kod ? 'kod' : d.typ ?? 'link';
+const k = strona.kontakt;
+---
+{typ === 'link' ? (
+  <section class="sekcja" id="rezerwacja" data-tlo={tlo}>
+    <div class="kontener">
+      <div class="cta-pas">
+        <div>
+          <h2>{t(d.naglowek) || tytulSekcji('rezerwacja', lang)}</h2>
+          {t(d.wstep) && <p>{t(d.wstep)}</p>}
+        </div>
+        <div class="przyciski">
+          <a class="btn btn-jasny" href={d.url} target="_blank" rel="noopener">{t(d.przycisk) || u('rezerwacja.przejdz')}<Ikona n="external-link" rozmiar={18} /></a>
+          {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={18} />{k.telefon}</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+) : (
+  <Sekcja klucz="rezerwacja" lang={lang} tlo={tlo}>
+    {typ === 'ramka' && <iframe class="rezerwacja-ramka" src={d.url} title={u('sekcja.rezerwacja')} loading="lazy"></iframe>}
+    {typ === 'kod' && <div set:html={d.kod} />}
+  </Sekcja>
+)}

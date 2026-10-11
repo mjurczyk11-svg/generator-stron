@@ -1,0 +1,11 @@
+---
+import { strona, tlumacz, tel, glownaAkcja, type Jezyk } from '../lib/dane';
+import Ikona from './Ikona.astro';
+interface Props { lang: Jezyk }
+const { u } = tlumacz(Astro.props.lang);
+const akcja = glownaAkcja(Astro.props.lang);
+---
+<div class="pasek-mobilny">
+  {strona.kontakt.telefon && <a class="btn btn-obrys" href={tel(strona.kontakt.telefon)}><Ikona n="phone" rozmiar={19} />{u('zadzwon')}</a>}
+  <a class="btn btn-glowny" style={strona.kontakt.telefon ? '' : 'grid-column: 1 / -1'} href={akcja.href} {...(akcja.zewnetrzny ? { target: '_blank', rel: 'noopener' } : {})}>{akcja.tekst}</a>
+</div>

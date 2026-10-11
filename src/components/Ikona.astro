@@ -1,0 +1,16 @@
+---
+// Ikona z zestawu Lucide (https://lucide.dev/icons) albo z folderu src/ikony.
+import fs from 'node:fs';
+interface Props { n: string; rozmiar?: number; class?: string }
+const { n, rozmiar = 22, class: klasa = '' } = Astro.props;
+const sciezki = [`src/ikony/${n}.svg`, `node_modules/lucide-static/icons/${n}.svg`];
+const plik = sciezki.find((p) => fs.existsSync(p));
+if (!plik) console.warn(`Brak ikony: ${n}`);
+const svg = plik
+  ? fs.readFileSync(plik, 'utf8')
+      .replace(/<!--.*?-->/gs, '')
+      .replace(/\s(width|height|class)="[^"]*"/g, '')
+      .replace('<svg', `<svg width="${rozmiar}" height="${rozmiar}" class="ikona ${klasa}" aria-hidden="true" focusable="false"`)
+  : '';
+---
+<Fragment set:html={svg} />

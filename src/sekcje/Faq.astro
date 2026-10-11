@@ -1,0 +1,21 @@
+---
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t } = tlumacz(lang);
+const lista = strona.faq.lista;
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: lista.map((p: any) => ({ '@type': 'Question', name: t(p.pytanie), acceptedAnswer: { '@type': 'Answer', text: t(p.odpowiedz) } })) };
+---
+<Sekcja klucz="faq" lang={lang} tlo={tlo}>
+  <div class="faq waski" style="margin-inline:0">
+    {lista.map((p: any, i: number) => (
+      <details open={i === 0}>
+        <summary>{t(p.pytanie)}<Ikona n="chevron-down" /></summary>
+        <div>{t(p.odpowiedz).split(/\n\s*\n/).map((a) => <p>{a}</p>)}</div>
+      </details>
+    ))}
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</Sekcja>

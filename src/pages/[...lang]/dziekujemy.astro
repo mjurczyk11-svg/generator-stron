@@ -1,0 +1,19 @@
+---
+import Uklad from '../../layouts/Uklad.astro';
+import { strona, tlumacz, tel, type Jezyk } from '../../lib/dane';
+export function getStaticPaths() {
+  return strona.jezyki.map((j) => ({ params: { lang: j === 'pl' ? undefined : j }, props: { lang: j } }));
+}
+const { lang } = Astro.props as { lang: Jezyk };
+const { u, url } = tlumacz(lang);
+---
+<Uklad lang={lang} tytul={`${u('dziekujemy.tytul')} – ${strona.firma.nazwa}`} sciezka="dziekujemy/" bezIndeksu>
+  <section class="dokument waski" style="text-align:center;padding-block:120px">
+    <h1>{u('dziekujemy.tytul')}</h1>
+    <p>{u('dziekujemy.tekst')}</p>
+    <p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+      <a class="btn btn-glowny" href={url()}>{u('dziekujemy.wroc')}</a>
+      {strona.kontakt.telefon && <a class="btn btn-obrys" href={tel(strona.kontakt.telefon)}>{strona.kontakt.telefon}</a>}
+    </p>
+  </section>
+</Uklad>

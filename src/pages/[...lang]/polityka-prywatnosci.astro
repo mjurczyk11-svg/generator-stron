@@ -1,0 +1,64 @@
+---
+// Polityka prywatności generowana z danych firmy. Treść przygotowana pod typową stronę-wizytówkę
+// (formularz kontaktowy, mapa ładowana po kliknięciu, statystyki bez ciasteczek).
+import Uklad from '../../layouts/Uklad.astro';
+import { strona, tlumacz, adresTekst, type Jezyk } from '../../lib/dane';
+export function getStaticPaths() {
+  return strona.jezyki.map((j) => ({ params: { lang: j === 'pl' ? undefined : j }, props: { lang: j } }));
+}
+const { lang } = Astro.props as { lang: Jezyk };
+const { u } = tlumacz(lang);
+const f = strona.firma;
+const k = strona.kontakt;
+const admin = [f.nazwa_prawna ?? f.nazwa, adresTekst(), f.nip && `NIP ${f.nip}`].filter(Boolean).join(', ');
+const kontakt = [k.email, k.telefon].filter(Boolean).join(lang === 'pl' ? ', tel. ' : ', phone ');
+const hosting = strona.hosting === 'vercel' ? 'Vercel Inc. (USA)' : 'Netlify Inc. (USA)';
+const formularz = strona.formularz.dostawca === 'web3forms' ? 'Web3Forms' : hosting;
+const statystyki = Boolean(strona.statystyki?.plausible);
+const data = strona.polityka_data ?? new Date().toISOString().slice(0, 10);
+---
+<Uklad lang={lang} tytul={`${u('polityka')} – ${f.nazwa}`} sciezka="polityka-prywatnosci/">
+  <article class="dokument waski">
+    {lang === 'pl' ? (
+      <>
+        <h1>Polityka prywatności</h1>
+        <p>Ta strona wyjaśnia, jak przetwarzamy dane osobowe osób odwiedzających stronę i kontaktujących się z nami.</p>
+        <h2>1. Administrator danych</h2>
+        <p>Administratorem danych osobowych jest {admin}. Kontakt w sprawie danych osobowych: {kontakt}.</p>
+        <h2>2. Jakie dane i w jakim celu przetwarzamy</h2>
+        <p>Jeśli wyślesz wiadomość przez formularz, zadzwonisz lub napiszesz e-mail, przetwarzamy podane przez Ciebie dane (np. imię i nazwisko, telefon, e-mail, treść wiadomości i ewentualne zdjęcia) w celu odpowiedzi i przygotowania oferty lub umówienia wizyty. Podstawą prawną jest Twoja zgoda oraz podjęcie działań przed zawarciem umowy na Twoje żądanie (art. 6 ust. 1 lit. a i b RODO), a także nasz prawnie uzasadniony interes polegający na obsłudze korespondencji (art. 6 ust. 1 lit. f RODO).</p>
+        <p>Podanie danych jest dobrowolne, ale bez nich nie będziemy mogli odpowiedzieć na wiadomość.</p>
+        <h2>3. Jak długo przechowujemy dane</h2>
+        <p>Dane z wiadomości przechowujemy przez czas potrzebny do obsługi zapytania, a następnie nie dłużej niż przez 12 miesięcy, chyba że dojdzie do zawarcia umowy. Wtedy przechowujemy je przez okres wymagany przepisami (np. podatkowymi).</p>
+        <h2>4. Komu przekazujemy dane</h2>
+        <p>Dane mogą być przekazywane podmiotom, które świadczą dla nas usługi techniczne: dostawcy hostingu strony ({hosting}) oraz dostawcy obsługi formularza ({formularz}). Dostawcy ci mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską lub programu EU-U.S. Data Privacy Framework.</p>
+        <h2>5. Twoje prawa</h2>
+        <p>Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia oraz wniesienia sprzeciwu. Zgodę możesz wycofać w każdej chwili, co nie wpływa na zgodność z prawem przetwarzania przed jej wycofaniem. Przysługuje Ci też prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).</p>
+        <h2>6. Pliki cookies i usługi zewnętrzne</h2>
+        <p>Strona nie używa plików cookies do śledzenia ani reklam.{statystyki && ' Do zbierania anonimowych statystyk odwiedzin używamy narzędzia Plausible Analytics, które nie stosuje plików cookies i nie zbiera danych osobowych.'} Mapa Google ładuje się dopiero po kliknięciu przycisku „Pokaż mapę”. Od tego momentu Google Ireland Ltd. może przetwarzać dane zgodnie ze swoją polityką prywatności (policies.google.com/privacy).{strona.rezerwacja?.url && ' Rezerwacja online odbywa się w zewnętrznym systemie, który ma własną politykę prywatności.'}</p>
+        <h2>7. Zmiany</h2>
+        <p>Polityka obowiązuje od {data}. Możemy ją aktualizować, gdy zmienią się przepisy lub sposób działania strony.</p>
+      </>
+    ) : (
+      <>
+        <h1>Privacy policy</h1>
+        <p>This page explains how we process the personal data of visitors to this website and people who contact us.</p>
+        <h2>1. Data controller</h2>
+        <p>The controller of your personal data is {admin}. Contact regarding personal data: {kontakt}.</p>
+        <h2>2. What data we process and why</h2>
+        <p>If you send a message via the form, call us or send an email, we process the data you provide (e.g. name, phone number, email, message content and any photos) in order to reply, prepare a quote or arrange an appointment. The legal basis is your consent and steps taken at your request before entering into a contract (Art. 6(1)(a) and (b) GDPR), as well as our legitimate interest in handling correspondence (Art. 6(1)(f) GDPR).</p>
+        <p>Providing data is voluntary, but without it we cannot reply to your message.</p>
+        <h2>3. How long we keep data</h2>
+        <p>We keep message data for as long as needed to handle your enquiry and no longer than 12 months afterwards, unless a contract is concluded, in which case we keep it for the period required by law (e.g. tax law).</p>
+        <h2>4. Who receives the data</h2>
+        <p>Data may be shared with providers of technical services: the website hosting provider ({hosting}) and the form handling provider ({formularz}). These providers may process data outside the European Economic Area on the basis of standard contractual clauses approved by the European Commission or the EU-U.S. Data Privacy Framework.</p>
+        <h2>5. Your rights</h2>
+        <p>You have the right to access, rectify and erase your data, to restrict processing, to data portability and to object. You may withdraw consent at any time without affecting the lawfulness of processing before withdrawal. You may also lodge a complaint with the President of the Personal Data Protection Office (UODO), ul. Stawki 2, 00-193 Warsaw, Poland.</p>
+        <h2>6. Cookies and third-party services</h2>
+        <p>This website does not use cookies for tracking or advertising.{statystyki && ' We use Plausible Analytics for anonymous visit statistics; it does not use cookies or collect personal data.'} The Google map loads only after you click “Show map”. From that moment Google Ireland Ltd. may process data in accordance with its privacy policy (policies.google.com/privacy).{strona.rezerwacja?.url && ' Online booking takes place in an external system with its own privacy policy.'}</p>
+        <h2>7. Changes</h2>
+        <p>This policy is effective from {data}. We may update it when the law or the way this website works changes.</p>
+      </>
+    )}
+  </article>
+</Uklad>

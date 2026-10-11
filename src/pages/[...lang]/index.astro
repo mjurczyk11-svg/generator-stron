@@ -1,0 +1,38 @@
+---
+import Uklad from '../../layouts/Uklad.astro';
+import { strona, aktywneSekcje, type Jezyk } from '../../lib/dane';
+import Hero from '../../sekcje/Hero.astro';
+import Uslugi from '../../sekcje/Uslugi.astro';
+import ONas from '../../sekcje/ONas.astro';
+import Zespol from '../../sekcje/Zespol.astro';
+import Kroki from '../../sekcje/Kroki.astro';
+import Cennik from '../../sekcje/Cennik.astro';
+import Galeria from '../../sekcje/Galeria.astro';
+import Realizacje from '../../sekcje/Realizacje.astro';
+import DlaczegoMy from '../../sekcje/DlaczegoMy.astro';
+import Marki from '../../sekcje/Marki.astro';
+import Obszar from '../../sekcje/Obszar.astro';
+import Info from '../../sekcje/Info.astro';
+import Opinie from '../../sekcje/Opinie.astro';
+import Faq from '../../sekcje/Faq.astro';
+import Rezerwacja from '../../sekcje/Rezerwacja.astro';
+import Kontakt from '../../sekcje/Kontakt.astro';
+
+export function getStaticPaths() {
+  return strona.jezyki.map((j) => ({ params: { lang: j === 'pl' ? undefined : j }, props: { lang: j } }));
+}
+const { lang } = Astro.props as { lang: Jezyk };
+const KOMPONENTY: Record<string, any> = {
+  uslugi: Uslugi, 'o-nas': ONas, zespol: Zespol, 'pierwsza-wizyta': Kroki, proces: Kroki, cennik: Cennik,
+  galeria: Galeria, realizacje: Realizacje, 'dlaczego-my': DlaczegoMy, marki: Marki, obszar: Obszar,
+  dofinansowania: Info, opinie: Opinie, faq: Faq, rezerwacja: Rezerwacja, kontakt: Kontakt,
+};
+const sekcje = aktywneSekcje().filter((s) => KOMPONENTY[s]);
+---
+<Uklad lang={lang} glowna>
+  <Hero lang={lang} />
+  {sekcje.map((s, i) => {
+    const K = KOMPONENTY[s];
+    return <K lang={lang} klucz={s} tlo={i % 2 === 1 ? 'alt' : undefined} />;
+  })}
+</Uklad>

@@ -1,0 +1,9 @@
+---
+import Ikona from './Ikona.astro';
+interface Props { ocena: number; rozmiar?: number }
+const { ocena, rozmiar = 17 } = Astro.props;
+const pelne = Math.round(Number(ocena));
+---
+<span class="gwiazdki" aria-label={`${ocena}/5`}>
+  {[1, 2, 3, 4, 5].map((i) => <span style={i > pelne ? 'opacity:.3' : ''}><Ikona n="star" rozmiar={rozmiar} /></span>)}
+</span>

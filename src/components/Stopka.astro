@@ -1,0 +1,55 @@
+---
+import { strona, tlumacz, tel, adresTekst, aktywneSekcje, tytulSekcji, type Jezyk } from '../lib/dane';
+import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
+import Ikona from './Ikona.astro';
+interface Props { lang: Jezyk }
+const { lang } = Astro.props;
+const { t, u, url } = tlumacz(lang);
+const f = strona.firma;
+const k = strona.kontakt;
+const dni = u('dni') as string[];
+const social = Object.entries(k.social ?? {}).filter(([, v]) => v) as [string, string][];
+const rok = new Date().getFullYear();
+---
+<footer class="stopka">
+  <div class="kontener">
+    <div class="stopka-siatka">
+      <div>
+        <h2>{f.nazwa}</h2>
+        {t(f.opis_krotki ?? f.branza) && <p>{t(f.opis_krotki ?? f.branza)}</p>}
+        {social.length > 0 && (
+          <div class="social">
+            {social.map(([n, href]) => <a href={href} target="_blank" rel="noopener" aria-label={n}><Ikona n={n} rozmiar={20} /></a>)}
+          </div>
+        )}
+      </div>
+      <div>
+        <h3>{u('sekcja.kontakt')}</h3>
+        <ul>
+          {adresTekst() && <li>{adresTekst()}</li>}
+          {k.telefon && <li><a href={tel(k.telefon)}>{k.telefon}</a></li>}
+          {k.email && <li><a href={`mailto:${k.email}`}>{k.email}</a></li>}
+        </ul>
+      </div>
+      <div>
+        {maGodziny() ? (
+          <>
+            <h3>{u('godziny')}</h3>
+            <ul>
+              {godzinyTydzien().map((d, i) => <li>{dni[i]}: {d.przedzialy.length ? pokazGodziny(d.przedzialy) : u('zamkniete')}</li>)}
+            </ul>
+          </>
+        ) : (
+          <>
+            <h3>{u('nav.menu')}</h3>
+            <ul>{aktywneSekcje().map((s) => <li><a href={url(`#${s}`)}>{tytulSekcji(s, lang)}</a></li>)}</ul>
+          </>
+        )}
+      </div>
+    </div>
+    <div class="stopka-dol">
+      <span>© {rok} {f.nazwa_prawna ?? f.nazwa}{f.nip && ` · ${u('nip')} ${f.nip}`}{f.regon && ` · ${u('regon')} ${f.regon}`}</span>
+      <a href={url('polityka-prywatnosci/')}>{u('polityka')}</a>
+    </div>
+  </div>
+</footer>

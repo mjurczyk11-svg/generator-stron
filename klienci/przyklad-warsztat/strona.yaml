@@ -1,0 +1,116 @@
+# ============================================================
+#  PLIK STRONY KLIENTA (opis pól: zobacz klienci/przyklad-gabinet/strona.yaml)
+#  Tekst z przecinkiem w nawiasach { } wpisuj w cudzysłowie "...".
+#  UWAGA: to przykładowa, zmyślona firma.
+# ============================================================
+
+szablon: warsztat
+wyglad: mocny
+kolory:
+  glowny: "#d62828"
+  akcent: "#ffb703"
+jezyki: [pl]
+domena: https://www.autoserwis-kowalczyk.pl
+
+komunikat:
+  tekst: Sezon na opony zimowe. Zadzwoń i zarezerwuj termin wymiany z wyprzedzeniem.
+
+firma:
+  nazwa: Auto-Serwis Kowalczyk
+  nazwa_prawna: Auto-Serwis Kowalczyk Marek Kowalczyk
+  branza: Mechanik samochodowy
+  typ_schema: AutoRepair
+  opis: Warsztat samochodowy w Kielcach. Mechanika, diagnostyka komputerowa, klimatyzacja, wymiana opon i przeglądy wszystkich marek.
+
+seo:
+  tytul: Mechanik Kielce – Auto-Serwis Kowalczyk
+
+kontakt:
+  telefon: "+48 500 300 400"
+  email: biuro@autoserwis-kowalczyk.pl
+  adres:
+    ulica: ul. Warszawska 210
+    kod: 25-414
+    miasto: Kielce
+  dojazd: Duży plac dla klientów przed warsztatem. Wjazd od strony ul. Warszawskiej.
+  social:
+    facebook: https://www.facebook.com/
+
+godziny:
+  pon: "7:30-17:00"
+  wt: "7:30-17:00"
+  sr: "7:30-17:00"
+  czw: "7:30-17:00"
+  pt: "7:30-17:00"
+  sob: "8:00-13:00"
+  nd: zamknięte
+
+hero:
+  etykieta: Warsztat samochodowy · Kielce
+  tytul: Mechanik w Kielcach, który mówi, ile to będzie kosztować
+  podtytul: Naprawiamy auta wszystkich marek od 1998 roku. Przed naprawą dostajesz wycenę, a po naprawie gwarancję.
+  zdjecie: hero.jpg
+  uklad: zdjecie
+
+wyrozniki:
+  - { ikona: shield-check, tekst: Gwarancja 12 miesięcy na naprawy }
+  - { ikona: car, tekst: Wszystkie marki }
+  - { ikona: receipt-text, tekst: Faktura VAT }
+
+cta: Umów wizytę
+
+uslugi:
+  naglowek: Wszystko, czego potrzebuje Twoje auto
+  lista:
+    - { nazwa: Mechanika, opis: "Zawieszenie, hamulce, układ wydechowy, sprzęgło i rozrząd.", ikona: wrench }
+    - { nazwa: Diagnostyka komputerowa, opis: "Odczyt błędów i pomiary dla aut osobowych i dostawczych.", ikona: laptop }
+    - { nazwa: Klimatyzacja, opis: "Napełnianie, odgrzybianie i naprawa układu klimatyzacji.", ikona: snowflake }
+    - { nazwa: Wymiana opon, opis: "Wymiana, wyważanie i przechowalnia opon.", ikona: disc }
+    - { nazwa: Geometria kół, opis: "Ustawienie zbieżności na nowoczesnym urządzeniu 3D.", ikona: crosshair }
+    - { nazwa: Wymiana oleju, opis: "Olej i filtry dobrane do zaleceń producenta.", ikona: droplet }
+    - { nazwa: Elektryka, opis: "Rozruszniki, alternatory, oświetlenie i akumulatory.", ikona: zap }
+    - { nazwa: Przygotowanie do przeglądu, opis: "Sprawdzimy auto przed wizytą na stacji kontroli.", ikona: clipboard-check }
+
+marki:
+  naglowek: Naprawiamy wszystkie marki
+  lista: [Audi, BMW, Ford, Hyundai, Kia, Opel, Peugeot, Renault, Seat, Škoda, Toyota, Volkswagen]
+  uwaga: Obsługujemy też auta dostawcze do 3,5 t.
+
+dlaczego_my:
+  naglowek: Dlaczego klienci do nas wracają
+  lista:
+    - { ikona: badge-check, tytul: Wycena przed naprawą, opis: "Zanim zaczniemy, mówimy, co jest do zrobienia i ile to kosztuje." }
+    - { ikona: shield-check, tytul: Gwarancja 12 miesięcy, opis: "Na wykonane naprawy i zamontowane przez nas części." }
+    - { ikona: package-check, tytul: Sprawdzone części, opis: "Oryginały albo zamienniki renomowanych producentów, do wyboru." }
+    - { ikona: car-front, tytul: Auto zastępcze, opis: "Przy dłuższych naprawach możemy pożyczyć samochód." }
+    - { ikona: clock, tytul: Terminowo, opis: "Większość napraw robimy tego samego albo następnego dnia." }
+    - { ikona: users, tytul: Od 1998 roku, opis: "Rodzinna firma, która zna swoich klientów po imieniu." }
+
+galeria:
+  - { plik: warsztat-1.jpg, opis: Hala napraw }
+  - { plik: warsztat-2.jpg, opis: Stanowisko diagnostyczne }
+  - { plik: warsztat-3.jpg, opis: Wymiana opon }
+  - { plik: warsztat-4.jpg, opis: Geometria kół }
+
+opinie:
+  ocena: 4.8
+  liczba: 312
+  link: https://www.google.com/maps
+  lista:
+    - { autor: Tomasz K., tekst: "Uczciwa wycena i szybka naprawa. Pan Marek wszystko pokazał i wytłumaczył." }
+    - { autor: Ewa P., tekst: "Wymiana opon bez czekania, wszystko sprawnie. Polecam." }
+    - { autor: Michał R., tekst: "Inne warsztaty nie mogły znaleźć usterki, tutaj zdiagnozowali ją w godzinę." }
+
+faq:
+  - pytanie: Ile trwa wymiana opon?
+    odpowiedz: Około 30 minut. W sezonie najlepiej umówić termin telefonicznie.
+  - pytanie: Czy mogę zostawić auto na noc?
+    odpowiedz: Tak, plac jest monitorowany i zamykany. Kluczyki możesz wrzucić do skrzynki przy wejściu.
+  - pytanie: Czy wystawiacie fakturę VAT?
+    odpowiedz: Tak, na każdą naprawę wystawiamy fakturę VAT albo paragon.
+  - pytanie: Czy mogę przywieźć własne części?
+    odpowiedz: Tak, ale gwarancja obejmuje wtedy tylko robociznę.
+
+formularz:
+  typ: warsztat
+  dostawca: netlify

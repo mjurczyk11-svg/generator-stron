@@ -1,0 +1,64 @@
+---
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Sekcja from '../components/Sekcja.astro';
+import Obraz from '../components/Obraz.astro';
+import Ikona from '../components/Ikona.astro';
+interface Props { lang: Jezyk; tlo?: string }
+const { lang, tlo } = Astro.props;
+const { t, u } = tlumacz(lang);
+const lista = strona.realizacje.lista;
+const kategorie = [...new Set(lista.map((r: any) => t(r.kategoria)).filter(Boolean))];
+const rozmiary = '(max-width: 700px) 100vw, 50vw';
+---
+<Sekcja klucz="realizacje" lang={lang} tlo={tlo}>
+  {kategorie.length > 1 && (
+    <div class="filtry" role="group">
+      <button class="filtr" type="button" aria-pressed="true" data-kat="">{u('wszystkie')}</button>
+      {kategorie.map((k) => <button class="filtr" type="button" aria-pressed="false" data-kat={k as string}>{k}</button>)}
+    </div>
+  )}
+  <div class="siatka siatka-2 realizacje-lista">
+    {lista.map((r: any) => (
+      <article class="karta realizacja" data-kat={t(r.kategoria)}>
+        {r.przed && r.po ? (
+          <div class="przed-po">
+            <Obraz plik={r.przed} alt={`${u('przed')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} />
+            <div class="po"><Obraz plik={r.po} alt={`${u('po')}: ${t(r.tytul)}`} szerokosci={[480, 800, 1100]} sizes={rozmiary} /></div>
+            <span class="napis l">{u('przed')}</span><span class="napis r">{u('po')}</span>
+            <span class="linia"></span>
+            <input type="range" min="0" max="100" value="50" aria-label={`${u('przed')} / ${u('po')}`} />
+          </div>
+        ) : (
+          <div class="realizacja-zdjecia">
+            {(r.zdjecia ?? []).map((z: string) => <Obraz plik={z} alt={t(r.tytul)} szerokosci={[480, 800, 1100]} sizes={rozmiary} />)}
+          </div>
+        )}
+        <div class="tresc">
+          <div class="realizacja-meta">
+            {r.miejscowosc && <span><Ikona n="map-pin" rozmiar={16} />{r.miejscowosc}</span>}
+            {t(r.czas) && <span><Ikona n="clock" rozmiar={16} />{t(r.czas)}</span>}
+            {t(r.kategoria) && <span><Ikona n="tag" rozmiar={16} />{t(r.kategoria)}</span>}
+          </div>
+          <h3>{t(r.tytul)}</h3>
+          {t(r.opis) && <p>{t(r.opis)}</p>}
+        </div>
+      </article>
+    ))}
+  </div>
+</Sekcja>
+<script>
+  document.querySelectorAll<HTMLElement>('.przed-po').forEach((el) => {
+    const i = el.querySelector('input')!;
+    i.addEventListener('input', () => el.style.setProperty('--poz', i.value + '%'));
+  });
+  const s = document.getElementById('realizacje');
+  if (s) {
+    const filtry = s.querySelectorAll<HTMLButtonElement>('.filtr');
+    filtry.forEach((f) =>
+      f.addEventListener('click', () => {
+        filtry.forEach((x) => x.setAttribute('aria-pressed', String(x === f)));
+        s.querySelectorAll<HTMLElement>('.realizacje-lista > [data-kat]').forEach((el) => { el.hidden = Boolean(f.dataset.kat) && el.dataset.kat !== f.dataset.kat; });
+      }),
+    );
+  }
+</script>

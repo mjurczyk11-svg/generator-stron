@@ -1,0 +1,84 @@
+---
+import { strona, tlumacz, tel, glownaAkcja, ocena, type Jezyk } from '../lib/dane';
+import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
+import Obraz from '../components/Obraz.astro';
+import Ikona from '../components/Ikona.astro';
+import Gwiazdki from '../components/Gwiazdki.astro';
+interface Props { lang: Jezyk }
+const { lang } = Astro.props;
+const { t, u } = tlumacz(lang);
+const h = strona.hero;
+const k = strona.kontakt;
+const akcja = glownaAkcja(lang);
+const uklad = h.zdjecie ? h.uklad : 'prosty';
+const op = strona.opinie;
+const dni = u('dni') as string[];
+const tydzien = godzinyTydzien();
+// Skrócone godziny: grupuje kolejne dni z tymi samymi godzinami (np. "Pon–Pt 8–17").
+const grupy: { od: number; do: number; tekst: string }[] = [];
+tydzien.forEach((d, i) => {
+  const tekst = d.przedzialy.length ? pokazGodziny(d.przedzialy) : u('zamkniete');
+  const ost = grupy.at(-1);
+  if (ost && ost.tekst === tekst) ost.do = i; else grupy.push({ od: i, do: i, tekst });
+});
+const skrot = (i: number) => dni[i].slice(0, lang === 'pl' ? 3 : 3);
+const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) => `${skrot(g.od)}${g.do > g.od ? '–' + skrot(g.do) : ''} ${g.tekst}`);
+---
+{uklad === 'zdjecie' && (
+  <section class="hero hero--zdjecie">
+    <div class="hero-tlo"><Obraz plik={h.zdjecie} alt={t(h.zdjecie_opis)} szerokosci={[640, 1024, 1600, 2200]} sizes="100vw" priorytet /></div>
+    <div class="kontener hero-tresc">
+      {op?.ocena && <a class="ocena-znaczek" href={op.link ?? '#opinie'}><Gwiazdki ocena={op.ocena} /><span>{`${ocena(op.ocena, lang)} · ${op.liczba} ${u('opinie.opinii')} Google`}</span></a>}
+      {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
+      <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
+      {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+      <div class="hero-przyciski">
+        <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
+        {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
+      </div>
+      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+    </div>
+    {maGodziny() && (
+      <div class="hero-godziny"><div class="kontener"><span><Ikona n="clock" rozmiar={19} />{u('godziny')}:</span>{godzinyKrotko.map((g) => <span>{g}</span>)}</div></div>
+    )}
+  </section>
+)}
+{uklad === 'podzielony' && (
+  <section class="hero hero--podzielony">
+    <div class="kontener">
+      <div class="hero-tresc">
+        {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
+        <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
+        {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+        <div class="hero-przyciski">
+          <a class="btn btn-glowny" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
+          {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
+        </div>
+        {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+      </div>
+      <div class="hero-zdjecie">
+        <Obraz plik={h.zdjecie} alt={t(h.zdjecie_opis)} szerokosci={[480, 800, 1100]} sizes="(max-width: 880px) 100vw, 46vw" priorytet />
+        {op?.ocena && (
+          <a class="hero-karta" href={op.link ?? '#opinie'} style="text-decoration:none">
+            <Ikona n="google" rozmiar={30} />
+            <div><strong>{ocena(op.ocena, lang)}</strong><Gwiazdki ocena={op.ocena} rozmiar={14} /><span class="opis">{`${op.liczba} ${u('opinie.opinii')} Google`}</span></div>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+{uklad === 'prosty' && (
+  <section class="hero hero--prosty">
+    <div class="kontener hero-tresc">
+      {t(h.etykieta) && <div class="etykieta">{t(h.etykieta)}</div>}
+      <h1>{t(h.tytul) || strona.firma.nazwa}</h1>
+      {t(h.podtytul) && <p class="hero-lead">{t(h.podtytul)}</p>}
+      <div class="hero-przyciski">
+        <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}</a>
+        {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
+      </div>
+      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} />{t(w.tekst ?? w)}</li>)}</ul>}
+    </div>
+  </section>
+)}
