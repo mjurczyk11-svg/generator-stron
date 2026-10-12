@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'js-yaml';
 import { uporzadkuj } from './porzadkuj.mjs';
+import { MOTYWY } from '../src/lib/motywy.mjs';
 
 const SZABLONY = ['gabinet', 'warsztat', 'remonty'];
 const WYGLADY = ['spokojny', 'czysty', 'elegancki', 'mocny', 'rzemieslniczy'];
@@ -30,6 +31,8 @@ for (const k of klienci) {
   const en = (d.jezyki ?? ['pl']).includes('en');
 
   if (!SZABLONY.includes(d.szablon)) bledy.push(`"szablon" musi być jednym z: ${SZABLONY.join(', ')}.`);
+  if (d.motyw && !MOTYWY[d.motyw]) bledy.push(`"motyw" musi być jednym z: ${Object.keys(MOTYWY).join(', ')}.`);
+  else if (d.motyw && MOTYWY[d.motyw].nisza !== d.szablon) uwagi.push(`Motyw "${d.motyw}" jest przygotowany dla szablonu "${MOTYWY[d.motyw].nisza}", a strona ma "${d.szablon}".`);
   if (d.wyglad && !WYGLADY.includes(d.wyglad)) bledy.push(`"wyglad" musi być jednym z: ${WYGLADY.join(', ')}.`);
   if (!d.firma?.nazwa) bledy.push('Brak nazwy firmy (firma → nazwa).');
   if (!d.kontakt?.telefon) bledy.push('Brak telefonu (kontakt → telefon).');

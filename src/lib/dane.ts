@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { load } from 'js-yaml';
-import { SZABLONY, WYGLADY } from './szablony';
+import { SZABLONY, WYGLADY, MOTYWY } from './szablony';
 import { TEKSTY } from './teksty';
 
 export type Jezyk = 'pl' | 'en';
@@ -33,7 +33,9 @@ function jakoObiekt(v: any) {
 
 const surowe = wczytaj();
 const szablon = SZABLONY[surowe.szablon] ?? SZABLONY.gabinet;
-const wyglad = WYGLADY[surowe.wyglad ?? szablon.wyglad] ?? WYGLADY.czysty;
+// Motyw (gotowy projekt strony) nadpisuje ustawienia szablonu; plik klienta nadpisuje motyw.
+const motyw: any = (MOTYWY as any)[surowe.motyw] ?? null;
+const wyglad: any = (WYGLADY as any)[surowe.wyglad] ?? motyw?.wyglad ?? (WYGLADY as any)[szablon.wyglad] ?? WYGLADY.czysty;
 
 export const strona = {
   ...surowe,
@@ -41,16 +43,24 @@ export const strona = {
   szablon: surowe.szablon ?? 'gabinet',
   jezyki: (surowe.jezyki ?? ['pl']) as Jezyk[],
   sekcje: (surowe.sekcje ?? szablon.sekcje) as string[],
+  motyw: motyw ? (surowe.motyw as string) : '',
   wyglad,
-  kolory: { ...szablon.kolory, ...(surowe.kolory ?? {}) },
+  animacje: surowe.animacje ?? motyw?.animacje ?? 'lagodne',
+  naglowek: surowe.naglowek ?? motyw?.naglowek ?? 'standard',
+  gorny_pasek: surowe.gorny_pasek ?? motyw?.gorny_pasek ?? false,
+  pasek: surowe.pasek ?? motyw?.pasek ?? false,
+  liczby_w_hero: surowe.liczby_w_hero ?? motyw?.liczby_w_hero ?? false,
+  tla: { ...(motyw?.tla ?? {}), ...(surowe.tla ?? {}) } as Record<string, string>,
+  wyglad_przyciski: surowe.wyglad_przyciski ?? motyw?.przyciski,
+  kolory: { ...szablon.kolory, ...(motyw?.kolory ?? {}), ...(surowe.kolory ?? {}) },
   schema: surowe.firma?.typ_schema ?? szablon.schema,
   cta: surowe.cta ?? szablon.cta,
   firma: surowe.firma ?? {},
   kontakt: surowe.kontakt ?? {},
   godziny: surowe.godziny ?? {},
-  hero: { uklad: szablon.hero, ...(surowe.hero ?? {}) },
+  hero: { ...(surowe.hero ?? {}), uklad: surowe.hero?.uklad || motyw?.hero || szablon.hero },
   formularz: { typ: szablon.formularz, dostawca: 'netlify', ...(surowe.formularz ?? {}) },
-  uslugi: { styl: szablon.uslugi_styl, ...jakoObiekt(surowe.uslugi) },
+  uslugi: { ...jakoObiekt(surowe.uslugi), styl: jakoObiekt(surowe.uslugi)?.styl || motyw?.uslugi_styl || szablon.uslugi_styl },
   galeria: jakoObiekt(surowe.galeria),
   realizacje: jakoObiekt(surowe.realizacje),
   zespol: jakoObiekt(surowe.zespol),

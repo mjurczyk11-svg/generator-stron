@@ -1,0 +1,251 @@
+# Strona pokazowa motywu "Połysk" (warsztat, detailing). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: warsztat
+motyw: polysk
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - o-nas
+  - galeria
+  - cennik
+  - dlaczego-my
+  - opinie
+  - faq
+  - kontakt
+firma:
+  nazwa: Połysk Detailing
+  nazwa_prawna: Połysk Detailing Studio Karolina Wieczorek
+  branza:
+    pl: Studio detailingu samochodowego
+  typ_schema: AutoWash
+  opis:
+    pl: Studio detailingu we Wrocławiu. Korekta lakieru, powłoki ceramiczne, folie PPF, czyszczenie wnętrz i mycie detailingowe.
+seo:
+  tytul:
+    pl: Detailing Wrocław – Połysk Detailing Studio, korekta lakieru i ceramika
+kontakt:
+  telefon: +48 500 880 330
+  email: studio@polysk-detailing.pl
+  adres:
+    ulica: ul. Krakowska 180
+    kod: 52-015
+    miasto: Wrocław
+  dojazd:
+    pl: Zamykane, ogrzewane studio. Parking dla klientów przed wjazdem.
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+    tiktok: https://www.tiktok.com/
+godziny:
+  pon: 9:00-18:00
+  wt: 9:00-18:00
+  sr: 9:00-18:00
+  czw: 9:00-18:00
+  pt: 9:00-18:00
+  sob: 9:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Detailing · Wrocław
+  tytul:
+    pl: Lakier jak z salonu. Albo lepszy.
+  podtytul:
+    pl: Korekta lakieru, powłoki ceramiczne i folie ochronne w zamkniętym studiu z oświetleniem do kontroli lakieru.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Mycie czarnego auta w studiu detailingowym
+wyrozniki:
+  - ikona: sparkles
+    tekst:
+      pl: Korekta lakieru w 1, 2 lub 3 etapach
+  - ikona: shield
+    tekst:
+      pl: Powłoki ceramiczne do 5 lat
+  - ikona: lightbulb
+    tekst:
+      pl: Oświetlenie inspekcyjne
+cta:
+  pl: Zapytaj o termin
+uslugi:
+  naglowek:
+    pl: Usługi studia
+  lista:
+    - nazwa:
+        pl: Korekta lakieru
+      opis:
+        pl: Usuwamy rysy, hologramy i matowienie. Pomiar grubości lakieru przed i po.
+      ikona: sparkles
+      cena: 1200
+    - nazwa:
+        pl: Powłoka ceramiczna
+      opis:
+        pl: Twarda ochrona lakieru na 2 lub 5 lat, łatwiejsze mycie i głęboki połysk.
+      ikona: shield
+      cena: 1800
+    - nazwa:
+        pl: Folia PPF
+      opis:
+        pl: Bezbarwna folia ochronna na przód auta albo na całe nadwozie.
+      ikona: layers
+      cena: 3500
+    - nazwa:
+        pl: Pranie i ochrona wnętrza
+      opis:
+        pl: Tapicerka, skóry, podsufitka i ozonowanie.
+      ikona: armchair
+      cena: 450
+    - nazwa:
+        pl: Mycie detailingowe
+      opis:
+        pl: Bezpieczne mycie dwoma wiadrami, dekontaminacja i wosk.
+      ikona: droplets
+      cena: 250
+    - nazwa:
+        pl: Przygotowanie do sprzedaży
+      opis:
+        pl: Odświeżenie lakieru i wnętrza przed sesją zdjęciową.
+      ikona: tag
+      cena: 900
+o_nas:
+  naglowek:
+    pl: Studio, w którym auto spędza tyle czasu, ile trzeba
+  tekst:
+    pl: |
+      Połysk to zamknięte, ogrzewane studio z trzema stanowiskami i oświetleniem do kontroli lakieru. Pracujemy na jednym aucie naraz, bez pośpiechu.
+
+      Przed każdą korektą mierzymy grubość lakieru. Po pracy dostajesz zdjęcia przed i po oraz instrukcję pielęgnacji.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Mycie srebrnego auta sportowego pianą
+  liczby:
+    - wartosc: '7'
+      opis:
+        pl: lat w detailingu
+    - wartosc: 1 300
+      opis:
+        pl: aut po korekcie
+    - wartosc: '5'
+      opis:
+        pl: lat ochrony powłoki
+galeria:
+  naglowek:
+    pl: Ze studia
+  lista:
+    - plik: studio-8.jpg
+      opis:
+        pl: Lakier po korekcie
+    - plik: studio-2.jpg
+      opis:
+        pl: Mycie detali pędzlem
+    - plik: studio-3.jpg
+      opis:
+        pl: Mycie wstępne
+    - plik: studio-6.jpg
+      opis:
+        pl: Polerowanie lamp
+    - plik: studio-5.jpg
+      opis:
+        pl: Mycie rękawicą
+    - plik: studio-1.jpg
+      opis:
+        pl: Gotowe auto
+    - plik: studio-4.jpg
+      opis:
+        pl: Czyszczenie felg
+    - plik: studio-7.jpg
+      opis:
+        pl: Kosmetyki do pielęgnacji
+cennik:
+  wstep:
+    pl: Ceny dla auta klasy średniej. Duże SUV-y i vany wyceniamy indywidualnie.
+  kategorie:
+    - nazwa:
+        pl: Lakier
+      pozycje:
+        - nazwa:
+            pl: Korekta jednoetapowa
+          cena: 1200
+        - nazwa:
+            pl: Korekta dwuetapowa
+          cena: 2000
+        - nazwa:
+            pl: Powłoka ceramiczna 2 lata
+          cena: 1800
+        - nazwa:
+            pl: Powłoka ceramiczna 5 lat
+          cena: 2900
+    - nazwa:
+        pl: Wnętrze i mycie
+      pozycje:
+        - nazwa:
+            pl: Mycie detailingowe z woskiem
+          cena: 250
+        - nazwa:
+            pl: Pranie tapicerki
+          cena: 450
+        - nazwa:
+            pl: Czyszczenie i impregnacja skór
+          cena: 550
+  uwaga:
+    pl: Na większe zlecenia umawiamy oględziny auta.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego Połysk
+  lista:
+    - ikona: ruler
+      tytul:
+        pl: Pomiar lakieru
+      opis:
+        pl: Wiemy, ile lakieru możemy zebrać, zanim zaczniemy polerować.
+    - ikona: camera
+      tytul:
+        pl: Zdjęcia przed i po
+      opis:
+        pl: Dokumentujemy każdy etap pracy.
+    - ikona: thermometer
+      tytul:
+        pl: Ogrzewane studio
+      opis:
+        pl: Powłoki aplikujemy w stałej temperaturze, cały rok.
+    - ikona: badge-check
+      tytul:
+        pl: Certyfikowane produkty
+      opis:
+        pl: Pracujemy na powłokach z certyfikatem i kartą gwarancyjną.
+opinie:
+  ocena: 5
+  liczba: 189
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Szymon R.
+      tekst:
+        pl: Czarne BMW bez jednego hologramu. Dostałem zdjęcia z każdego etapu i instrukcję mycia.
+    - autor: Natalia K.
+      tekst:
+        pl: Wnętrze po psie wygląda jak nowe. Przyjechałam po auto i nie mogłam uwierzyć.
+    - autor: Wojciech L.
+      tekst:
+        pl: Ceramika po roku dalej trzyma, woda spływa jak z kaczki. Wrócę na odświeżenie.
+faq:
+  lista:
+    - pytanie:
+        pl: Ile trwa korekta lakieru z ceramiką?
+      odpowiedz:
+        pl: Zwykle 2–3 dni. Auto zostaje w studiu, bo powłoka musi związać w stałej temperaturze.
+    - pytanie:
+        pl: Jak dbać o auto po powłoce?
+      odpowiedz:
+        pl: Myć ręcznie, bez myjni szczotkowych. Instrukcję i zestaw startowy dostajesz przy odbiorze.
+    - pytanie:
+        pl: Czy mogę zostawić auto na noc?
+      odpowiedz:
+        pl: Tak, studio jest zamykane, monitorowane i ubezpieczone.
+    - pytanie:
+        pl: Czy dajecie kartę gwarancyjną?
+      odpowiedz:
+        pl: Tak, na powłoki ceramiczne i folie PPF.
+formularz:
+  typ: warsztat
+  dostawca: netlify

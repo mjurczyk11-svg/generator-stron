@@ -1,0 +1,15 @@
+/* Serwis: profesjonalny serwis. Siatka techniczna w tle, niebieskie karty z ikonami, pomarańczowe akcenty. */
+.hero--podzielony { position: relative; }
+.hero--podzielony::before { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(color-mix(in srgb, var(--glowny) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--glowny) 7%, transparent) 1px, transparent 1px); background-size: 40px 40px; background-position: center top; mask-image: linear-gradient(180deg, #000 60%, transparent); pointer-events: none; }
+.hero--podzielony .hero-zdjecie::before { background: var(--akcent); opacity: .9; inset: auto -18px -18px auto; width: 45%; height: 45%; }
+.etykieta { color: var(--akcent); }
+.karta { box-shadow: 0 1px 0 var(--linia), 0 12px 28px -22px rgb(11 30 70 / .4); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.karta:hover { border-color: var(--glowny); transform: translateY(-3px); box-shadow: 0 22px 40px -26px color-mix(in srgb, var(--glowny) 70%, transparent); }
+.sekcja[data-tlo='ciemne'] .karta:hover { border-color: var(--akcent); }
+.ikona-tlo { background: var(--glowny); color: var(--na-glownym); }
+.sekcja[data-tlo='ciemne'] .ikona-tlo { background: var(--akcent); color: #fff !important; }
+.liczby strong { color: var(--akcent); }
+.cennik > div { background: var(--tlo); border: 1px solid var(--linia); border-radius: var(--r); padding: 24px 28px; }
+.btn-glowny { background: var(--akcent); color: #fff; box-shadow: 0 8px 22px -10px var(--akcent); }
+.btn-glowny:hover { background: color-mix(in srgb, var(--akcent) 85%, #000); }
+.naglowek .btn-glowny { background: var(--glowny); box-shadow: none; }

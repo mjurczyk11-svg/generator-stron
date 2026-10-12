@@ -1,0 +1,280 @@
+# Strona pokazowa motywu "Fundament" (remonty). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: remonty
+motyw: fundament
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - realizacje
+  - o-nas
+  - proces
+  - dlaczego-my
+  - obszar
+  - opinie
+  - faq
+  - kontakt
+firma:
+  nazwa: Fundament
+  nazwa_prawna: Fundament Wykończenia Sp. z o.o.
+  branza:
+    pl: Wykończenia wnętrz pod klucz
+  typ_schema: GeneralContractor
+  opis:
+    pl: Wykończenia mieszkań i domów pod klucz w Katowicach i na Śląsku. Łazienki, kuchnie, gładzie, podłogi i instalacje z umową i gwarancją.
+seo:
+  tytul:
+    pl: Wykończenia wnętrz Katowice – Fundament, mieszkania pod klucz
+kontakt:
+  telefon: +48 500 320 650
+  email: biuro@fundament-wykonczenia.pl
+  adres:
+    ulica: ul. Chorzowska 150
+    kod: 40-101
+    miasto: Katowice
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+godziny:
+  pon: 8:00-17:00
+  wt: 8:00-17:00
+  sr: 8:00-17:00
+  czw: 8:00-17:00
+  pt: 8:00-16:00
+  sob: zamknięte
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Katowice i cały Śląsk
+  tytul:
+    pl: Wykończenia wnętrz pod klucz w Katowicach
+  podtytul:
+    pl: Przejmujemy mieszkanie od dewelopera albo do remontu i oddajemy gotowe do zamieszkania. Jedna umowa, jeden kierownik, stała cena.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Jasny salon z jadalnią po wykończeniu
+wyrozniki:
+  - ikona: file-signature
+    tekst:
+      pl: Stała cena w umowie
+  - ikona: user-check
+    tekst:
+      pl: Jeden kierownik projektu
+  - ikona: shield-check
+    tekst:
+      pl: 5 lat gwarancji
+uslugi:
+  naglowek:
+    pl: Zakres prac
+  wstep:
+    pl: Robimy całość albo wybrane etapy. Materiały możemy kupić za Ciebie w cenach hurtowych.
+  lista:
+    - nazwa:
+        pl: Łazienki
+      opis:
+        pl: Hydraulika, hydroizolacja, płytki wielkoformatowe, zabudowy i biały montaż.
+      zdjecie: lazienki.jpg
+      ikona: bath
+    - nazwa:
+        pl: Kuchnie
+      opis:
+        pl: Instalacje, płytki, przygotowanie pod meble na wymiar i AGD.
+      zdjecie: kuchnie.jpg
+      ikona: cooking-pot
+    - nazwa:
+        pl: Gładzie i malowanie
+      opis:
+        pl: Gładzie maszynowe, sufity podwieszane, malowanie natryskowe.
+      zdjecie: gladzie.jpg
+      ikona: paint-roller
+    - nazwa:
+        pl: Drzwi i podłogi
+      opis:
+        pl: Montaż drzwi, paneli, deski warstwowej i listew.
+      zdjecie: drzwi.jpg
+      ikona: door-open
+    - nazwa:
+        pl: Elektryka
+      opis:
+        pl: Nowe obwody, oświetlenie LED, gniazda i rozdzielnice z pomiarami.
+      zdjecie: elektryka.jpg
+      ikona: zap
+    - nazwa:
+        pl: Hydraulika
+      opis:
+        pl: Instalacje wodne, kanalizacja i ogrzewanie podłogowe.
+      zdjecie: hydraulika.jpg
+      ikona: droplets
+o_nas:
+  naglowek:
+    pl: Kilkanaście mieszkań rocznie, każde dopięte do końca
+  tekst:
+    pl: |
+      Fundament to dwanaście osób: kierownicy projektów, glazurnicy, hydraulik i elektryk z uprawnieniami. Nie podzlecamy prac przypadkowym ekipom.
+
+      Każde zlecenie prowadzi jeden kierownik. Raz w tygodniu dostajesz zdjęcia postępu i wiesz, co dzieje się na budowie.
+  zdjecie: drzwi.jpg
+  zdjecie_opis:
+    pl: Montaż drzwi w wykańczanym mieszkaniu
+  liczby:
+    - wartosc: '12'
+      opis:
+        pl: osób w zespole
+    - wartosc: '240'
+      opis:
+        pl: wykończonych mieszkań
+    - wartosc: '5'
+      opis:
+        pl: lat gwarancji
+realizacje:
+  naglowek:
+    pl: Wybrane realizacje
+  wstep:
+    pl: Przesuń suwak, aby porównać stan przed i po.
+  lista:
+    - tytul:
+        pl: Łazienka z wanną wolnostojącą, 7 m²
+      miejscowosc: Katowice, Brynów
+      czas:
+        pl: 5 tygodni
+      kategoria:
+        pl: Łazienki
+      opis:
+        pl: Nowa hydraulika, płytki wielkoformatowe, kabina walk-in i wanna wolnostojąca.
+      przed: przed-2.jpg
+      po: lazienka-b.jpg
+    - tytul:
+        pl: Łazienka w kamienicy, 6 m²
+      miejscowosc: Katowice, Śródmieście
+      czas:
+        pl: 4 tygodnie
+      kategoria:
+        pl: Łazienki
+      opis:
+        pl: Wyrównanie ścian, ogrzewanie podłogowe, prysznic ze szklaną ścianą.
+      przed: przed-1.jpg
+      po: salon.jpg
+    - tytul:
+        pl: Kuchnia z jadalnią
+      miejscowosc: Chorzów
+      czas:
+        pl: 6 tygodni
+      kategoria:
+        pl: Kuchnie
+      opis:
+        pl: Przeniesienie instalacji, płytki, oświetlenie liniowe i przygotowanie pod zabudowę.
+      zdjecia:
+        - po-2.jpg
+        - kuchnie.jpg
+    - tytul:
+        pl: Mieszkanie 74 m² pod klucz
+      miejscowosc: Katowice, Ligota
+      czas:
+        pl: 10 tygodni
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Wykończenie od dewelopera z łazienką, kuchnią i podłogą z deski dębowej.
+      zdjecia:
+        - po-1.jpg
+        - lazienka-a.jpg
+proces:
+  naglowek:
+    pl: Jak pracujemy
+  kroki:
+    - tytul:
+        pl: Spotkanie
+      opis:
+        pl: Oglądamy mieszkanie i rozmawiamy o oczekiwaniach.
+    - tytul:
+        pl: Kosztorys
+      opis:
+        pl: W ciągu 5 dni dostajesz szczegółowy kosztorys.
+    - tytul:
+        pl: Umowa
+      opis:
+        pl: Zakres, cena i harmonogram zapisane na piśmie.
+    - tytul:
+        pl: Realizacja
+      opis:
+        pl: Cotygodniowe zdjęcia i raport z postępu.
+    - tytul:
+        pl: Odbiór
+      opis:
+        pl: Odbiór z listą kontrolną, sprzątanie i gwarancja.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego Fundament
+  lista:
+    - ikona: file-signature
+      tytul:
+        pl: Stała cena
+      opis:
+        pl: Cena z umowy nie rośnie w trakcie prac.
+    - ikona: calendar-check
+      tytul:
+        pl: Termin w umowie
+      opis:
+        pl: Za opóźnienie z naszej winy płacimy karę umowną.
+    - ikona: camera
+      tytul:
+        pl: Raporty ze zdjęciami
+      opis:
+        pl: Co tydzień wiesz, na jakim etapie są prace.
+    - ikona: shield-check
+      tytul:
+        pl: 5 lat gwarancji
+      opis:
+        pl: Na wszystkie wykonane przez nas prace.
+obszar:
+  naglowek:
+    pl: Gdzie pracujemy
+  tekst:
+    pl: Działamy w Katowicach i miastach aglomeracji śląskiej.
+  miejscowosci:
+    - Katowice
+    - Chorzów
+    - Siemianowice Śląskie
+    - Sosnowiec
+    - Mysłowice
+    - Tychy
+    - Mikołów
+    - Ruda Śląska
+    - Gliwice
+    - Bytom
+opinie:
+  ocena: 4.9
+  liczba: 138
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Agata i Michał
+      tekst:
+        pl: Mieszkanie od dewelopera odebraliśmy gotowe tydzień przed terminem. Cotygodniowe zdjęcia to świetna sprawa.
+    - autor: Rafał J.
+      tekst:
+        pl: Kosztorys szczegółowy co do listwy. Na koniec zapłaciłem dokładnie tyle, ile było w umowie.
+    - autor: Ewa M.
+      tekst:
+        pl: Łazienka w kamienicy z krzywymi ścianami. Efekt jak z katalogu.
+faq:
+  lista:
+    - pytanie:
+        pl: Ile kosztuje wykończenie mieszkania pod klucz?
+      odpowiedz:
+        pl: Zwykle od 1 400 do 2 200 zł za m² z materiałami, zależnie od standardu. Dokładną cenę podajemy w kosztorysie.
+    - pytanie:
+        pl: Jak długo trwa wykończenie mieszkania?
+      odpowiedz:
+        pl: Mieszkanie 50–70 m² wykańczamy zwykle w 8–12 tygodni.
+    - pytanie:
+        pl: Czy pomagacie w wyborze materiałów?
+      odpowiedz:
+        pl: Tak. Jeździmy z klientami do hurtowni i doradzamy, co sprawdzi się w praktyce.
+    - pytanie:
+        pl: Czy wystawiacie fakturę z 8% VAT?
+      odpowiedz:
+        pl: Tak, w mieszkaniach do 150 m² stosujemy stawkę 8%.
+formularz:
+  typ: wycena
+  dostawca: netlify

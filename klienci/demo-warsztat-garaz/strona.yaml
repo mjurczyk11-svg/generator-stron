@@ -1,0 +1,226 @@
+# Strona pokazowa motywu "Garaż" (warsztat). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: warsztat
+motyw: garaz
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - dlaczego-my
+  - o-nas
+  - marki
+  - galeria
+  - opinie
+  - faq
+  - kontakt
+komunikat:
+  tekst:
+    pl: Wymiana opon na zimę – zapisy na październik i listopad już trwają.
+firma:
+  nazwa: Garaż 44
+  nazwa_prawna: Garaż 44 Mechanika Pojazdowa Adrian Malinowski
+  branza:
+    pl: Mechanik samochodowy
+  typ_schema: AutoRepair
+  opis:
+    pl: Warsztat samochodowy w Bydgoszczy. Mechanika, hamulce, zawieszenie, diagnostyka komputerowa i serwis olejowy wszystkich marek.
+seo:
+  tytul:
+    pl: Mechanik Bydgoszcz – Garaż 44, warsztat samochodowy
+kontakt:
+  telefon: +48 500 440 044
+  email: biuro@garaz44.pl
+  adres:
+    ulica: ul. Fordońska 44
+    kod: 85-719
+    miasto: Bydgoszcz
+  dojazd:
+    pl: Parking dla klientów przed bramą. Autobus do przystanku „Fordońska – Akademicka”.
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+godziny:
+  pon: 8:00-17:00
+  wt: 8:00-17:00
+  sr: 8:00-17:00
+  czw: 8:00-17:00
+  pt: 8:00-17:00
+  sob: 8:00-12:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Warsztat samochodowy · Bydgoszcz
+  tytul:
+    pl: Mechanik w Bydgoszczy. Konkretnie i bez kombinowania.
+  podtytul:
+    pl: Naprawiamy auta wszystkich marek. Najpierw diagnoza i wycena, potem naprawa. Zdjęcia wymienionych części wysyłamy SMS-em.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Mechanik z tabletem diagnostycznym przy otwartej masce auta
+wyrozniki:
+  - ikona: badge-check
+    tekst:
+      pl: Wycena przed naprawą
+  - ikona: smartphone
+    tekst:
+      pl: Zdjęcia części na telefon
+  - ikona: shield-check
+    tekst:
+      pl: Rok gwarancji
+cta:
+  pl: Umów wizytę
+uslugi:
+  naglowek:
+    pl: Usługi
+  lista:
+    - nazwa:
+        pl: Mechanika ogólna
+      opis:
+        pl: Silnik, sprzęgło, układ wydechowy, rozrząd.
+      ikona: wrench
+    - nazwa:
+        pl: Hamulce
+      opis:
+        pl: Klocki, tarcze, przewody i płyn hamulcowy.
+      ikona: disc
+    - nazwa:
+        pl: Zawieszenie
+      opis:
+        pl: Amortyzatory, wahacze, łączniki i tuleje.
+      ikona: car
+    - nazwa:
+        pl: Diagnostyka komputerowa
+      opis:
+        pl: Odczyt i kasowanie błędów, kodowanie podzespołów.
+      ikona: laptop
+    - nazwa:
+        pl: Serwis olejowy
+      opis:
+        pl: Olej i filtry zgodnie z normą producenta.
+      ikona: droplet
+    - nazwa:
+        pl: Opony i geometria
+      opis:
+        pl: Wymiana, wyważanie, przechowalnia i ustawienie zbieżności.
+      ikona: crosshair
+o_nas:
+  naglowek:
+    pl: Mały warsztat, w którym znasz mechanika
+  tekst:
+    pl: |
+      Garaż 44 to trzy stanowiska i dwóch mechaników. Zaczynałem w 2014 roku w wynajętym boksie, dziś mamy własną halę przy Fordońskiej.
+
+      Nie robimy nic bez Twojej zgody. Dzwonimy z wyceną, a po naprawie oddajemy stare części albo wysyłamy ich zdjęcia.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Właściciel warsztatu z dokumentami przy aucie
+  liczby:
+    - wartosc: '10'
+      opis:
+        pl: lat w Bydgoszczy
+    - wartosc: '3'
+      opis:
+        pl: stanowiska
+    - wartosc: 5 200
+      opis:
+        pl: naprawionych aut
+marki:
+  naglowek:
+    pl: Naprawiamy wszystkie marki
+  lista:
+    - Audi
+    - BMW
+    - Citroën
+    - Dacia
+    - Ford
+    - Honda
+    - Hyundai
+    - Kia
+    - Mazda
+    - Opel
+    - Renault
+    - Škoda
+    - Toyota
+    - Volkswagen
+dlaczego_my:
+  naglowek:
+    pl: Jak pracujemy
+  lista:
+    - ikona: message-square-text
+      tytul:
+        pl: Najpierw telefon
+      opis:
+        pl: Przed naprawą mówimy, co trzeba zrobić i ile to kosztuje.
+    - ikona: camera
+      tytul:
+        pl: Dowód na zdjęciu
+      opis:
+        pl: Wymienione części pokazujemy albo wysyłamy na telefon.
+    - ikona: package-check
+      tytul:
+        pl: Części do wyboru
+      opis:
+        pl: Oryginał albo dobry zamiennik. Ty decydujesz.
+    - ikona: shield-check
+      tytul:
+        pl: 12 miesięcy gwarancji
+      opis:
+        pl: Na robociznę i części, które montujemy.
+galeria:
+  naglowek:
+    pl: Na hali
+  lista:
+    - plik: warsztat-1.jpg
+      opis:
+        pl: Pomiar tarczy hamulcowej
+    - plik: warsztat-2.jpg
+      opis:
+        pl: Wymiana hamulców
+    - plik: warsztat-3.jpg
+      opis:
+        pl: Diagnostyka komputerowa
+    - plik: warsztat-6.jpg
+      opis:
+        pl: Zacisk hamulcowy
+    - plik: warsztat-4.jpg
+      opis:
+        pl: Raport z diagnostyki
+    - plik: warsztat-5.jpg
+      opis:
+        pl: Polerowanie lakieru
+opinie:
+  ocena: 4.9
+  liczba: 251
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Kamil W.
+      tekst:
+        pl: Dostałem SMS ze zdjęciem zużytych klocków i wyceną. Tak powinien działać każdy warsztat.
+    - autor: Beata G.
+      tekst:
+        pl: Auto odebrane tego samego dnia, cena zgodna z tym, co usłyszałam przez telefon.
+    - autor: Mateusz Ż.
+      tekst:
+        pl: Pan Adrian zamiast wymieniać cały wahacz wymienił samą tuleję. Uczciwie.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy muszę się umawiać?
+      odpowiedz:
+        pl: Najlepiej tak, wtedy auto bierzemy od razu. Drobne sprawy, jak żarówka czy wycieraczki, załatwimy bez zapisu.
+    - pytanie:
+        pl: Czy mogę przywieźć własne części?
+      odpowiedz:
+        pl: Tak. Gwarancja obejmuje wtedy tylko robociznę.
+    - pytanie:
+        pl: Czy wystawiacie fakturę VAT?
+      odpowiedz:
+        pl: Tak, na firmę albo na osobę prywatną.
+    - pytanie:
+        pl: Jak mogę zapłacić?
+      odpowiedz:
+        pl: Gotówką, kartą, BLIK-iem albo przelewem.
+formularz:
+  typ: warsztat
+  dostawca: netlify

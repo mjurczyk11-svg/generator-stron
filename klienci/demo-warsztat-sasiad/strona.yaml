@@ -1,0 +1,216 @@
+# Strona pokazowa motywu "Sąsiad" (warsztat, wulkanizacja i mechanika). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: warsztat
+motyw: sasiad
+jezyki:
+  - pl
+komunikat:
+  tekst:
+    pl: Sezon na opony zimowe! Zapisz się telefonicznie, a nie będziesz czekać w kolejce.
+firma:
+  nazwa: Opony u Zielińskich
+  nazwa_prawna: Opony u Zielińskich s.c. Jan i Piotr Zielińscy
+  branza:
+    pl: Wulkanizacja i mechanika
+  typ_schema: AutoRepair
+  opis:
+    pl: Rodzinna wulkanizacja i warsztat w Olsztynie. Wymiana i przechowalnia opon, naprawa felg, geometria, hamulce i mechanika.
+seo:
+  tytul:
+    pl: Wulkanizacja Olsztyn – Opony u Zielińskich, wymiana i przechowalnia opon
+kontakt:
+  telefon: +48 500 610 220
+  email: opony@zielinscy-olsztyn.pl
+  adres:
+    ulica: ul. Bałtycka 61
+    kod: 10-176
+    miasto: Olsztyn
+  dojazd:
+    pl: Wjazd od ul. Bałtyckiej, parking na 10 aut.
+  social:
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 8:00-18:00
+  wt: 8:00-18:00
+  sr: 8:00-18:00
+  czw: 8:00-18:00
+  pt: 8:00-18:00
+  sob: 8:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Rodzinna firma od 1996 roku
+  tytul:
+    pl: Opony i mechanika w Olsztynie. U sąsiadów.
+  podtytul:
+    pl: Wymienimy opony, przechowamy je do następnego sezonu i sprawdzimy hamulce. Ojciec i syn, ta sama ekipa od lat.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Mechanik zakłada koło w samochodzie
+  zdjecie2: hero-2.jpg
+  zdjecie3: hero-3.jpg
+wyrozniki:
+  - ikona: clock
+    tekst:
+      pl: Wymiana opon w 30 minut
+  - ikona: warehouse
+    tekst:
+      pl: Przechowalnia na 1 500 kompletów
+  - ikona: users
+    tekst:
+      pl: Rodzinna firma od 1996 roku
+uslugi:
+  naglowek:
+    pl: W czym pomożemy
+  lista:
+    - nazwa:
+        pl: Wymiana opon
+      opis:
+        pl: Osobowe, SUV-y i dostawcze. Z wyważaniem i kontrolą ciśnienia.
+      ikona: disc
+      cena: 100
+    - nazwa:
+        pl: Przechowalnia opon
+      opis:
+        pl: Opony myjemy, opisujemy i przechowujemy w suchym magazynie.
+      ikona: warehouse
+      cena: 120
+    - nazwa:
+        pl: Naprawa opon i felg
+      opis:
+        pl: Łatanie, prostowanie felg stalowych i aluminiowych.
+      ikona: wrench
+      cena: 40
+    - nazwa:
+        pl: Geometria kół
+      opis:
+        pl: Ustawienie zbieżności na komputerowym urządzeniu 3D.
+      ikona: crosshair
+      cena: 150
+    - nazwa:
+        pl: Hamulce
+      opis:
+        pl: Klocki, tarcze i płyn hamulcowy.
+      ikona: circle-stop
+    - nazwa:
+        pl: Sprzedaż opon
+      opis:
+        pl: Opony nowe wszystkich marek, ceny jak w internecie.
+      ikona: shopping-cart
+o_nas:
+  naglowek:
+    pl: Od 1996 roku przy Bałtyckiej
+  tekst:
+    pl: |
+      Wulkanizację otworzył nasz tata w garażu przy domu. Dziś mamy trzy stanowiska, przechowalnię opon i komputerową geometrię, ale dalej pracujemy po sąsiedzku.
+
+      Znamy wielu klientów po imieniu i pamiętamy, jakie mają auta. Opony do przechowalni opisujemy i sprawdzamy, czy nadają się na kolejny sezon.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Mechanik przy maszynie do wymiany opon
+  liczby:
+    - wartosc: '28'
+      opis:
+        pl: lat działalności
+    - wartosc: 1 500
+      opis:
+        pl: kompletów w przechowalni
+    - wartosc: '3'
+      opis:
+        pl: stanowiska
+marki:
+  naglowek:
+    pl: Opony, które sprzedajemy i montujemy
+  lista:
+    - Michelin
+    - Continental
+    - Goodyear
+    - Bridgestone
+    - Pirelli
+    - Dębica
+    - Hankook
+    - Nokian
+    - Kleber
+    - Firestone
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego warto do nas przyjechać
+  lista:
+    - ikona: calendar-check
+      tytul:
+        pl: Zapisy na godzinę
+      opis:
+        pl: Umawiasz się na konkretną godzinę i nie stoisz w kolejce.
+    - ikona: search-check
+      tytul:
+        pl: Sprawdzamy bieżnik
+      opis:
+        pl: Powiemy szczerze, czy opony wytrzymają kolejny sezon.
+    - ikona: coffee
+      tytul:
+        pl: Kawa na czas wymiany
+      opis:
+        pl: Poczekasz w ciepłym pomieszczeniu.
+    - ikona: heart-handshake
+      tytul:
+        pl: Rodzinnie i uczciwie
+      opis:
+        pl: Pracujemy na opinię od prawie trzydziestu lat.
+galeria:
+  naglowek:
+    pl: U nas
+  lista:
+    - plik: warsztat-1.jpg
+      opis:
+        pl: Wymiana koła
+    - plik: warsztat-2.jpg
+      opis:
+        pl: Dokręcanie kół
+    - plik: warsztat-4.jpg
+      opis:
+        pl: Hala warsztatu
+    - plik: warsztat-3.jpg
+      opis:
+        pl: Naprawa zawieszenia
+    - plik: hero-2.jpg
+      opis:
+        pl: Przechowalnia opon
+    - plik: warsztat-5.jpg
+      opis:
+        pl: Amortyzatory na stanie
+opinie:
+  ocena: 4.9
+  liczba: 523
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Halina P.
+      tekst:
+        pl: Jeżdżę tu od 15 lat. Zawsze uczciwie, zawsze z uśmiechem.
+    - autor: Marek B.
+      tekst:
+        pl: Umówiłem się na 8:00, o 8:30 wyjeżdżałem na zimówkach. Opony z przechowalni czyste i opisane.
+    - autor: Ola i Tomek
+      tekst:
+        pl: Pan Piotr powiedział, że nasze opony wytrzymają jeszcze sezon. Inny warsztat chciał sprzedać nowe.
+faq:
+  lista:
+    - pytanie:
+        pl: Kiedy zmienić opony na zimowe?
+      odpowiedz:
+        pl: Gdy temperatura rano spada poniżej 7°C. Zwykle w drugiej połowie października.
+    - pytanie:
+        pl: Ile kosztuje przechowanie opon?
+      odpowiedz:
+        pl: 120 zł za komplet na sezon. Z felgami 150 zł.
+    - pytanie:
+        pl: Czy trzeba się umawiać?
+      odpowiedz:
+        pl: W sezonie lepiej tak. Poza sezonem przyjmujemy też bez zapisu.
+    - pytanie:
+        pl: Czy wymieniacie opony w autach dostawczych?
+      odpowiedz:
+        pl: Tak, do 3,5 tony.
+formularz:
+  typ: warsztat
+  dostawca: netlify

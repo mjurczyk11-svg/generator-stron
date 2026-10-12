@@ -3,6 +3,10 @@
 // Każde pole z pliku strona.yaml, które ma być edytowalne w panelu, musi być tu opisane.
 
 // Pola tekstowe, które mogą mieć wersję PL i EN. W pliku zapisują się jako { pl: "...", en: "..." }.
+import { MOTYWY } from '../src/lib/motywy.mjs';
+
+const NISZE = { gabinet: 'gabinet', warsztat: 'warsztat', remonty: 'remonty' };
+
 export const TEKSTY = new WeakSet();
 // Sekcje, które w pliku mogą być samą listą, a w panelu zawsze mają postać { lista: [...] }.
 export const LISTY_W_OBIEKCIE = new WeakSet();
@@ -110,12 +114,14 @@ const FIRMA = [
 ];
 
 // Ustawienia wyglądu i układu strony.
+const MOTYWY_OPCJE = Object.entries(MOTYWY).map(([value, m]) => ({ value, label: `${m.nazwa} (${NISZE[m.nisza]}): ${m.opis}` }));
 const WYGLAD = [
   wybor('szablon', 'Rodzaj strony', [
     { value: 'gabinet', label: 'Gabinet (lekarz, dentysta, fizjoterapeuta)' },
     { value: 'warsztat', label: 'Warsztat samochodowy' },
     { value: 'remonty', label: 'Remonty i instalacje' },
   ], { required: true }),
+  wybor('motyw', 'Motyw (gotowy wygląd strony)', MOTYWY_OPCJE, { hint: 'Motyw ustawia czcionki, kolory, układ pierwszego ekranu i animacje. Pola poniżej (styl, kolory, przyciski) nadpisują motyw. Zostaw je puste, aby strona wyglądała jak w motywie.' }),
   wybor('wyglad', 'Styl wyglądu', [
     { value: 'spokojny', label: 'Spokojny' },
     { value: 'czysty', label: 'Czysty' },
@@ -147,11 +153,17 @@ const HERO = [
     tekst('tytul', 'Główny tytuł'),
     tekst('podtytul', 'Tekst pod tytułem', { dlugi: true }),
     zdjecie('zdjecie', 'Zdjęcie główne'),
+    tekst('zdjecie_opis', 'Opis zdjęcia (dla niewidomych i Google)'),
+    zdjecie('zdjecie2', 'Drugie zdjęcie (układ „kolaż”)'),
+    zdjecie('zdjecie3', 'Trzecie zdjęcie (układ „kolaż”)'),
     wybor('uklad', 'Układ', [
       { value: 'zdjecie', label: 'Zdjęcie na całą szerokość' },
+      { value: 'srodek', label: 'Zdjęcie na całą szerokość, tekst na środku' },
       { value: 'podzielony', label: 'Tekst obok zdjęcia' },
+      { value: 'panorama', label: 'Tekst na środku, szerokie zdjęcie pod spodem' },
+      { value: 'kolaz', label: 'Tekst obok kolażu trzech zdjęć' },
       { value: 'prosty', label: 'Bez zdjęcia' },
-    ]),
+    ], { hint: 'Puste = jak w motywie.' }),
   ], { collapsed: false }),
   tekst('cta', 'Napis na głównym przycisku', { hint: 'Puste = domyślny dla szablonu (np. Umów wizytę).' }),
   lista('wyrozniki', 'Wyróżniki pod przyciskami (2–4 krótkie hasła)', [ikona(), tekst('tekst', 'Tekst')], { summary: '{{tekst.pl}}' }),
@@ -170,7 +182,8 @@ const SEKCJE_POLA = [
       { value: 'kafelki', label: 'Kafelki z ikonami' },
       { value: 'lista', label: 'Lista' },
       { value: 'zdjecia', label: 'Ze zdjęciami' },
-    ], { hint: 'Puste = domyślny dla szablonu.' })],
+      { value: 'numerowane', label: 'Numerowana lista' },
+    ], { hint: 'Puste = jak w motywie.' })],
   }),
 
   obiekt('o_nas', 'O nas', [

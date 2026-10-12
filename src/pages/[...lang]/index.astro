@@ -17,6 +17,7 @@ import Opinie from '../../sekcje/Opinie.astro';
 import Faq from '../../sekcje/Faq.astro';
 import Rezerwacja from '../../sekcje/Rezerwacja.astro';
 import Kontakt from '../../sekcje/Kontakt.astro';
+import PasekUslug from '../../components/PasekUslug.astro';
 
 export function getStaticPaths() {
   return strona.jezyki.map((j) => ({ params: { lang: j === 'pl' ? undefined : j }, props: { lang: j } }));
@@ -31,8 +32,11 @@ const sekcje = aktywneSekcje().filter((s) => KOMPONENTY[s]);
 ---
 <Uklad lang={lang} glowna>
   <Hero lang={lang} />
+  {strona.pasek && <PasekUslug lang={lang} />}
   {sekcje.map((s, i) => {
     const K = KOMPONENTY[s];
-    return <K lang={lang} klucz={s} tlo={i % 2 === 1 ? 'alt' : undefined} />;
+    // Tło sekcji: ustawione w motywie (np. ciemne), inaczej co druga sekcja ma tło zastępcze.
+    const tlo = strona.tla[s] ?? (i % 2 === 1 ? 'alt' : undefined);
+    return <K lang={lang} klucz={s} tlo={tlo === 'jasne' ? undefined : tlo} />;
   })}
 </Uklad>

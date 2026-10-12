@@ -1,0 +1,20 @@
+/* Perła: elegancka stomatologia estetyczna. Szeryfowe nagłówki, złote cienkie linie, dużo powietrza. */
+h1, h2 { font-weight: 500; letter-spacing: -0.01em; }
+h3 { font-weight: 600; }
+.etykieta { letter-spacing: .26em; font-weight: 600; font-size: .74rem; }
+.etykieta::before { width: 7px; height: 7px; background: none; border: 1px solid var(--akcent); transform: rotate(45deg); }
+.btn { border-radius: 0; text-transform: uppercase; letter-spacing: .14em; font-size: .82rem; }
+.karta { border-radius: 0; }
+.o-nas-zdjecie { position: relative; }
+.o-nas-zdjecie img { border-radius: 0; }
+.o-nas-zdjecie::before { content: ''; position: absolute; inset: -18px 18px 18px -18px; border: 1px solid var(--akcent); pointer-events: none; }
+.osoba img { border-radius: 0; filter: saturate(.9); transition: filter .5s ease, transform .6s ease; }
+.osoba:hover img { filter: none; }
+.usluga-num { border-bottom-color: color-mix(in srgb, var(--akcent) 40%, transparent); }
+.usluga-num-nr { color: var(--akcent); font-style: italic; }
+.liczby { border-top-color: color-mix(in srgb, var(--akcent) 50%, transparent); }
+.liczby strong { color: var(--akcent); font-weight: 500; }
+.sekcja-glowka h2::after { content: ''; display: block; width: 56px; height: 1px; background: var(--akcent); margin-top: 22px; }
+.sekcja-glowka.srodek h2::after { margin-inline: auto; }
+.galeria button { border-radius: 0; }
+.opinia blockquote { font-family: var(--font-h); font-size: 1.28rem; font-style: italic; line-height: 1.4; }

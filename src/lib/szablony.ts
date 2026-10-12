@@ -7,8 +7,8 @@ export type Szablon = {
   kolory: { glowny: string; akcent: string };
   cta: { pl: string; en: string };
   formularz: 'kontakt' | 'termin' | 'warsztat' | 'wycena';
-  hero: 'zdjecie' | 'podzielony' | 'prosty';
-  uslugi_styl: 'kafelki' | 'lista' | 'zdjecia';
+  hero: 'zdjecie' | 'podzielony' | 'prosty' | 'srodek' | 'panorama' | 'kolaz';
+  uslugi_styl: 'kafelki' | 'lista' | 'zdjecia' | 'numerowane';
 };
 
 export const SZABLONY: Record<string, Szablon> = {
@@ -44,11 +44,5 @@ export const SZABLONY: Record<string, Szablon> = {
   },
 };
 
-// Warianty wyglądu: czcionki, zaokrąglenia, tło. Kolory przychodzą z szablonu albo od klienta.
-export const WYGLADY: Record<string, { naglowki: string; tekst: string; promien: string; tlo: string; tlo2: string; tekstKolor: string; naglowkiStyl?: string }> = {
-  spokojny: { naglowki: "'Fraunces Variable', Georgia, serif", tekst: "'Inter Variable', system-ui, sans-serif", promien: '18px', tlo: '#fbfaf7', tlo2: '#f1eee7', tekstKolor: '#1d2422' },
-  czysty: { naglowki: "'Manrope Variable', system-ui, sans-serif", tekst: "'Manrope Variable', system-ui, sans-serif", promien: '12px', tlo: '#ffffff', tlo2: '#f3f5f7', tekstKolor: '#16191d' },
-  elegancki: { naglowki: "'Playfair Display Variable', Georgia, serif", tekst: "'Inter Variable', system-ui, sans-serif", promien: '4px', tlo: '#fcfaf6', tlo2: '#f3eee4', tekstKolor: '#1f1c18' },
-  mocny: { naglowki: "'Inter Variable', system-ui, sans-serif", tekst: "'Inter Variable', system-ui, sans-serif", promien: '6px', tlo: '#ffffff', tlo2: '#f2f2f2', tekstKolor: '#111111', naglowkiStyl: 'uppercase' },
-  rzemieslniczy: { naglowki: "'DM Serif Display', Georgia, serif", tekst: "'Manrope Variable', system-ui, sans-serif", promien: '10px', tlo: '#faf7f2', tlo2: '#efe9df', tekstKolor: '#1e1d1a' },
-};
+// Warianty wyglądu i gotowe motywy są w motywy.mjs (korzysta z nich też astro.config.mjs).
+export { WYGLADY, MOTYWY, motywyNiszy } from './motywy.mjs';

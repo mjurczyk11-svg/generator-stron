@@ -1,0 +1,16 @@
+/* Połysk: detailing premium. Ciemne tło, szklane karty, błękitna poświata i gradientowe nagłówki. */
+.postep { display: block; background: linear-gradient(90deg, var(--glowny), #b9f0ff); box-shadow: 0 0 12px var(--glowny); }
+.hero h1 { background: linear-gradient(180deg, #fff 30%, color-mix(in srgb, var(--glowny) 55%, #fff)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero--zdjecie .hero-tlo::after { background: radial-gradient(ellipse at 50% 120%, rgb(5 8 12 / .2), rgb(5 8 12 / .82) 70%), linear-gradient(0deg, var(--tlo), transparent 30%); }
+.karta { background: linear-gradient(150deg, color-mix(in srgb, #fff 7%, transparent), color-mix(in srgb, #fff 2%, transparent)); border: 1px solid color-mix(in srgb, #fff 10%, transparent); backdrop-filter: blur(10px); border-radius: 18px; transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+.karta:hover { border-color: color-mix(in srgb, var(--glowny) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--glowny) 30%, transparent), 0 20px 50px -24px var(--glowny); transform: translateY(-3px); }
+.btn-glowny { background: linear-gradient(135deg, var(--glowny), color-mix(in srgb, var(--glowny) 60%, #fff)); color: #04121a; box-shadow: 0 0 0 1px color-mix(in srgb, var(--glowny) 50%, transparent), 0 10px 30px -10px var(--glowny); }
+.btn-glowny:hover { box-shadow: 0 0 0 1px var(--glowny), 0 14px 40px -10px var(--glowny); }
+.ikona-tlo { background: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--glowny) 40%, transparent), transparent 70%); border: 1px solid color-mix(in srgb, var(--glowny) 35%, transparent); border-radius: 50%; }
+.usluga-num { transition: background-color .3s ease; }
+.usluga-num:hover { background: linear-gradient(90deg, color-mix(in srgb, var(--glowny) 10%, transparent), transparent); }
+.usluga-num-nr { color: var(--glowny); }
+.liczby strong { background: linear-gradient(90deg, #fff, var(--glowny)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.galeria button { border-radius: 14px; }
+.o-nas-zdjecie img { border-radius: 18px; box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--glowny) 60%, transparent); }
+.sekcja-glowka h2 { background: linear-gradient(90deg, #fff, color-mix(in srgb, #fff 60%, var(--glowny))); -webkit-background-clip: text; background-clip: text; color: transparent; }

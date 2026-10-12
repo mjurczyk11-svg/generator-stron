@@ -1,0 +1,131 @@
+/* Animacje i przejścia. Działają tylko, gdy <html> ma klasę "anim" (dodaje ją skrypt w Uklad.astro,
+   jeśli użytkownik nie wyłączył animacji w systemie). Styl zależy od motywu: data-animacje = lagodne | mocne | eleganckie. */
+
+:root { --ease-out: cubic-bezier(.16, 1, .3, 1); --ease-miekko: cubic-bezier(.2, .7, .2, 1); }
+
+/* Płynne przejście między podstronami (np. do polityki prywatności i z powrotem). */
+@view-transition { navigation: auto; }
+
+/* ---------- Pojawianie się przy przewijaniu (lista elementów jak w src/lib/animacje.ts) ---------- */
+.anim :is(.sekcja-glowka, .sekcja .karta, .usluga-wiersz, .usluga-num, .osoba, .kroki > li, .galeria > button,
+  .faq details, .o-nas-zdjecie, .o-nas-tekst, .cennik > div, .kontakt-dane, .formularz, .liczby > div,
+  .znaczniki > li, .info-blok > *, .obszar > *, .cta-pas, .uwagi, .opinie-podsumowanie):not(.hero *) {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s var(--ease-miekko), transform .8s var(--ease-miekko), filter .8s var(--ease-miekko), box-shadow .35s ease, border-color .35s ease, background-color .35s ease;
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.anim[data-animacje='mocne'] :is(.sekcja-glowka, .sekcja .karta, .usluga-wiersz, .usluga-num, .osoba, .kroki > li, .galeria > button,
+  .faq details, .o-nas-zdjecie, .o-nas-tekst, .cennik > div, .kontakt-dane, .formularz, .liczby > div,
+  .znaczniki > li, .info-blok > *, .obszar > *, .cta-pas, .uwagi, .opinie-podsumowanie):not(.hero *) {
+  transform: translateY(56px) scale(.97);
+  transition-duration: .75s; transition-timing-function: var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.anim[data-animacje='eleganckie'] :is(.sekcja-glowka, .sekcja .karta, .usluga-wiersz, .usluga-num, .osoba, .kroki > li, .galeria > button,
+  .faq details, .o-nas-zdjecie, .o-nas-tekst, .cennik > div, .kontakt-dane, .formularz, .liczby > div,
+  .znaczniki > li, .info-blok > *, .obszar > *, .cta-pas, .uwagi, .opinie-podsumowanie):not(.hero *) {
+  transform: translateY(18px);
+  filter: blur(8px);
+  transition-duration: 1.15s; transition-timing-function: cubic-bezier(.25, .6, .2, 1);
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+.anim .widoczne:not(.hero *) { opacity: 1 !important; transform: none !important; filter: none !important; }
+
+/* Zdjęcie „O nas”: odsłania się jak kurtyna (mocne) albo powoli przybliża (pozostałe). */
+.anim .o-nas-zdjecie { overflow: hidden; border-radius: calc(var(--r) * 1.4); }
+.anim .o-nas-zdjecie img { transform: scale(1.12); transition: transform 1.8s var(--ease-out); }
+.anim .o-nas-zdjecie.widoczne img { transform: scale(1); }
+.anim[data-animacje='mocne'] .o-nas-zdjecie { clip-path: inset(0 0 100% 0); transform: none; transition: clip-path 1.1s var(--ease-out), opacity .3s; }
+.anim[data-animacje='mocne'] .o-nas-zdjecie.widoczne { clip-path: inset(0 0 0 0); }
+
+/* ---------- Pierwszy ekran: wejście treści i zdjęcia ---------- */
+@keyframes wejscie { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes wejscie-rozmyte { from { opacity: 0; transform: translateY(14px); filter: blur(10px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes przyblizenie { from { transform: scale(1.14); } to { transform: scale(1); } }
+@keyframes pojawienie { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zdjecie-wejscie { from { opacity: 0; transform: translateY(40px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes kurtyna { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+.anim .hero-tresc > *, .anim .hero-liczby { animation: wejscie .9s var(--ease-out) both; }
+.anim .hero-tresc > :nth-child(1) { animation-delay: .1s; }
+.anim .hero-tresc > :nth-child(2) { animation-delay: .2s; }
+.anim .hero-tresc > :nth-child(3) { animation-delay: .32s; }
+.anim .hero-tresc > :nth-child(4) { animation-delay: .44s; }
+.anim .hero-tresc > :nth-child(5) { animation-delay: .56s; }
+.anim .hero-tresc > :nth-child(6) { animation-delay: .68s; }
+.anim .hero-liczby { animation-delay: .7s; }
+.anim[data-animacje='eleganckie'] .hero-tresc > * { animation-name: wejscie-rozmyte; animation-duration: 1.3s; }
+.anim .hero-tlo img { animation: przyblizenie 2.6s var(--ease-out) both; }
+.anim .hero-zdjecie, .anim .hero-kolaz > *, .anim .hero-panorama-zdjecie { animation: zdjecie-wejscie 1.1s var(--ease-out) both; animation-delay: .25s; }
+.anim .hero-kolaz > :nth-child(2) { animation-delay: .4s; }
+.anim .hero-kolaz > :nth-child(3) { animation-delay: .55s; }
+.anim[data-animacje='mocne'] .hero-zdjecie { animation-name: kurtyna; animation-duration: 1.2s; }
+.anim .hero-karta, .anim .hero-plakietka { animation: wejscie .9s var(--ease-out) both; animation-delay: .9s; }
+.anim .hero-godziny { animation: pojawienie 1s ease both; animation-delay: .8s; }
+
+/* Delikatna paralaksa dużego zdjęcia przy przewijaniu (nowe przeglądarki; reszta pokazuje zwykłe zdjęcie). */
+@supports (animation-timeline: scroll()) {
+  @keyframes paralaksa { to { transform: translateY(14%) scale(1.06); } }
+  .anim .hero-tlo { animation: paralaksa linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+}
+
+/* ---------- Najechanie myszką ---------- */
+@media (hover: hover) {
+  .btn .ikona:last-child:not(:first-child) { transition: transform .25s var(--ease-out); }
+  .btn:hover .ikona:last-child:not(:first-child) { transform: translateX(4px); }
+  .sekcja .karta, .osoba, .usluga-num { transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .35s ease, background-color .35s ease, opacity .8s var(--ease-miekko), filter .8s; }
+  .sekcja .karta:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -30px rgb(0 0 0 / .45); }
+  .anim .sekcja .karta.widoczne:hover { transform: translateY(-4px) !important; }
+  .osoba img { transition: transform .8s var(--ease-out); }
+  .osoba:hover img, .usluga-zdjecie:hover img, .realizacja:hover .realizacja-zdjecia img { transform: scale(1.05); }
+  .usluga-zdjecie img, .realizacja-zdjecia img { transition: transform .8s var(--ease-out); }
+  .nav a { position: relative; }
+  .nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--akcent); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease-out); }
+  .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+}
+.osoba { overflow: hidden; }
+.osoba > img, .osoba > .obraz-zastepczy { will-change: transform; }
+
+/* ---------- Menu ---------- */
+.naglowek { transition: background-color .35s ease, box-shadow .35s ease, border-color .35s ease, color .35s ease; }
+.naglowek.przewiniety { box-shadow: 0 10px 30px -18px rgb(0 0 0 / .35); }
+.naglowek-pasek { transition: min-height .3s ease; }
+.naglowek.przewiniety .naglowek-pasek { min-height: 66px; }
+@keyframes menu-wjazd { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+.naglowek.otwarte .menu-mobilne { animation: menu-wjazd .3s var(--ease-out); }
+.naglowek.otwarte .menu-mobilne a { animation: menu-wjazd .4s var(--ease-out) both; }
+.naglowek.otwarte .menu-mobilne a:nth-child(2) { animation-delay: .04s; }
+.naglowek.otwarte .menu-mobilne a:nth-child(3) { animation-delay: .08s; }
+.naglowek.otwarte .menu-mobilne a:nth-child(4) { animation-delay: .12s; }
+.naglowek.otwarte .menu-mobilne a:nth-child(5) { animation-delay: .16s; }
+.naglowek.otwarte .menu-mobilne a:nth-child(6) { animation-delay: .2s; }
+
+/* ---------- Pasek z usługami (przewija się bez końca) ---------- */
+@keyframes przewijanie { to { transform: translateX(-50%); } }
+.pasek-uslug .tasma { animation: przewijanie 38s linear infinite; }
+.pasek-uslug:hover .tasma { animation-play-state: paused; }
+
+/* ---------- Powiększenie zdjęcia z galerii ---------- */
+@keyframes lightbox-wejscie { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+.lightbox[open] { animation: lightbox-wejscie .35s var(--ease-out); }
+.lightbox[open]::backdrop { animation: pojawienie .35s ease; }
+
+/* ---------- Pytania (FAQ): płynne rozwijanie w nowych przeglądarkach ---------- */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .faq details::details-content { height: 0; overflow: clip; transition: height .4s var(--ease-out), content-visibility .4s allow-discrete; }
+  .faq details[open]::details-content { height: auto; }
+}
+
+/* Wskaźnik postępu przewijania (włączany w stylach motywu przez display: block). */
+.postep { display: none; position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--akcent); transform-origin: left; transform: scaleX(0); z-index: 70; pointer-events: none; }
+@supports (animation-timeline: scroll()) {
+  @keyframes postep { to { transform: scaleX(1); } }
+  .postep { animation: postep linear both; animation-timeline: scroll(root); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pasek-uslug .tasma { animation: none; }
+  .anim .hero-tlo { animation: none; }
+}

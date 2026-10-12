@@ -10,7 +10,7 @@ Jedno repozytorium, z którego powstają strony-wizytówki dla wielu firm. Każd
 | `warsztat` | mechanicy, wulkanizacja, blacharstwo | Umów wizytę | marka, model, rok, opis, zdjęcia |
 | `remonty` | remonty, łazienki, instalatorzy | Bezpłatna wycena | rodzaj prac, miejscowość, zakres, zdjęcia |
 
-Wygląd zmieniasz polem `wyglad` (`spokojny`, `czysty`, `elegancki`, `mocny`, `rzemieslniczy`) i kolorami w `kolory`. Kolejność i zestaw sekcji ustawia pole `sekcje` (domyślnie zależy od szablonu). Sekcja bez treści sama znika.
+Najprościej wybrać gotowy motyw polem `motyw` (gabinet: `aura`, `klinika`, `perla`, `ruch`, `harmonia`; warsztat: `turbo`, `garaz`, `serwis`, `polysk`, `sasiad`; remonty: `fundament`, `beton`, `studio`, `energia`, `fach`). Każdy ma stronę pokazową pod `/demo-<nisza>-<motyw>/`. Wygląd możesz też zmieniać polem `wyglad` (`spokojny`, `czysty`, `elegancki`, `mocny`, `rzemieslniczy`) i kolorami w `kolory`. Kolejność i zestaw sekcji ustawia pole `sekcje` (domyślnie zależy od szablonu). Sekcja bez treści sama znika.
 
 Przykłady (zmyślone firmy): `klienci/przyklad-gabinet`, `klienci/przyklad-warsztat`, `klienci/przyklad-remonty`. Plik `przyklad-gabinet/strona.yaml` ma opis każdego pola.
 
@@ -46,6 +46,7 @@ Wszystkie pola w formularzach (Sveltia CMS) są pod `/admin/formularze/`. Pola o
 ```
 npm install                                   # raz, na początku
 npm run nowy -- nazwa-klienta gabinet         # nowy klient z przykładu niszy
+npm run nowy -- nazwa-klienta gabinet aura    # nowy klient ze strony pokazowej motywu
 npm run sprawdz                               # sprawdza pliki klientów i wypisuje, co poprawić
 npm run porzadkuj                             # zapisuje pliki klientów w postaci zgodnej z panelem
 npm run build                                 # buduje podgląd wszystkich klientów: dist/<klient>/

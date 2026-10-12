@@ -1,0 +1,16 @@
+/* Harmonia: ciepła, spokojna pracownia. Łukowe kształty zdjęć, ziemiste kolory, kursywa w etykietach. */
+.hero--podzielony .hero-zdjecie img, .hero--podzielony .hero-zdjecie::before { border-radius: 999px 999px 24px 24px; }
+.hero--podzielony .hero-zdjecie::before { inset: 22px -22px -22px 22px; background: color-mix(in srgb, var(--akcent) 30%, transparent); }
+.o-nas-zdjecie img { border-radius: 999px 999px 20px 20px; }
+.osoba img { border-radius: 999px 999px 18px 18px; aspect-ratio: 3 / 4; }
+.etykieta { font-family: var(--font-h); font-style: italic; text-transform: none; letter-spacing: .01em; font-size: 1.05rem; font-weight: 500; }
+.etykieta::before { width: 22px; height: 1px; }
+h1, h2 { font-weight: 500; }
+.karta { background: color-mix(in srgb, var(--akcent) 6%, var(--tlo)); border-color: color-mix(in srgb, var(--akcent) 22%, transparent); border-radius: 20px; }
+.usluga-wiersz { transition: background-color .3s ease; border-radius: 18px; }
+.usluga-wiersz:hover { background: color-mix(in srgb, var(--akcent) 10%, transparent); }
+.ikona-tlo { border-radius: 50% 50% 50% 8px; }
+.galeria button { border-radius: 18px; }
+.galeria > :first-child { border-radius: 999px 999px 18px 18px; }
+.kroki li::before { font-style: italic; font-weight: 500; }
+.opinia blockquote { font-family: var(--font-h); font-size: 1.15rem; line-height: 1.5; }

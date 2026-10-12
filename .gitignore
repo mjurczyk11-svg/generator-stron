@@ -4,3 +4,4 @@ dist/
 .netlify/
 .vercel/
 .DS_Store
+podglad/

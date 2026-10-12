@@ -5,6 +5,7 @@ import { czat, nowaStrona, wczytajKlucz, zapiszKlucz, bladApi } from './ai.js';
 import { uporzadkuj } from '../porzadek.mjs';
 import { SEKCJE } from '../pola.mjs';
 import { SZABLONY } from '../../src/lib/szablony.ts';
+import { MOTYWY, motywyNiszy } from '../../src/lib/motywy.mjs';
 
 const $ = (s) => document.querySelector(s);
 const el = (tag, atrybuty = {}, ...dzieci) => {
@@ -597,6 +598,25 @@ $('#form-czat').addEventListener('submit', async (e) => {
 const WYGLADY = [
   ['spokojny', 'Spokojny'], ['czysty', 'Czysty'], ['elegancki', 'Elegancki'], ['mocny', 'Mocny'], ['rzemieslniczy', 'Rzemieślniczy'],
 ];
+const UKLADY_HERO = [
+  ['zdjecie', 'Duże zdjęcie'], ['srodek', 'Duże zdjęcie, tekst na środku'], ['podzielony', 'Tekst obok zdjęcia'],
+  ['panorama', 'Szerokie zdjęcie pod tekstem'], ['kolaz', 'Kolaż 3 zdjęć'], ['prosty', 'Bez zdjęcia'],
+];
+
+// Nowy motyw: usuwamy własne ustawienia wyglądu, żeby strona wyglądała jak w motywie.
+function wybierzMotyw(id) {
+  zapamietaj();
+  if (id) stan.dane.motyw = id;
+  else delete stan.dane.motyw;
+  for (const k of ['wyglad', 'kolory', 'wyglad_przyciski']) delete stan.dane[k];
+  if (stan.dane.hero) delete stan.dane.hero.uklad;
+  if (stan.dane.uslugi && typeof stan.dane.uslugi === 'object') delete stan.dane.uslugi.styl;
+  stan.dane = uporzadkuj(stan.dane);
+  porzucPustaZmiane();
+  odswiezPodglad();
+  zbudujUstawienia();
+}
+
 const DNI = [['pon', 'Poniedziałek'], ['wt', 'Wtorek'], ['sr', 'Środa'], ['czw', 'Czwartek'], ['pt', 'Piątek'], ['sob', 'Sobota'], ['nd', 'Niedziela']];
 
 function zmien(sciezka, wartosc) {
@@ -634,14 +654,19 @@ function zbudujUstawienia() {
         el('button', { type: 'button', class: 'btn maly', disabled: i === kolejnosc.length - 1, 'aria-label': 'Niżej', onclick: () => { const l = [...kolejnosc]; [l[i + 1], l[i]] = [l[i], l[i + 1]]; zapiszSekcje(l); zbudujUstawienia(); } }, '↓')) : null);
   }));
 
+  const motyw = MOTYWY[d.motyw];
+  const kolory = { ...szablon.kolory, ...(motyw?.kolory ?? {}) };
   $('#ustawienia').replaceChildren(
     el('p', { class: 'drobne' }, 'Teksty zmieniasz, klikając je na podglądzie albo pisząc do asystenta. Zmiany wyglądu i sekcji zobaczysz w pełni po zapisaniu.'),
-    grupa('Styl', kafle('u-wyglad', WYGLADY, d.wyglad ?? szablon.wyglad, (v) => zmien('wyglad', v))),
+    grupa('Motyw', el('p', { class: 'drobne' }, 'Gotowy wygląd: czcionki, kolory, układ i animacje. Wybór motywu przywraca jego kolory i układ.'),
+      kafle('u-motyw', [['', 'Bez motywu'], ...motywyNiszy(d.szablon ?? 'gabinet')], d.motyw ?? '', (v) => wybierzMotyw(v)),
+      motyw ? el('p', { class: 'drobne' }, motyw.opis) : null),
+    grupa('Styl', kafle('u-wyglad', motyw ? [['', 'Jak w motywie'], ...WYGLADY] : WYGLADY, d.wyglad ?? (motyw ? '' : szablon.wyglad), (v) => zmien('wyglad', v))),
     grupa('Kolory',
       el('div', { class: 'dwa' },
-        el('label', {}, 'Główny', el('input', { type: 'color', value: d.kolory?.glowny ?? szablon.kolory.glowny, oninput: (e) => { ustaw(stan.dane, 'kolory.glowny', e.target.value); odswiezPodglad(); odswiezPrzyciski(); }, onfocus: zapamietaj })),
-        el('label', {}, 'Dodatkowy', el('input', { type: 'color', value: d.kolory?.akcent ?? szablon.kolory.akcent, oninput: (e) => { ustaw(stan.dane, 'kolory.akcent', e.target.value); odswiezPodglad(); odswiezPrzyciski(); }, onfocus: zapamietaj })))),
-    grupa('Góra strony', kafle('u-hero', [['zdjecie', 'Duże zdjęcie'], ['podzielony', 'Tekst obok zdjęcia'], ['prosty', 'Bez zdjęcia']], d.hero?.uklad ?? szablon.hero, (v) => zmien('hero.uklad', v))),
+        el('label', {}, 'Główny', el('input', { type: 'color', value: d.kolory?.glowny ?? kolory.glowny, oninput: (e) => { ustaw(stan.dane, 'kolory.glowny', e.target.value); odswiezPodglad(); odswiezPrzyciski(); }, onfocus: zapamietaj })),
+        el('label', {}, 'Dodatkowy', el('input', { type: 'color', value: d.kolory?.akcent ?? kolory.akcent, oninput: (e) => { ustaw(stan.dane, 'kolory.akcent', e.target.value); odswiezPodglad(); odswiezPrzyciski(); }, onfocus: zapamietaj })))),
+    grupa('Góra strony', kafle('u-hero', [...(motyw ? [['', 'Jak w motywie']] : []), ...UKLADY_HERO], d.hero?.uklad ?? (motyw ? '' : szablon.hero), (v) => zmien('hero.uklad', v))),
     grupa('Przyciski', kafle('u-przyciski', [['', 'Jak w stylu'], ['okragle', 'Zaokrąglone']], d.wyglad_przyciski ?? '', (v) => zmien('wyglad_przyciski', v))),
     grupa('Języki', el('label', { class: 'obok' }, el('input', { type: 'checkbox', checked: (d.jezyki ?? ['pl']).includes('en'), onchange: (e) => { zmien('jezyki', e.target.checked ? ['pl', 'en'] : ['pl']); pokazJezyk(); } }), 'Wersja angielska (teksty EN dopisze asystent, jeśli go poprosisz)')),
     grupa('Sekcje na stronie', el('p', { class: 'drobne' }, 'Odznacz, żeby ukryć sekcję. Strzałki zmieniają kolejność. Sekcja bez treści się nie pokaże.'), sekcje),
@@ -666,9 +691,21 @@ $('#form-nowa').elements.nazwa.addEventListener('input', (e) => {
 });
 $('#form-nowa').elements.slug.addEventListener('input', () => (slugRecznie = true));
 
+// Motywy do wyboru zależą od rodzaju firmy. Domyślnie zaznaczony jest pierwszy motyw.
+function pokazMotywyNowej() {
+  const nisza = $('#form-nowa').elements.szablon.value;
+  $('#nowa-motywy').replaceChildren(
+    el('legend', {}, 'Motyw (gotowy wygląd)'),
+    ...[...motywyNiszy(nisza), ['', 'Bez motywu']].map(([v, l], i) =>
+      el('label', { title: MOTYWY[v]?.opis ?? '' }, el('input', { type: 'radio', name: 'motyw', value: v, checked: i === 0 }), el('span', {}, l))),
+  );
+}
+for (const r of $('#form-nowa').querySelectorAll('[name="szablon"]')) r.addEventListener('change', pokazMotywyNowej);
+
 $('#przycisk-nowa').addEventListener('click', () => {
   if (maZmiany() && !confirm('Masz niezapisane zmiany na obecnej stronie. Mimo to zacząć nową?')) return;
   $('#form-nowa').reset();
+  pokazMotywyNowej();
   slugRecznie = false;
   $('#blad-nowa').hidden = true;
   $('#okno-nowa').showModal();
@@ -696,7 +733,10 @@ $('#form-nowa').addEventListener('submit', async (e) => {
     status('Przygotowuję zdjęcia…');
     const zdjecia = [];
     for (const [i, plik] of [...f.zdjecia.files].entries()) zdjecia.push(await przygotujZdjecie(plik, i === 0 ? 'hero.jpg' : `zdjecie-${i}.jpg`));
-    const wzor = (await stan.gh.plik(`klienci/przyklad-${f.szablon.value}/strona.yaml`))?.tekst ?? '';
+    const motyw = f.motyw?.value || '';
+    // Wzorem jest strona pokazowa wybranego motywu (ma dobraną kolejność sekcji), a bez motywu przykład szablonu.
+    const wzor = (motyw && (await stan.gh.plik(`klienci/demo-${f.szablon.value}-${motyw}/strona.yaml`))?.tekst)
+      || ((await stan.gh.plik(`klienci/przyklad-${f.szablon.value}/strona.yaml`))?.tekst ?? '');
     const formularz = {
       nazwa: f.nazwa.value.trim(),
       szablon: f.szablon.value,
@@ -715,6 +755,8 @@ $('#form-nowa').addEventListener('submit', async (e) => {
     const dane = wczytajYaml(wynik.yaml);
     // Dane z formularza mają pierwszeństwo przed tym, co napisał asystent.
     Object.assign(dane, { szablon: formularz.szablon, jezyki: formularz.jezyki });
+    if (motyw) dane.motyw = motyw;
+    else delete dane.motyw;
     if (formularz.wyglad) dane.wyglad = formularz.wyglad;
     if (formularz.kolor) dane.kolory = { ...dane.kolory, glowny: formularz.kolor };
     ustaw(dane, 'firma.nazwa', formularz.nazwa);

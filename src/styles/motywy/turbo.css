@@ -1,0 +1,23 @@
+/* Turbo: ciemny, agresywny warsztat. Skośne cięcia, czerwone akcenty, ścięte przyciski. */
+.postep { display: block; height: 3px; background: var(--glowny); }
+.hero--zdjecie { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 0 100%); }
+.hero--zdjecie .hero-tlo::after { background: linear-gradient(100deg, rgb(8 8 10 / .92) 0%, rgb(8 8 10 / .7) 45%, rgb(8 8 10 / .25) 100%), linear-gradient(0deg, rgb(8 8 10 / .7), transparent 45%); }
+.hero-godziny { padding-bottom: 56px; }
+.btn { border-radius: 0; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); padding-inline: 32px; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; }
+.btn-glowny { box-shadow: none; }
+.btn-glowny:hover { background: color-mix(in srgb, var(--glowny) 85%, #fff); }
+.etykieta { color: var(--glowny); }
+.etykieta::before { width: 18px; height: 4px; background: var(--glowny); transform: skewX(-30deg); }
+.karta { position: relative; border-radius: 0; border-color: color-mix(in srgb, #fff 9%, transparent); background: linear-gradient(160deg, color-mix(in srgb, #fff 5%, transparent), transparent 60%), var(--tlo2); }
+.karta::before { content: ''; position: absolute; inset: 0 auto auto 0; width: 44px; height: 3px; background: var(--glowny); transition: width .4s ease; }
+.karta:hover::before { width: 100%; }
+.ikona-tlo { border-radius: 0; background: color-mix(in srgb, var(--glowny) 18%, transparent); color: var(--glowny); clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%); }
+.usluga-cena { color: var(--glowny); font-weight: 800; }
+.liczby strong { color: var(--glowny); }
+.znaczniki span, .znaczniki li { border-radius: 0; }
+.galeria button { border-radius: 0; }
+.galeria img { filter: grayscale(.35) contrast(1.05); transition: transform .4s ease, filter .4s ease; }
+.galeria button:hover img { filter: none; }
+.osoba img, .o-nas-zdjecie img { border-radius: 0; }
+.o-nas-zdjecie { position: relative; }
+.o-nas-zdjecie::after { content: ''; position: absolute; right: -14px; bottom: -14px; width: 40%; height: 40%; border-right: 4px solid var(--glowny); border-bottom: 4px solid var(--glowny); pointer-events: none; }

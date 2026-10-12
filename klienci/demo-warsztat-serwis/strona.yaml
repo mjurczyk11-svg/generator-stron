@@ -1,0 +1,265 @@
+# Strona pokazowa motywu "Serwis" (warsztat). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: warsztat
+motyw: serwis
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - o-nas
+  - dlaczego-my
+  - cennik
+  - marki
+  - galeria
+  - opinie
+  - faq
+  - kontakt
+firma:
+  nazwa: AutoSerwis Centrum
+  nazwa_prawna: AutoSerwis Centrum Sp. z o.o.
+  branza:
+    pl: Serwis samochodowy
+  typ_schema: AutoRepair
+  opis:
+    pl: Niezależny serwis samochodowy w Kielcach. Przeglądy okresowe z zachowaniem gwarancji producenta, mechanika, klimatyzacja i naprawy silników.
+seo:
+  tytul:
+    pl: Serwis samochodowy Kielce – AutoSerwis Centrum, przeglądy i naprawy
+kontakt:
+  telefon: +48 500 250 900
+  email: obsluga@autoserwis-centrum.pl
+  adres:
+    ulica: ul. Krakowska 315
+    kod: 25-801
+    miasto: Kielce
+  dojazd:
+    pl: Parking na 20 aut przy wjeździe. Poczekalnia z kawą i Wi-Fi.
+  social:
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 7:00-19:00
+  wt: 7:00-19:00
+  sr: 7:00-19:00
+  czw: 7:00-19:00
+  pt: 7:00-19:00
+  sob: 8:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Niezależny serwis · Kielce
+  tytul:
+    pl: Serwis samochodowy w Kielcach z przeglądami na gwarancji
+  podtytul:
+    pl: Przeglądy według książki serwisowej bez utraty gwarancji producenta. Osiem stanowisk, auto zastępcze i odbiór auta spod domu.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Mechanik w kombinezonie stoi przy silniku na stojaku
+wyrozniki:
+  - ikona: book-check
+    tekst:
+      pl: Wpis do książki serwisowej
+  - ikona: car-front
+    tekst:
+      pl: Auto zastępcze
+  - ikona: coffee
+    tekst:
+      pl: Poczekalnia z Wi-Fi
+uslugi:
+  naglowek:
+    pl: Pełna obsługa samochodu
+  wstep:
+    pl: Wszystko w jednym miejscu, od przeglądu po naprawę silnika.
+  lista:
+    - nazwa:
+        pl: Przeglądy okresowe
+      opis:
+        pl: Według zaleceń producenta, z wpisem do książki i zachowaniem gwarancji.
+      ikona: clipboard-check
+    - nazwa:
+        pl: Mechanika i silniki
+      opis:
+        pl: Naprawy silników, rozrządy, uszczelki głowicy.
+      ikona: cog
+    - nazwa:
+        pl: Diagnostyka
+      opis:
+        pl: Testery fabryczne i diagnostyka elektroniki.
+      ikona: laptop
+    - nazwa:
+        pl: Klimatyzacja
+      opis:
+        pl: Serwis, odgrzybianie ozonem, szukanie nieszczelności.
+      ikona: snowflake
+    - nazwa:
+        pl: Hamulce i zawieszenie
+      opis:
+        pl: Kompleksowo, z kontrolą na stacji diagnostycznej.
+      ikona: disc
+    - nazwa:
+        pl: Odbiór i dowóz auta
+      opis:
+        pl: Odbierzemy auto spod domu lub pracy w Kielcach.
+      ikona: truck
+o_nas:
+  naglowek:
+    pl: Standard serwisu autoryzowanego, ceny niezależnego warsztatu
+  tekst:
+    pl: |
+      AutoSerwis Centrum działa od 2005 roku. Mamy osiem stanowisk, testery fabryczne i zespół mechaników, którzy regularnie przechodzą szkolenia producentów części.
+
+      Przeglądy robimy według książki serwisowej, na częściach o jakości oryginalnej. Dzięki temu gwarancja producenta auta pozostaje ważna.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Kierownik serwisu w kombinezonie roboczym
+  liczby:
+    - wartosc: '8'
+      opis:
+        pl: stanowisk
+    - wartosc: '12'
+      opis:
+        pl: mechaników
+    - wartosc: '19'
+      opis:
+        pl: lat doświadczenia
+dlaczego_my:
+  naglowek:
+    pl: Co zyskujesz
+  lista:
+    - ikona: shield-check
+      tytul:
+        pl: Gwarancja zachowana
+      opis:
+        pl: Przegląd u nas nie narusza gwarancji producenta auta.
+    - ikona: receipt-text
+      tytul:
+        pl: Kosztorys przed naprawą
+      opis:
+        pl: Każdą dodatkową pracę konsultujemy telefonicznie.
+    - ikona: car-front
+      tytul:
+        pl: Auto zastępcze
+      opis:
+        pl: Przy naprawach dłuższych niż jeden dzień.
+    - ikona: calendar-check
+      tytul:
+        pl: Termin w 48 godzin
+      opis:
+        pl: Na przegląd zwykle czekasz nie dłużej niż dwa dni.
+    - ikona: building-2
+      tytul:
+        pl: Obsługa firm
+      opis:
+        pl: Floty, leasingi i faktury zbiorcze.
+    - ikona: smartphone
+      tytul:
+        pl: Status naprawy SMS-em
+      opis:
+        pl: Wiesz, kiedy auto będzie gotowe do odbioru.
+cennik:
+  wstep:
+    pl: Ceny robocizny brutto. Części wyceniamy osobno.
+  kategorie:
+    - nazwa:
+        pl: Przeglądy
+      pozycje:
+        - nazwa:
+            pl: Przegląd okresowy z wymianą oleju
+          cena: 220
+        - nazwa:
+            pl: Przegląd przed zakupem auta
+          cena: 199
+    - nazwa:
+        pl: Naprawy
+      pozycje:
+        - nazwa:
+            pl: Serwis klimatyzacji
+          cena: 249
+        - nazwa:
+            pl: Wymiana klocków (oś)
+          cena: 120
+        - nazwa:
+            pl: Wymiana rozrządu
+          cena: 650
+        - nazwa:
+            pl: Diagnostyka komputerowa
+          cena: 100
+  uwaga:
+    pl: Dokładny kosztorys dostajesz przed rozpoczęciem pracy.
+marki:
+  naglowek:
+    pl: Obsługujemy
+  lista:
+    - Audi
+    - BMW
+    - Ford
+    - Hyundai
+    - Kia
+    - Mercedes-Benz
+    - Nissan
+    - Opel
+    - Peugeot
+    - Renault
+    - Škoda
+    - Toyota
+    - Volkswagen
+    - Volvo
+  uwaga:
+    pl: Auta osobowe i dostawcze do 3,5 t, także hybrydy.
+galeria:
+  naglowek:
+    pl: Nasz serwis
+  lista:
+    - plik: warsztat-6.jpg
+      opis:
+        pl: Hala serwisowa
+    - plik: warsztat-1.jpg
+      opis:
+        pl: Stanowisko z podnośnikiem
+    - plik: warsztat-4.jpg
+      opis:
+        pl: Naprawa głowicy
+    - plik: warsztat-5.jpg
+      opis:
+        pl: Kontrola podwozia
+    - plik: warsztat-3.jpg
+      opis:
+        pl: Praca na podnośniku
+    - plik: warsztat-2.jpg
+      opis:
+        pl: Stanowisko nr 4
+opinie:
+  ocena: 4.8
+  liczba: 594
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Anna S.
+      tekst:
+        pl: Przegląd na gwarancji o połowę taniej niż w ASO, z wpisem do książki. Auto odebrane spod domu.
+    - autor: Piotr K.
+      tekst:
+        pl: Profesjonalnie jak w salonie. Dostałem SMS, że auto gotowe, i kosztorys zgodny z fakturą.
+    - autor: Flota BudMax
+      tekst:
+        pl: Obsługują nasze 30 aut. Szybkie terminy i jedna faktura na koniec miesiąca.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy przegląd u was nie zerwie gwarancji?
+      odpowiedz:
+        pl: Nie. Prawo UE pozwala serwisować auto na gwarancji w niezależnym serwisie, jeśli przegląd jest zgodny z zaleceniami producenta.
+    - pytanie:
+        pl: Czy mogę poczekać na auto?
+      odpowiedz:
+        pl: Przy przeglądzie i wymianie oleju tak. Mamy poczekalnię z kawą i Wi-Fi.
+    - pytanie:
+        pl: Czy odbieracie auto z domu?
+      odpowiedz:
+        pl: Tak, na terenie Kielc odbiór i dowóz są bezpłatne przy przeglądzie.
+    - pytanie:
+        pl: Czy obsługujecie hybrydy?
+      odpowiedz:
+        pl: Tak. Mamy uprawnienia do pracy przy instalacjach wysokiego napięcia.
+formularz:
+  typ: warsztat
+  dostawca: netlify

@@ -1,0 +1,20 @@
+/* Studio: łazienki premium. Granat i mosiądz, cienkie złote linie, eleganckie ramki zdjęć. */
+.etykieta { color: var(--akcent); letter-spacing: .24em; font-weight: 600; font-size: .74rem; }
+.etykieta::before { height: 1px; width: 40px; }
+h1, h2 { font-weight: 500; }
+.btn { border-radius: 0; letter-spacing: .1em; text-transform: uppercase; font-size: .82rem; }
+.hero-kolaz img { border-radius: 0; }
+.hero-kolaz .kolaz-1 { position: relative; }
+.hero-kolaz .kolaz-1::after { content: ''; position: absolute; inset: 14px; border: 1px solid color-mix(in srgb, #fff 70%, transparent); pointer-events: none; }
+.karta { border-radius: 0; border-color: color-mix(in srgb, var(--akcent) 30%, transparent); }
+.usluga-zdjecie { overflow: hidden; }
+.usluga-zdjecie img { transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .6s ease; filter: saturate(.85); }
+.usluga-zdjecie:hover img { transform: scale(1.05); filter: none; }
+.usluga-zdjecie .tresc { border-top: 1px solid var(--akcent); }
+.ikona-tlo { border-radius: 0; background: none; border: 1px solid var(--akcent); color: var(--akcent); }
+.kroki li::before { font-weight: 500; color: var(--akcent); }
+.kroki li::after { background: color-mix(in srgb, var(--akcent) 45%, transparent); }
+.galeria button, .realizacja-zdjecia img, .realizacja { border-radius: 0; }
+.opinia blockquote { font-family: var(--font-h); font-size: 1.15rem; font-style: italic; }
+.sekcja-glowka h2::after { content: ''; display: block; width: 48px; height: 1px; background: var(--akcent); margin-top: 20px; }
+.sekcja-glowka.srodek h2::after { margin-inline: auto; }

@@ -1,0 +1,251 @@
+# Strona pokazowa motywu "Aura" (gabinet). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: gabinet
+motyw: aura
+jezyki:
+  - pl
+firma:
+  nazwa: Lumi Dental
+  nazwa_prawna: Lumi Dental Gabinet Stomatologiczny lek. dent. Joanna Pawlak
+  branza:
+    pl: Gabinet stomatologiczny
+  typ_schema: Dentist
+  opis:
+    pl: Rodzinny gabinet stomatologiczny w Lublinie. Leczenie zachowawcze, kanałowe, protetyka, higienizacja i stomatologia dziecięca.
+seo:
+  tytul:
+    pl: Dentysta Lublin – Lumi Dental, gabinet stomatologiczny
+kontakt:
+  telefon: +48 500 120 340
+  email: rejestracja@lumidental.pl
+  adres:
+    ulica: ul. Narutowicza 21
+    kod: 20-016
+    miasto: Lublin
+  dojazd:
+    pl: Wejście od podwórza, dzwonek „Lumi”. Płatny parking przy ulicy, 4 minuty pieszo od przystanku „Plac Wolności”.
+  dostepnosc:
+    pl: Gabinet na parterze, bez schodów. Toaleta przystosowana dla osób z niepełnosprawnościami.
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+godziny:
+  pon: 9:00-19:00
+  wt: 9:00-19:00
+  sr: 9:00-19:00
+  czw: 9:00-19:00
+  pt: 9:00-15:00
+  sob: zamknięte
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Gabinet stomatologiczny · Lublin
+  tytul:
+    pl: Spokojna stomatologia dla całej rodziny w Lublinie
+  podtytul:
+    pl: Leczymy dorosłych i dzieci. Każdą wizytę zaczynamy od rozmowy, a plan leczenia i koszty omawiamy, zanim cokolwiek zaczniemy.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Lekarka rozmawia z pacjentką na fotelu stomatologicznym
+wyrozniki:
+  - ikona: heart-handshake
+    tekst:
+      pl: Leczenie bez pośpiechu
+  - ikona: baby
+    tekst:
+      pl: Przyjmujemy dzieci od 3 lat
+  - ikona: credit-card
+    tekst:
+      pl: Karta, BLIK, raty 0%
+uslugi:
+  naglowek:
+    pl: Zakres leczenia
+  wstep:
+    pl: Wszystkie zabiegi wykonujemy na miejscu, w dwóch gabinetach z cyfrowym RTG.
+  lista:
+    - nazwa:
+        pl: Przegląd i plan leczenia
+      opis:
+        pl: Badanie, zdjęcie RTG i pisemny plan z kosztami.
+      ikona: clipboard-list
+    - nazwa:
+        pl: Leczenie zachowawcze
+      opis:
+        pl: Wypełnienia w kolorze zęba, leczenie nadwrażliwości.
+      ikona: zab
+    - nazwa:
+        pl: Leczenie kanałowe
+      opis:
+        pl: Pod mikroskopem, zwykle na jednej lub dwóch wizytach.
+      ikona: microscope
+    - nazwa:
+        pl: Higienizacja
+      opis:
+        pl: Skaling, piaskowanie i instruktaż szczotkowania.
+      ikona: sparkles
+    - nazwa:
+        pl: Protetyka
+      opis:
+        pl: Korony, mosty i protezy z pracowni w Lublinie.
+      ikona: layers
+    - nazwa:
+        pl: Stomatologia dziecięca
+      opis:
+        pl: Wizyty adaptacyjne, lakowanie i leczenie zębów mlecznych.
+      ikona: baby
+o_nas:
+  naglowek:
+    pl: Mały gabinet, w którym pacjent zna lekarza
+  tekst:
+    pl: |
+      Lumi Dental prowadzimy od 2012 roku. Przyjmuje u nas troje lekarzy i higienistka, więc na kolejnej wizycie spotkasz te same osoby.
+
+      Przed leczeniem pokazujemy zdjęcia RTG i tłumaczymy możliwe rozwiązania. Dostajesz plan leczenia na piśmie, a decyzja zawsze należy do Ciebie.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Lekarka pokazuje pacjentce zdjęcie RTG
+  liczby:
+    - wartosc: '12'
+      opis:
+        pl: lat w Lublinie
+    - wartosc: '3'
+      opis:
+        pl: lekarzy i higienistka
+    - wartosc: 2 400
+      opis:
+        pl: pacjentów w kartotece
+zespol:
+  naglowek:
+    pl: Kto Cię przyjmie
+  lista:
+    - imie: lek. dent. Joanna Pawlak
+      rola:
+        pl: Właścicielka, endodoncja
+      opis:
+        pl: Leczenie kanałowe pod mikroskopem i leczenie zachowawcze.
+      zdjecie: osoba-1.jpg
+    - imie: lek. dent. Adam Wrona
+      rola:
+        pl: Protetyka
+      opis:
+        pl: Korony, mosty i odbudowy zębów po leczeniu kanałowym.
+      zdjecie: osoba-2.jpg
+    - imie: lek. dent. Marta Kuś
+      rola:
+        pl: Stomatologia dziecięca
+      opis:
+        pl: Przyjmuje dzieci od 3. roku życia i prowadzi wizyty adaptacyjne.
+      zdjecie: osoba-3.jpg
+pierwsza_wizyta:
+  naglowek:
+    pl: Jak wygląda pierwsza wizyta
+  kroki:
+    - tytul:
+        pl: Rozmowa
+      opis:
+        pl: Pytamy o dolegliwości, przyjmowane leki i wcześniejsze leczenie.
+    - tytul:
+        pl: Badanie i RTG
+      opis:
+        pl: Oglądamy zęby i w razie potrzeby robimy zdjęcie na miejscu.
+    - tytul:
+        pl: Plan na piśmie
+      opis:
+        pl: Dostajesz plan leczenia z kosztem każdego etapu.
+    - tytul:
+        pl: Kolejne terminy
+      opis:
+        pl: Umawiamy wizyty w godzinach, które Ci pasują.
+  uwagi:
+    pl: 'Zabierz ze sobą: dowód osobisty, listę leków i ostatnie zdjęcia RTG, jeśli je masz. Pierwsza wizyta trwa około 40 minut.'
+cennik:
+  wstep:
+    pl: Ceny orientacyjne. Dokładny koszt podajemy po badaniu.
+  kategorie:
+    - nazwa:
+        pl: Diagnostyka i profilaktyka
+      pozycje:
+        - nazwa:
+            pl: Przegląd z planem leczenia
+          cena: 150
+        - nazwa:
+            pl: Zdjęcie RTG punktowe
+          cena: 40
+        - nazwa:
+            pl: Higienizacja (skaling i piaskowanie)
+          cena: 280
+    - nazwa:
+        pl: Leczenie
+      pozycje:
+        - nazwa:
+            pl: Wypełnienie kompozytowe
+          cena: 250
+        - nazwa:
+            pl: Leczenie kanałowe pod mikroskopem
+          cena: 900
+        - nazwa:
+            pl: Korona pełnoceramiczna
+          cena: 1800
+  uwaga:
+    pl: Płatność gotówką, kartą, BLIK-iem lub w ratach 0%.
+galeria:
+  naglowek:
+    pl: Tak wygląda nasz gabinet
+  lista:
+    - plik: gabinet-1.jpg
+      opis:
+        pl: Gabinet zabiegowy
+    - plik: gabinet-2.jpg
+      opis:
+        pl: Omówienie planu leczenia
+    - plik: gabinet-3.jpg
+      opis:
+        pl: Cyfrowe zdjęcia RTG
+    - plik: gabinet-4.jpg
+      opis:
+        pl: Drugi gabinet
+opinie:
+  ocena: 4.9
+  liczba: 214
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Katarzyna M.
+      tekst:
+        pl: Pierwszy raz od lat poszłam do dentysty bez stresu. Pani doktor wszystko spokojnie wytłumaczyła.
+    - autor: Paweł S.
+      tekst:
+        pl: Leczenie kanałowe na dwóch wizytach, bez bólu. Dostałem plan i ceny na kartce, bez niespodzianek.
+    - autor: Agnieszka W.
+      tekst:
+        pl: Chodzimy tu z dwójką dzieci. Bardzo cierpliwe podejście do maluchów.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy przyjmujecie dzieci?
+      odpowiedz:
+        pl: Tak, od 3. roku życia. Pierwsza wizyta dziecka jest wizytą adaptacyjną, bez leczenia.
+    - pytanie:
+        pl: Czy leczenie jest bolesne?
+      odpowiedz:
+        pl: Zabiegi wykonujemy w znieczuleniu miejscowym. Jeśli boisz się wizyty, powiedz nam o tym przy zapisie.
+    - pytanie:
+        pl: Jak mogę zapłacić?
+      odpowiedz:
+        pl: Gotówką, kartą, BLIK-iem albo w ratach 0%.
+    - pytanie:
+        pl: Co zrobić, gdy boli ząb?
+      odpowiedz:
+        pl: Zadzwoń rano. Codziennie zostawiamy wolne terminy dla osób z bólem.
+rezerwacja:
+  typ: link
+  url: https://www.znanylekarz.pl/
+  naglowek:
+    pl: Umów wizytę przez internet
+  wstep:
+    pl: Wolne terminy sprawdzisz w serwisie ZnanyLekarz. Możesz też zadzwonić do rejestracji.
+  przycisk:
+    pl: Zarezerwuj w ZnanyLekarz
+formularz:
+  typ: termin
+  dostawca: netlify

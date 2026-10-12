@@ -1,0 +1,15 @@
+/* Ruch: dynamiczna fizjoterapia. Mocne, zwarte nagłówki, akcent w kolorze limonki, skośne detale. */
+h1 { letter-spacing: -0.035em; }
+h2 { letter-spacing: -0.03em; }
+.etykieta { background: var(--akcent); color: var(--na-akcencie); padding: 5px 12px 5px 10px; clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.etykieta::before { display: none; }
+.hero--podzielony .hero-zdjecie img { clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%); border-radius: 0; }
+.hero--podzielony .hero-zdjecie::before { background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--glowny) 22%, transparent) 0 2px, transparent 2px 12px); border-radius: 0; }
+.karta { border-width: 0 0 0 4px; border-color: var(--akcent); border-radius: 6px; background: var(--tlo2); }
+.sekcja[data-tlo='alt'] .karta { background: var(--tlo); }
+.usluga-kafel { transition: transform .25s ease, background-color .25s ease; }
+.usluga-kafel:hover { transform: translateX(4px); background: color-mix(in srgb, var(--akcent) 22%, var(--tlo)); }
+.ikona-tlo { background: var(--glowny); color: var(--na-glownym); border-radius: 10px; }
+.btn { text-transform: uppercase; letter-spacing: .06em; font-size: .9rem; font-weight: 800; }
+.liczby strong { font-weight: 800; }
+.osoba img { border-radius: 4px; }

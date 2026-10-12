@@ -1,0 +1,272 @@
+# Strona pokazowa motywu "Beton" (remonty, nowoczesne wnętrza). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: remonty
+motyw: beton
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - o-nas
+  - realizacje
+  - proces
+  - dlaczego-my
+  - opinie
+  - faq
+  - obszar
+  - kontakt
+firma:
+  nazwa: BETON Studio
+  nazwa_prawna: BETON Studio Budowy Sp. z o.o.
+  branza:
+    pl: Generalny wykonawca wnętrz
+  typ_schema: GeneralContractor
+  opis:
+    pl: Realizacja wnętrz według projektu w Warszawie. Mieszkania, lofty i domy w standardzie premium, od stanu deweloperskiego do odbioru.
+seo:
+  tytul:
+    pl: Wykończenia premium Warszawa – BETON Studio
+kontakt:
+  telefon: +48 500 909 101
+  email: projekty@betonstudio.pl
+  adres:
+    ulica: ul. Żelazna 59
+    kod: 00-848
+    miasto: Warszawa
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 9:00-18:00
+  wt: 9:00-18:00
+  sr: 9:00-18:00
+  czw: 9:00-18:00
+  pt: 9:00-17:00
+  sob: zamknięte
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Generalne wykonawstwo wnętrz · Warszawa
+  tytul:
+    pl: Budujemy wnętrza dokładnie według projektu
+  podtytul:
+    pl: Współpracujemy z architektami i inwestorami prywatnymi. Beton architektoniczny, fornir, stal i kamień wykonane z precyzją co do milimetra.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Nowoczesne wnętrze z kuchnią, betonem i drewnem
+wyrozniki:
+  - ikona: ruler
+    tekst:
+      pl: Realizacja według projektu
+  - ikona: users
+    tekst:
+      pl: Stały kontakt z architektem
+  - ikona: shield-check
+    tekst:
+      pl: 5 lat gwarancji
+cta:
+  pl: Umów konsultację
+uslugi:
+  naglowek:
+    pl: Zakres
+  lista:
+    - nazwa:
+        pl: Wnętrza według projektu
+      opis:
+        pl: Kompleksowa realizacja projektu architekta, z nadzorem i harmonogramem.
+      ikona: pencil-ruler
+    - nazwa:
+        pl: Beton i mikrocement
+      opis:
+        pl: Ściany, posadzki i blaty z betonu architektonicznego i mikrocementu.
+      ikona: square
+    - nazwa:
+        pl: Zabudowy stolarskie
+      opis:
+        pl: Ściany z forniru, lamele, schody i zabudowy na wymiar.
+      ikona: layers
+    - nazwa:
+        pl: Łazienki z kamienia
+      opis:
+        pl: Spieki kwarcowe, kamień naturalny i odpływy liniowe.
+      ikona: bath
+    - nazwa:
+        pl: Oświetlenie
+      opis:
+        pl: Profile LED, szynoprzewody i sterowanie scenami.
+      ikona: lamp-ceiling
+    - nazwa:
+        pl: Smart home
+      opis:
+        pl: Sterowanie oświetleniem, roletami i ogrzewaniem.
+      ikona: house-wifi
+o_nas:
+  naglowek:
+    pl: Wykonawca, z którym architekci lubią pracować
+  tekst:
+    pl: |
+      BETON założyliśmy w 2015 roku. Realizujemy rocznie kilkanaście wnętrz, zawsze na podstawie projektu wykonawczego.
+
+      Na budowie jest stały kierownik, a architekt ma dostęp do harmonogramu i zdjęć z każdego etapu.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Kierownik budowy analizuje rzut mieszkania
+  liczby:
+    - wartosc: '96'
+      opis:
+        pl: zrealizowanych wnętrz
+    - wartosc: '30'
+      opis:
+        pl: biur architektonicznych
+    - wartosc: '9'
+      opis:
+        pl: lat na rynku
+realizacje:
+  naglowek:
+    pl: Realizacje
+  lista:
+    - tytul:
+        pl: Dom pod Warszawą, 210 m²
+      miejscowosc: Konstancin-Jeziorna
+      czas:
+        pl: 7 miesięcy
+      kategoria:
+        pl: Domy
+      opis:
+        pl: Ściana z forniru z ukrytym oświetleniem, schody dywanowe z dębu i beton na posadzce.
+      zdjecia:
+        - projekt-1a.jpg
+        - projekt-1b.jpg
+    - tytul:
+        pl: Poddasze z łazienką, 95 m²
+      miejscowosc: Warszawa, Żoliborz
+      czas:
+        pl: 4 miesiące
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Łazienka z wanną wolnostojącą i ścianką ze szkła w czarnej ramie.
+      zdjecia:
+        - projekt-2a.jpg
+        - projekt-2b.jpg
+    - tytul:
+        pl: Apartament z salonem, 120 m²
+      miejscowosc: Warszawa, Mokotów
+      czas:
+        pl: 5 miesięcy
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Mikrocement na ścianach, drewniane okładziny i oświetlenie szynowe.
+      zdjecia:
+        - projekt-3a.jpg
+        - projekt-3b.jpg
+    - tytul:
+        pl: Loft na Woli, 88 m²
+      miejscowosc: Warszawa, Wola
+      czas:
+        pl: 4 miesiące
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Drzwi w stalowej ramie i łazienka w całości z marmuru.
+      zdjecia:
+        - projekt-4a.jpg
+        - projekt-4b.jpg
+proces:
+  naglowek:
+    pl: Proces
+  kroki:
+    - tytul:
+        pl: Analiza projektu
+      opis:
+        pl: Czytamy projekt wykonawczy i zgłaszamy uwagi techniczne.
+    - tytul:
+        pl: Kosztorys i harmonogram
+      opis:
+        pl: Szczegółowa wycena i plan prac tydzień po tygodniu.
+    - tytul:
+        pl: Umowa
+      opis:
+        pl: Stała cena i terminy etapów w umowie.
+    - tytul:
+        pl: Realizacja
+      opis:
+        pl: Stały kierownik i cotygodniowe raporty dla inwestora i architekta.
+    - tytul:
+        pl: Odbiór
+      opis:
+        pl: Odbiór z architektem, dokumentacja powykonawcza i gwarancja.
+dlaczego_my:
+  naglowek:
+    pl: Standard pracy
+  lista:
+    - ikona: ruler
+      tytul:
+        pl: Tolerancja 1 mm
+      opis:
+        pl: Detale wykonujemy dokładnie tak, jak w projekcie.
+    - ikona: calendar-range
+      tytul:
+        pl: Harmonogram online
+      opis:
+        pl: Inwestor i architekt widzą postęp prac na bieżąco.
+    - ikona: users
+      tytul:
+        pl: Własne ekipy
+      opis:
+        pl: Stolarze, glazurnicy i elektrycy pracują tylko dla nas.
+    - ikona: shield-check
+      tytul:
+        pl: 5 lat gwarancji
+      opis:
+        pl: Na prace wykończeniowe i instalacyjne.
+obszar:
+  naglowek:
+    pl: Obszar działania
+  tekst:
+    pl: Warszawa i okolice do 50 km. Większe realizacje także w innych miastach.
+  miejscowosci:
+    - Warszawa
+    - Konstancin-Jeziorna
+    - Piaseczno
+    - Łomianki
+    - Józefów
+    - Milanówek
+    - Podkowa Leśna
+    - Ząbki
+opinie:
+  ocena: 5
+  liczba: 47
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Pracownia Linea
+      tekst:
+        pl: Pierwszy wykonawca, który zgłosił uwagi do projektu przed rozpoczęciem prac, a nie w trakcie.
+    - autor: Marta i Paweł
+      tekst:
+        pl: Dom oddany w terminie. Ściana z forniru wygląda dokładnie jak na wizualizacji.
+    - autor: Adam K.
+      tekst:
+        pl: Raporty co tydzień, czysta budowa i kierownik, który odbiera telefon.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy pracujecie bez projektu?
+      odpowiedz:
+        pl: Przy mniejszych zleceniach tak. Przy większych polecamy współpracujące biura architektoniczne.
+    - pytanie:
+        pl: Jaki jest czas oczekiwania na rozpoczęcie?
+      odpowiedz:
+        pl: Zwykle od 6 do 10 tygodni. Termin startu wpisujemy do umowy.
+    - pytanie:
+        pl: Czy kupujecie materiały?
+      odpowiedz:
+        pl: Tak, zajmujemy się zakupami, logistyką i odbiorem dostaw.
+    - pytanie:
+        pl: Jak rozliczacie prace?
+      odpowiedz:
+        pl: Etapami, po odbiorze każdego etapu przez inwestora.
+formularz:
+  typ: wycena
+  dostawca: netlify

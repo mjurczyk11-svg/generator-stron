@@ -1,0 +1,250 @@
+# Strona pokazowa motywu "Studio" (remonty, łazienki premium). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: remonty
+motyw: studio
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - realizacje
+  - proces
+  - dlaczego-my
+  - opinie
+  - obszar
+  - faq
+  - kontakt
+firma:
+  nazwa: Atelier Łazienek
+  nazwa_prawna: Atelier Łazienek Bartosz Kowalewski
+  branza:
+    pl: Łazienki pod klucz
+  typ_schema: HomeAndConstructionBusiness
+  opis:
+    pl: Projekt i wykonanie łazienek pod klucz w Gdyni i Trójmieście. Spieki kwarcowe, kamień, zabudowy i armatura podtynkowa.
+seo:
+  tytul:
+    pl: Łazienki pod klucz Gdynia – Atelier Łazienek, projekt i wykonanie
+kontakt:
+  telefon: +48 500 270 810
+  email: atelier@lazienki-gdynia.pl
+  adres:
+    ulica: ul. Świętojańska 92
+    kod: 81-388
+    miasto: Gdynia
+  dojazd:
+    pl: Showroom z próbkami płytek i armatury. Wizyty po wcześniejszym umówieniu.
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 9:00-17:00
+  wt: 9:00-17:00
+  sr: 9:00-17:00
+  czw: 9:00-17:00
+  pt: 9:00-17:00
+  sob: 10:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Projekt i wykonanie · Trójmiasto
+  tytul:
+    pl: Łazienki, w których chce się zostać dłużej
+  podtytul:
+    pl: Projektujemy i wykonujemy łazienki pod klucz w Gdyni, Sopocie i Gdańsku. Jedna pracownia od pierwszego szkicu do montażu lustra.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Biała łazienka z wanną wolnostojącą i marmurem
+  zdjecie2: hero-2.jpg
+  zdjecie3: hero-3.jpg
+wyrozniki:
+  - ikona: pencil-ruler
+    tekst:
+      pl: Projekt 3D w cenie
+  - ikona: gem
+    tekst:
+      pl: Spieki i kamień naturalny
+  - ikona: shield-check
+    tekst:
+      pl: 5 lat gwarancji
+cta:
+  pl: Umów spotkanie
+uslugi:
+  naglowek:
+    pl: Co projektujemy i wykonujemy
+  lista:
+    - nazwa:
+        pl: Projekt łazienki 3D
+      opis:
+        pl: Wizualizacje, dobór płytek i armatury, rysunki dla ekipy.
+      zdjecie: uslugi-1.jpg
+      ikona: pencil-ruler
+    - nazwa:
+        pl: Łazienki pod klucz
+      opis:
+        pl: Od skucia starych płytek po montaż ostatniego wieszaka.
+      zdjecie: uslugi-3.jpg
+      ikona: bath
+    - nazwa:
+        pl: Spieki i wielkie formaty
+      opis:
+        pl: Płyty 120×280 cm, docinane na wymiar, bez widocznych fug.
+      zdjecie: uslugi-6.jpg
+      ikona: gem
+    - nazwa:
+        pl: Prysznice walk-in
+      opis:
+        pl: Odpływy liniowe, szkło bez ramy i spadki wykonane co do milimetra.
+      zdjecie: uslugi-2.jpg
+      ikona: shower-head
+    - nazwa:
+        pl: Armatura podtynkowa
+      opis:
+        pl: Deszczownice, baterie podtynkowe i termostaty.
+      zdjecie: uslugi-4.jpg
+      ikona: droplets
+    - nazwa:
+        pl: Zabudowy i meble
+      opis:
+        pl: Szafki pod umywalkę, wnęki z oświetleniem i lustra na wymiar.
+      zdjecie: uslugi-5.jpg
+      ikona: lamp-wall-up
+realizacje:
+  naglowek:
+    pl: Realizacje
+  wstep:
+    pl: Każda łazienka powstała według naszego projektu.
+  lista:
+    - tytul:
+        pl: Łazienka w ciepłych beżach, 8 m²
+      miejscowosc: Gdynia, Orłowo
+      czas:
+        pl: 5 tygodni
+      kategoria:
+        pl: Domy
+      opis:
+        pl: Wnęka z oświetleniem LED, kabina walk-in i umywalka nablatowa na kamiennym blacie.
+      zdjecia:
+        - realizacja-1.jpg
+        - realizacja-2.jpg
+    - tytul:
+        pl: Mała łazienka z drewnem, 4 m²
+      miejscowosc: Sopot
+      czas:
+        pl: 3 tygodnie
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Płytki drewnopodobne, szafka z dębu i grzejnik drabinkowy.
+      zdjecia:
+        - realizacja-3.jpg
+        - realizacja-4.jpg
+    - tytul:
+        pl: Łazienka z marmurem, 7 m²
+      miejscowosc: Gdańsk, Oliwa
+      czas:
+        pl: 5 tygodni
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Spieki z wzorem marmuru, lustro okrągłe z podświetleniem i armatura w czerni.
+      zdjecia:
+        - realizacja-6.jpg
+        - realizacja-5.jpg
+proces:
+  naglowek:
+    pl: Od szkicu do gotowej łazienki
+  kroki:
+    - tytul:
+        pl: Spotkanie w showroomie
+      opis:
+        pl: Oglądasz próbki i opowiadasz, jakiej łazienki potrzebujesz.
+    - tytul:
+        pl: Pomiar
+      opis:
+        pl: Przyjeżdżamy, mierzymy i sprawdzamy instalacje.
+    - tytul:
+        pl: Projekt 3D
+      opis:
+        pl: Wizualizacje i dwie rundy poprawek.
+    - tytul:
+        pl: Wykonanie
+      opis:
+        pl: Własna ekipa, harmonogram i stały kontakt.
+    - tytul:
+        pl: Odbiór
+      opis:
+        pl: Sprzątamy, odbieramy prace i przekazujemy gwarancję.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego Atelier
+  lista:
+    - ikona: pencil-ruler
+      tytul:
+        pl: Projekt i wykonanie w jednych rękach
+      opis:
+        pl: Nie ma przerzucania winy między projektantem a ekipą.
+    - ikona: eye
+      tytul:
+        pl: Widzisz efekt przed startem
+      opis:
+        pl: Wizualizacje pokazują łazienkę taką, jaka będzie.
+    - ikona: gem
+      tytul:
+        pl: Materiały z pewnych źródeł
+      opis:
+        pl: Płytki i armatura z hurtowni, z którymi współpracujemy od lat.
+    - ikona: shield-check
+      tytul:
+        pl: 5 lat gwarancji
+      opis:
+        pl: Na hydroizolację, płytki i montaż.
+obszar:
+  naglowek:
+    pl: Trójmiasto i okolice
+  tekst:
+    pl: Pracujemy w Gdyni, Sopocie, Gdańsku i w promieniu 30 km.
+  miejscowosci:
+    - Gdynia
+    - Sopot
+    - Gdańsk
+    - Rumia
+    - Reda
+    - Wejherowo
+    - Kosakowo
+    - Żukowo
+opinie:
+  ocena: 5
+  liczba: 93
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Monika i Jakub
+      tekst:
+        pl: Łazienka wygląda dokładnie jak na wizualizacji. Nawet lustro jest tam, gdzie miało być.
+    - autor: Dorota W.
+      tekst:
+        pl: Mała łazienka w bloku, a wygląda jak w hotelu. Prace skończone tydzień wcześniej.
+    - autor: Sebastian G.
+      tekst:
+        pl: Pan Bartosz doradził spieki zamiast płytek. Zero fug, łatwe sprzątanie.
+faq:
+  lista:
+    - pytanie:
+        pl: Ile kosztuje łazienka pod klucz?
+      odpowiedz:
+        pl: Zwykle od 35 000 do 70 000 zł z materiałami, zależnie od wielkości i wybranych materiałów. Projekt jest w cenie wykonania.
+    - pytanie:
+        pl: Ile trwa remont łazienki?
+      odpowiedz:
+        pl: 3–6 tygodni prac na miejscu. Projekt przygotowujemy wcześniej, w ciągu 2–3 tygodni.
+    - pytanie:
+        pl: Czy mogę zamówić sam projekt?
+      odpowiedz:
+        pl: Tak. Koszt projektu odliczamy, jeśli zdecydujesz się na wykonanie.
+    - pytanie:
+        pl: Czy trzeba się wyprowadzić?
+      odpowiedz:
+        pl: Nie, jeśli w mieszkaniu jest druga toaleta albo możliwość korzystania z innej.
+formularz:
+  typ: wycena
+  dostawca: netlify

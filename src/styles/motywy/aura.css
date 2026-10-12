@@ -1,0 +1,16 @@
+/* Aura: jasny, miękki gabinet. Zaokrąglone karty z delikatnym cieniem, pastelowe plamy w tle. */
+.hero--podzielony { position: relative; overflow: clip; }
+.hero--podzielony::before { content: ''; position: absolute; width: 620px; aspect-ratio: 1; right: -160px; top: -200px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--glowny) 16%, transparent), transparent 68%); pointer-events: none; }
+.hero--podzielony::after { content: ''; position: absolute; width: 460px; aspect-ratio: 1; left: -200px; bottom: -220px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--akcent) 18%, transparent), transparent 70%); pointer-events: none; }
+.hero--podzielony .kontener { position: relative; z-index: 1; }
+.hero--podzielony .hero-zdjecie img { border-radius: 36px 36px 160px 36px; }
+.hero--podzielony .hero-zdjecie::before { border-radius: 36px 36px 160px 36px; }
+.karta { border-color: transparent; box-shadow: 0 1px 2px rgb(16 40 40 / .05), 0 14px 34px -18px rgb(16 40 40 / .22); border-radius: 22px; }
+.usluga-kafel { transition: transform .35s ease, box-shadow .35s ease; }
+.usluga-kafel:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgb(16 40 40 / .05), 0 24px 44px -20px color-mix(in srgb, var(--glowny) 45%, transparent); }
+.ikona-tlo { border-radius: 50%; background: linear-gradient(135deg, color-mix(in srgb, var(--glowny) 18%, transparent), color-mix(in srgb, var(--akcent) 18%, transparent)); }
+.osoba img { border-radius: 28px; }
+.opinia blockquote::before { content: '“'; display: block; font: 700 3.4rem/0.6 var(--font-h); color: var(--akcent); margin: 10px 0 6px; }
+.etykieta::before { width: 8px; height: 8px; border-radius: 50%; }
+.cta-pas, .rezerwacja-ramka { border-radius: 30px; }
+.galeria button { border-radius: 20px; }
