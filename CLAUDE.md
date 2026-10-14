@@ -11,6 +11,12 @@ Właściciel (Michał) nie programuje i pisze po polsku. Odpowiadaj po polsku, p
 - Ikony: nazwy z https://lucide.dev/icons albo własne SVG w `src/ikony/`.
 - `scripts/build.mjs`: bez `KLIENT` buduje wszystkich do `dist/<slug>/` z `noindex` (podgląd) i panel edycji do `dist/admin/`; z `KLIENT` buduje jedną stronę do `dist/` (bez panelu).
 
+## Motywy (15 gotowych szablonów wyglądu)
+
+- `src/lib/motywy.mjs`: po 5 motywów na niszę (gabinet: aura, klinika, perla, ruch, harmonia; warsztat: turbo, garaz, serwis, polysk, sasiad; remonty: fundament, beton, studio, energia, fach). Motyw ustawia czcionki, kolory, układ hero, styl usług, nagłówek, tła sekcji, pasek usług, animacje. W `strona.yaml` wystarczy `motyw: <nazwa>`; pola `wyglad`, `kolory`, `hero.uklad`, `uslugi.styl` klienta nadpisują motyw.
+- Własne style motywu: `src/styles/motywy/<motyw>.css` (dołączany tylko do stron z tym motywem przez moduł `virtual:motyw` w `astro.config.mjs`, tak samo czcionki). Animacje: `src/lib/animacje.ts` i `src/styles/animacje.css`.
+- Strony pokazowe motywów: `klienci/demo-<nisza>-<motyw>/` (zmyślone firmy, zdjęcia z Pexels, darmowa licencja). Michał wysyła je potencjalnym klientom. Nowy klient z motywu: `npm run nowy -- <slug> <nisza> <motyw>` kopiuje stronę pokazową jako wzór (podmień wszystkie dane i zdjęcia).
+
 ## Panel edycji (/admin)
 
 - Michał edytuje strony w edytorze `<adres podglądu>/admin/` (kod w `panel/edytor/`, budowany esbuildem w `scripts/panel.mjs`): podgląd strony w ramce z edycją po kliknięciu, czat z asystentem AI (Claude, klucz API w przeglądarce Michała), proste „Ustawienia strony” i „+ Nowa strona” pisana przez AI. Logowanie tokenem GitHub; zapis jednym commitem prosto do `main`, Netlify przebudowuje podgląd.
@@ -22,7 +28,7 @@ Właściciel (Michał) nie programuje i pisze po polsku. Odpowiadaj po polsku, p
 ## Nowy klient (typowy przebieg)
 
 1. Zbierz dane ze starej strony i z wizytówki Google: nazwa, adres, telefon, e-mail, godziny, usługi, opinie (ocena, liczba, 3 cytaty), zdjęcia, NIP.
-2. `npm run nowy -- <slug> <gabinet|warsztat|remonty>` i wypełnij `strona.yaml`. Teksty pisz od nowa: krótkie zdania, konkret, miasto w tytule i nagłówku.
+2. `npm run nowy -- <slug> <gabinet|warsztat|remonty> [motyw]` i wypełnij `strona.yaml`. Teksty pisz od nowa: krótkie zdania, konkret, miasto w tytule i nagłówku.
 3. Gabinety lekarskie i stomatologiczne: zakaz reklamy (Kodeks Etyki Lekarskiej, art. 63). Tylko informacja, bez „najlepszy”, promocji i rabatów. Tak samo spokojnie piszemy dla fizjoterapeutów.
 4. Teksty w nawiasach `{ }` z przecinkiem albo dwukropkiem zawsze w cudzysłowie.
 5. `npm run porzadkuj -- <slug>`, `npm run sprawdz -- <slug>`, potem `KLIENT=<slug> npm run build` i sprawdź wygląd na telefonie i komputerze.

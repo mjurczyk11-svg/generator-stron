@@ -15,7 +15,7 @@ const akapity = t(d.tekst).split(/\n\s*\n/).filter(Boolean);
       <h2 {...p('o_nas.naglowek')}>{t(d.naglowek) || strona.firma.nazwa}</h2>
       <div {...p('o_nas.tekst')}>{akapity.map((a) => <p>{a}</p>)}</div>
       {d.liczby?.length > 0 && (
-        <div class="liczby">{d.liczby.map((l: any, i: number) => <div><strong {...p(`o_nas.liczby.${i}.wartosc`)}>{t(l.wartosc)}</strong><span {...p(`o_nas.liczby.${i}.opis`)}>{t(l.opis)}</span></div>)}</div>
+        <div class="liczby">{d.liczby.map((l: any, i: number) => <div><strong data-licznik {...p(`o_nas.liczby.${i}.wartosc`)}>{t(l.wartosc)}</strong><span {...p(`o_nas.liczby.${i}.opis`)}>{t(l.opis)}</span></div>)}</div>
       )}
     </div>
   </div>

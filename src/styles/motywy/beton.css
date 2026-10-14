@@ -1,0 +1,21 @@
+/* Beton: nowoczesny, architektoniczny. Ostre krawędzie, cienkie linie siatki, etykiety w nawiasach. */
+body { background-image: linear-gradient(90deg, color-mix(in srgb, var(--tekst) 5%, transparent) 1px, transparent 1px); background-size: calc((min(100vw - 40px, 1180px)) / 4) 100%; background-position: center; }
+.etykieta { display: inline-block; font-family: var(--font-h); letter-spacing: .08em; }
+.etykieta::before { content: '['; display: inline; width: auto; height: auto; background: none; color: var(--akcent); font-weight: 700; margin-right: 8px; }
+.etykieta::after { content: ']'; color: var(--akcent); font-weight: 700; margin-left: 8px; }
+h1 { letter-spacing: -0.04em; font-weight: 700; }
+h2 { letter-spacing: -0.035em; }
+.btn { border-radius: 0; }
+.btn-glowny { box-shadow: none; }
+.btn-glowny:hover { background: var(--akcent); color: #111; }
+.karta { border-radius: 0; border-color: color-mix(in srgb, var(--tekst) 22%, transparent); background: var(--tlo); transition: background-color .3s ease, color .3s ease; }
+.karta:hover { background: var(--tekst); color: var(--tlo); --tekst-2: color-mix(in srgb, var(--tlo) 70%, var(--tekst)); }
+.karta:hover .ikona-tlo { background: var(--akcent); color: #111; }
+.realizacja:hover { background: var(--tlo); color: var(--tekst); --tekst-2: inherit; }
+.ikona-tlo { border-radius: 0; }
+.usluga-num { border-bottom: 1px solid color-mix(in srgb, var(--tekst) 22%, transparent); transition: padding-left .3s ease; }
+.usluga-num:hover { padding-left: 14px; }
+.usluga-num-nr { font-family: var(--font-h); color: var(--akcent); }
+.hero-panorama-zdjecie img, .galeria button, .realizacja-zdjecia img, .o-nas-zdjecie img, .osoba img { border-radius: 0; }
+.liczby strong { font-weight: 500; letter-spacing: -0.04em; font-size: clamp(2.4rem, 4vw, 3.4rem); }
+.kroki li::after { background: var(--akcent); height: 2px; }

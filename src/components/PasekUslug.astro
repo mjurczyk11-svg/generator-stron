@@ -1,0 +1,18 @@
+---
+// Przewijający się pasek z nazwami usług (ustawienie "pasek" w motywie). Treść jest powtórzona, żeby pętla była płynna.
+import { strona, tlumacz, type Jezyk } from '../lib/dane';
+import Ikona from './Ikona.astro';
+interface Props { lang: Jezyk }
+const { t } = tlumacz(Astro.props.lang);
+const nazwy = (strona.uslugi?.lista ?? []).map((s: any) => t(s.nazwa)).filter(Boolean);
+const znak = { gabinet: 'plus', warsztat: 'cog', remonty: 'square' }[strona.szablon as string] ?? 'dot';
+const powtorzenia = nazwy.length < 5 ? 4 : 2;
+const seria = Array.from({ length: powtorzenia }, () => nazwy).flat();
+---
+{nazwy.length > 0 && (
+  <div class="pasek-uslug" aria-hidden="true">
+    <div class="tasma">
+      {[0, 1].map(() => <div class="tasma-czesc">{seria.map((n: string) => <span>{n}<Ikona n={znak} rozmiar={16} /></span>)}</div>)}
+    </div>
+  </div>
+)}

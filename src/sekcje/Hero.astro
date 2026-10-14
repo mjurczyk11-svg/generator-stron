@@ -1,15 +1,15 @@
 ---
-import { strona, tlumacz, tel, glownaAkcja, ocena, p, type Jezyk } from '../lib/dane';
+// Pierwszy ekran. Układy: zdjecie | srodek | podzielony | panorama | kolaz | prosty (pole hero.uklad albo motyw).
+import { strona, tlumacz, ocena, p, type Jezyk } from '../lib/dane';
 import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
 import Obraz from '../components/Obraz.astro';
 import Ikona from '../components/Ikona.astro';
 import Gwiazdki from '../components/Gwiazdki.astro';
+import HeroTresc from '../components/HeroTresc.astro';
 interface Props { lang: Jezyk }
 const { lang } = Astro.props;
 const { t, u } = tlumacz(lang);
 const h = strona.hero;
-const k = strona.kontakt;
-const akcja = glownaAkcja(lang);
 const uklad = h.zdjecie ? h.uklad : 'prosty';
 const op = strona.opinie;
 const dni = u('dni') as string[];
@@ -21,41 +21,43 @@ tydzien.forEach((d, i) => {
   const ost = grupy.at(-1);
   if (ost && ost.tekst === tekst) ost.do = i; else grupy.push({ od: i, do: i, tekst });
 });
-const skrot = (i: number) => dni[i].slice(0, lang === 'pl' ? 3 : 3);
+const skrot = (i: number) => dni[i].slice(0, 3);
 const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) => `${skrot(g.od)}${g.do > g.od ? '–' + skrot(g.do) : ''} ${g.tekst}`);
+// Liczby z sekcji „O nas” pokazane na pierwszym ekranie (ustawienie liczby_w_hero).
+const liczby = strona.liczby_w_hero ? (strona.o_nas?.liczby ?? []) : [];
+// Kolaż: zdjęcie główne + dwa kolejne (hero.zdjecie2/3, a gdy ich brak: z galerii albo realizacji).
+const zapas = [
+  ...(strona.galeria?.lista ?? []).map((g: any, i: number) => ({ plik: g.plik ?? g, pole: `galeria.lista.${i}.plik` })),
+  ...(strona.realizacje?.lista ?? []).map((r: any, i: number) => (r.po ? { plik: r.po, pole: `realizacje.lista.${i}.po` } : null)).filter(Boolean),
+];
+const kolaz = [
+  { plik: h.zdjecie, pole: 'hero.zdjecie' },
+  h.zdjecie2 ? { plik: h.zdjecie2, pole: 'hero.zdjecie2' } : zapas[0],
+  h.zdjecie3 ? { plik: h.zdjecie3, pole: 'hero.zdjecie3' } : zapas[h.zdjecie2 ? 0 : 1],
+].filter((z: any) => z?.plik);
+const pelny = uklad === 'zdjecie' || uklad === 'srodek';
 ---
-{uklad === 'zdjecie' && (
-  <section class="hero hero--zdjecie">
+{pelny && (
+  <section class:list={['hero', 'hero--zdjecie', { 'hero--srodek': uklad === 'srodek', 'hero--z-liczbami': liczby.length }]}>
     <div class="hero-tlo"><Obraz plik={h.zdjecie} pole="hero.zdjecie" alt={t(h.zdjecie_opis)} szerokosci={[640, 1024, 1600, 2200]} sizes="100vw" priorytet /></div>
-    <div class="kontener hero-tresc">
-      {op?.ocena && <a class="ocena-znaczek" href={op.link ?? '#opinie'}><Gwiazdki ocena={op.ocena} /><span>{`${ocena(op.ocena, lang)} · ${op.liczba} ${u('opinie.opinii')} Google`}</span></a>}
-      {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
-      <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
-      {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
-      <div class="hero-przyciski">
-        <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
-        {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
-      </div>
-      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
+    <div class="kontener">
+      <HeroTresc lang={lang} przycisk="btn-akcent" zOcena />
     </div>
-    {maGodziny() && (
+    {liczby.length > 0 && (
+      <div class="kontener hero-liczby">
+        {liczby.map((l: any, i: number) => <div><strong data-licznik {...p(`o_nas.liczby.${i}.wartosc`)}>{t(l.wartosc)}</strong><span {...p(`o_nas.liczby.${i}.opis`)}>{t(l.opis)}</span></div>)}
+      </div>
+    )}
+    {maGodziny() && !liczby.length && (
       <div class="hero-godziny"><div class="kontener"><span><Ikona n="clock" rozmiar={19} />{u('godziny')}:</span>{godzinyKrotko.map((g) => <span>{g}</span>)}</div></div>
     )}
+    {uklad === 'srodek' && <a class="hero-dalej" href="#tresc-dalej" aria-label="↓"><Ikona n="chevron-down" rozmiar={22} /></a>}
   </section>
 )}
 {uklad === 'podzielony' && (
   <section class="hero hero--podzielony">
-    <div class="kontener">
-      <div class="hero-tresc">
-        {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
-        <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
-        {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
-        <div class="hero-przyciski">
-          <a class="btn btn-glowny" href={akcja.href}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
-          {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
-        </div>
-        {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
-      </div>
+    <div class="kontener hero-siatka">
+      <HeroTresc lang={lang} />
       <div class="hero-zdjecie">
         <Obraz plik={h.zdjecie} pole="hero.zdjecie" alt={t(h.zdjecie_opis)} szerokosci={[480, 800, 1100]} sizes="(max-width: 880px) 100vw, 46vw" priorytet />
         {op?.ocena && (
@@ -66,19 +68,40 @@ const godzinyKrotko = grupy.filter((g) => g.tekst !== u('zamkniete')).map((g) =>
         )}
       </div>
     </div>
+    {liczby.length > 0 && (
+      <div class="kontener hero-liczby hero-liczby--jasne">
+        {liczby.map((l: any, i: number) => <div><strong data-licznik {...p(`o_nas.liczby.${i}.wartosc`)}>{t(l.wartosc)}</strong><span {...p(`o_nas.liczby.${i}.opis`)}>{t(l.opis)}</span></div>)}
+      </div>
+    )}
+  </section>
+)}
+{uklad === 'panorama' && (
+  <section class="hero hero--panorama">
+    <div class="kontener">
+      <HeroTresc lang={lang} zOcena />
+      <div class="hero-panorama-zdjecie">
+        <Obraz plik={h.zdjecie} pole="hero.zdjecie" alt={t(h.zdjecie_opis)} szerokosci={[640, 1024, 1600, 2200]} sizes="(max-width: 1240px) 100vw, 1180px" priorytet />
+      </div>
+    </div>
+  </section>
+)}
+{uklad === 'kolaz' && (
+  <section class="hero hero--kolaz">
+    <div class="kontener hero-siatka">
+      <HeroTresc lang={lang} zOcena />
+      <div class:list={['hero-kolaz', `hero-kolaz--${kolaz.length}`]}>
+        {kolaz.map((z: any, i: number) => (
+          <div class={`kolaz-${i + 1}`}><Obraz plik={z.plik} pole={z.pole} alt={i === 0 ? t(h.zdjecie_opis) : ''} szerokosci={i === 0 ? [480, 800, 1100] : [360, 600]} sizes={i === 0 ? '(max-width: 880px) 100vw, 34vw' : '(max-width: 880px) 50vw, 20vw'} priorytet={i === 0} /></div>
+        ))}
+      </div>
+    </div>
   </section>
 )}
 {uklad === 'prosty' && (
   <section class="hero hero--prosty">
-    <div class="kontener hero-tresc">
-      {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
-      <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
-      {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
-      <div class="hero-przyciski">
-        <a class="btn btn-akcent" href={akcja.href}>{akcja.tekst}</a>
-        {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
-      </div>
-      {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
+    <div class="kontener">
+      <HeroTresc lang={lang} przycisk="btn-akcent" />
     </div>
   </section>
 )}
+<span id="tresc-dalej"></span>

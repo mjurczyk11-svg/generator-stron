@@ -1,0 +1,264 @@
+# Strona pokazowa motywu "Perła" (gabinet). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: gabinet
+motyw: perla
+jezyki:
+  - pl
+sekcje:
+  - o-nas
+  - uslugi
+  - zespol
+  - galeria
+  - pierwsza-wizyta
+  - cennik
+  - opinie
+  - faq
+  - rezerwacja
+  - kontakt
+firma:
+  nazwa: Perła Dental Studio
+  nazwa_prawna: Perła Dental Studio lek. dent. Aleksandra Zając
+  branza:
+    pl: Gabinet stomatologii estetycznej
+  typ_schema: Dentist
+  opis:
+    pl: Gabinet stomatologii estetycznej i implantologii w Krakowie. Licówki, implanty, wybielanie i leczenie protetyczne.
+seo:
+  tytul:
+    pl: Stomatologia estetyczna Kraków – Perła Dental Studio
+kontakt:
+  telefon: +48 500 340 120
+  email: kontakt@perladental.pl
+  adres:
+    ulica: ul. Karmelicka 18
+    kod: 31-128
+    miasto: Kraków
+  dojazd:
+    pl: Strefa płatnego parkowania. Przystanek tramwajowy „Batorego” 3 minuty pieszo.
+  dostepnosc:
+    pl: Gabinet na pierwszym piętrze, w budynku jest winda.
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 10:00-19:00
+  wt: 10:00-19:00
+  sr: 10:00-19:00
+  czw: 10:00-19:00
+  pt: 9:00-16:00
+  sob: zamknięte
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Stomatologia estetyczna · Kraków
+  tytul:
+    pl: Estetyka uśmiechu planowana z precyzją
+  podtytul:
+    pl: Licówki, implanty i leczenie protetyczne w kameralnym gabinecie na Starym Mieście. Każdą zmianę projektujemy cyfrowo, zanim zaczniemy.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Gabinet stomatologiczny z fotelem zabiegowym
+wyrozniki:
+  - ikona: scan-face
+    tekst:
+      pl: Cyfrowy projekt uśmiechu
+  - ikona: gem
+    tekst:
+      pl: Licówki i korony pełnoceramiczne
+  - ikona: clock
+    tekst:
+      pl: Wizyty bez pośpiechu
+uslugi:
+  naglowek:
+    pl: Zakres leczenia
+  wstep:
+    pl: Specjalizujemy się w leczeniu, które łączy zdrowie zębów z ich wyglądem.
+  lista:
+    - nazwa:
+        pl: Cyfrowy projekt uśmiechu
+      opis:
+        pl: Zdjęcia, skan wewnątrzustny i symulacja efektu przed rozpoczęciem leczenia.
+      ikona: scan-face
+    - nazwa:
+        pl: Licówki porcelanowe
+      opis:
+        pl: Cienkie licówki wykonywane w pracowni protetycznej, dopasowane kształtem i kolorem.
+      ikona: gem
+    - nazwa:
+        pl: Implanty
+      opis:
+        pl: Uzupełnienie brakujących zębów implantem i koroną pełnoceramiczną.
+      ikona: anchor
+    - nazwa:
+        pl: Wybielanie
+      opis:
+        pl: Wybielanie gabinetowe i nakładkowe pod kontrolą lekarza.
+      ikona: sun
+    - nazwa:
+        pl: Bonding
+      opis:
+        pl: Odbudowa kształtu zębów kompozytem w czasie jednej wizyty.
+      ikona: brush
+    - nazwa:
+        pl: Leczenie protetyczne
+      opis:
+        pl: Korony i mosty pełnoceramiczne, odbudowy zębów po leczeniu kanałowym.
+      ikona: layers
+o_nas:
+  naglowek:
+    pl: Kameralny gabinet, jeden lekarz prowadzący
+  tekst:
+    pl: |
+      Perła Dental Studio to dwa gabinety i własna współpraca z krakowską pracownią protetyczną. Leczenie prowadzi jeden lekarz od pierwszej konsultacji do końca.
+
+      Zanim zaczniemy, pokazujemy cyfrową symulację efektu i omawiamy wszystkie możliwości, także te prostsze i tańsze.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Lekarka omawia z pacjentką plan leczenia
+  liczby:
+    - wartosc: '14'
+      opis:
+        pl: lat doświadczenia
+    - wartosc: '2'
+      opis:
+        pl: gabinety zabiegowe
+    - wartosc: 1 100
+      opis:
+        pl: wykonanych licówek
+zespol:
+  naglowek:
+    pl: Lekarze
+  lista:
+    - imie: lek. dent. Aleksandra Zając
+      rola:
+        pl: Stomatologia estetyczna
+      opis:
+        pl: Licówki, bonding i cyfrowe planowanie uśmiechu.
+      zdjecie: osoba-1.jpg
+    - imie: lek. dent. Nadia Ofori
+      rola:
+        pl: Implantologia
+      opis:
+        pl: Leczenie implantologiczne i chirurgia stomatologiczna.
+      zdjecie: osoba-2.jpg
+    - imie: Klaudia Bielecka
+      rola:
+        pl: Higienistka
+      opis:
+        pl: Higienizacja i przygotowanie do wybielania.
+      zdjecie: osoba-3.jpg
+galeria:
+  naglowek:
+    pl: Gabinet
+  lista:
+    - plik: gabinet-1.jpg
+      opis:
+        pl: Gabinet zabiegowy
+    - plik: gabinet-2.jpg
+      opis:
+        pl: Praca pod powiększeniem
+    - plik: gabinet-3.jpg
+      opis:
+        pl: Omówienie efektu z pacjentką
+    - plik: gabinet-4.jpg
+      opis:
+        pl: Fotel zabiegowy
+pierwsza_wizyta:
+  naglowek:
+    pl: Pierwsza konsultacja
+  kroki:
+    - tytul:
+        pl: Rozmowa
+      opis:
+        pl: Mówisz, co chcesz zmienić. My pytamy o zdrowie i oczekiwania.
+    - tytul:
+        pl: Zdjęcia i skan
+      opis:
+        pl: Robimy zdjęcia, skan wewnątrzustny i w razie potrzeby RTG.
+    - tytul:
+        pl: Symulacja
+      opis:
+        pl: Na kolejnej wizycie pokazujemy cyfrowy projekt i możliwe warianty.
+    - tytul:
+        pl: Plan i koszt
+      opis:
+        pl: Dostajesz plan leczenia z kosztem każdego etapu.
+  uwagi:
+    pl: Konsultacja trwa około godziny. Koszt konsultacji odliczamy od ceny leczenia, jeśli zdecydujesz się je rozpocząć.
+cennik:
+  wstep:
+    pl: Ceny orientacyjne. Dokładny koszt podajemy w planie leczenia.
+  kategorie:
+    - nazwa:
+        pl: Konsultacje
+      pozycje:
+        - nazwa:
+            pl: Konsultacja z cyfrowym projektem uśmiechu
+          cena: 400
+        - nazwa:
+            pl: Konsultacja implantologiczna
+          cena: 250
+    - nazwa:
+        pl: Leczenie
+      pozycje:
+        - nazwa:
+            pl: Licówka porcelanowa
+          cena: 2200
+        - nazwa:
+            pl: Bonding (1 ząb)
+          cena: 700
+        - nazwa:
+            pl: Wybielanie gabinetowe
+          cena: 1300
+        - nazwa:
+            pl: Implant z koroną
+          cena: 5800
+  uwaga:
+    pl: Płatność kartą, przelewem lub w ratach 0%.
+opinie:
+  naglowek:
+    pl: Opinie pacjentów
+  ocena: 5
+  liczba: 168
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Magdalena K.
+      tekst:
+        pl: Przed licówkami zobaczyłam na ekranie, jak będą wyglądać. Efekt jest dokładnie taki, jak na projekcie.
+    - autor: Robert N.
+      tekst:
+        pl: Spokojna atmosfera, wszystko wyjaśnione i rozpisane. Implant bez komplikacji.
+    - autor: Julia P.
+      tekst:
+        pl: Pani doktor odradziła mi licówki na wszystkie zęby i zaproponowała bonding. Doceniam szczerość.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy licówki niszczą zęby?
+      odpowiedz:
+        pl: Licówki porcelanowe wymagają niewielkiego oszlifowania szkliwa. Przy bondingu zęby zwykle nie są szlifowane. Na konsultacji omawiamy, co będzie lepsze w Twoim przypadku.
+    - pytanie:
+        pl: Ile trwa wykonanie licówek?
+      odpowiedz:
+        pl: Zwykle 3 wizyty w ciągu około 3 tygodni.
+    - pytanie:
+        pl: Czy przyjmujecie na NFZ?
+      odpowiedz:
+        pl: Nie, gabinet przyjmuje wyłącznie prywatnie.
+    - pytanie:
+        pl: Czy mogę zapłacić w ratach?
+      odpowiedz:
+        pl: Tak, współpracujemy z firmą oferującą raty 0% na leczenie stomatologiczne.
+rezerwacja:
+  typ: link
+  url: https://www.znanylekarz.pl/
+  naglowek:
+    pl: Umów konsultację
+  wstep:
+    pl: Wybierz termin w serwisie ZnanyLekarz albo zadzwoń. Oddzwaniamy w ciągu jednego dnia roboczego.
+  przycisk:
+    pl: Wybierz termin
+formularz:
+  typ: termin
+  dostawca: netlify

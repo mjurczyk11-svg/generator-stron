@@ -43,4 +43,16 @@ const cena = (c: any) => (c == null ? '' : typeof c === 'number' ? `${u('cennik.
       ))}
     </div>
   )}
+  {d.styl === 'numerowane' && (
+    <div class="uslugi-num">
+      {d.lista.map((s: any, i: number) => (
+        <div class="usluga-num">
+          <span class="usluga-num-nr" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 {...p(`uslugi.lista.${i}.nazwa`)}>{t(s.nazwa)}</h3>
+          <div class="usluga-num-opis">{t(s.opis) && <p {...p(`uslugi.lista.${i}.opis`)}>{t(s.opis)}</p>}{s.cena != null && <p class="usluga-cena">{cena(s.cena)}</p>}</div>
+          <span class="usluga-num-ikona" aria-hidden="true"><Ikona n={s.ikona ?? domyslnaIkona} rozmiar={22} /></span>
+        </div>
+      ))}
+    </div>
+  )}
 </Sekcja>

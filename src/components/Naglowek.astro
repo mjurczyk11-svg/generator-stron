@@ -1,16 +1,31 @@
 ---
-import { strona, tlumacz, tel, aktywneSekcje, tytulSekcji, glownaAkcja, type Jezyk } from '../lib/dane';
+import { strona, tlumacz, tel, aktywneSekcje, tytulSekcji, glownaAkcja, adresTekst, linkNawigacji, type Jezyk } from '../lib/dane';
+import { godzinyTydzien, pokazGodziny, maGodziny } from '../lib/godziny';
 import Logo from './Logo.astro';
 import Ikona from './Ikona.astro';
 interface Props { lang: Jezyk; sciezka?: string; glowna?: boolean }
 const { lang, sciezka = '' } = Astro.props;
 const { u, url } = tlumacz(lang);
 const pomin = ['rezerwacja', 'marki', 'obszar', 'dofinansowania', 'pierwsza-wizyta'];
-const menu = aktywneSekcje().filter((s) => !pomin.includes(s)).slice(0, 5).map((s) => ({ href: url(`#${s}`), tekst: tytulSekcji(s, lang) }));
+const menu = aktywneSekcje().filter((s) => !pomin.includes(s)).slice(0, 4).map((s) => ({ href: url(`#${s}`), tekst: tytulSekcji(s, lang) }));
 const inny = strona.jezyki.find((j) => j !== lang);
 const akcja = glownaAkcja(lang);
 const k = strona.kontakt;
+// Cienki pasek nad menu: godziny (pon–pt), adres, e-mail.
+const pn = godzinyTydzien()[0]?.przedzialy ?? [];
+const sob = godzinyTydzien()[5]?.przedzialy ?? [];
+const godzinyPasek = maGodziny() && pn.length ? `${lang === 'pl' ? 'Pon–Pt' : 'Mon–Fri'} ${pokazGodziny(pn)}${sob.length ? ` · ${lang === 'pl' ? 'Sob' : 'Sat'} ${pokazGodziny(sob)}` : ''}` : '';
 ---
+<div class="postep" aria-hidden="true"></div>
+{strona.gorny_pasek && (
+  <div class="gorny-pasek">
+    <div class="kontener">
+      {godzinyPasek && <span><Ikona n="clock" rozmiar={15} />{godzinyPasek}</span>}
+      {adresTekst() && <a href={linkNawigacji()} target="_blank" rel="noopener"><Ikona n="map-pin" rozmiar={15} />{adresTekst()}</a>}
+      {k.email && <a class="gorny-pasek-email" href={`mailto:${k.email}`}><Ikona n="mail" rozmiar={15} />{k.email}</a>}
+    </div>
+  </div>
+)}
 <header class="naglowek" id="naglowek">
   <div class="kontener naglowek-pasek">
     <Logo lang={lang} />

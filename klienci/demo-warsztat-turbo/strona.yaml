@@ -1,0 +1,228 @@
+# Strona pokazowa motywu "Turbo" (warsztat). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: warsztat
+motyw: turbo
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - o-nas
+  - dlaczego-my
+  - marki
+  - galeria
+  - opinie
+  - faq
+  - kontakt
+firma:
+  nazwa: Turbo Serwis
+  nazwa_prawna: Turbo Serwis Damian Kaczmarek
+  branza:
+    pl: Serwis diesli i aut dostawczych
+  typ_schema: AutoRepair
+  opis:
+    pl: Serwis silników diesla, turbosprężarek i aut dostawczych w Łodzi. Diagnostyka, wtryskiwacze, DPF, mechanika ciężka do 7,5 t.
+seo:
+  tytul:
+    pl: Turbo i diesel Łódź – Turbo Serwis, auta osobowe i dostawcze
+kontakt:
+  telefon: +48 500 700 150
+  email: serwis@turboserwis-lodz.pl
+  adres:
+    ulica: ul. Rokicińska 154
+    kod: 92-412
+    miasto: Łódź
+  dojazd:
+    pl: Duży plac manewrowy, wjazd także dla aut do 7,5 t. Zjazd z A1 węzeł Łódź Wschód, 6 km.
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+godziny:
+  pon: 7:00-18:00
+  wt: 7:00-18:00
+  sr: 7:00-18:00
+  czw: 7:00-18:00
+  pt: 7:00-18:00
+  sob: 8:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Diesel · Turbo · Dostawczaki · Łódź
+  tytul:
+    pl: Serwis diesli i turbosprężarek w Łodzi
+  podtytul:
+    pl: Diagnozujemy, regenerujemy i naprawiamy silniki wysokoprężne. Auta osobowe, busy i ciężarówki do 7,5 tony.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Mechanik z latarką sprawdza podwozie auta na podnośniku
+wyrozniki:
+  - ikona: gauge
+    tekst:
+      pl: Hamownia wtryskiwaczy na miejscu
+  - ikona: truck
+    tekst:
+      pl: Auta do 7,5 t
+  - ikona: shield-check
+    tekst:
+      pl: 24 miesiące gwarancji na turbo
+cta:
+  pl: Umów diagnostykę
+uslugi:
+  naglowek:
+    pl: Co robimy
+  wstep:
+    pl: Specjalizujemy się w dieslach. Naprawiamy też wszystko inne, co potrzebne, żeby auto jeździło.
+  lista:
+    - nazwa:
+        pl: Turbosprężarki
+      opis:
+        pl: Diagnostyka, regeneracja i wymiana turbin z wyważaniem rdzenia.
+      ikona: fan
+      cena: 1200
+    - nazwa:
+        pl: Wtryskiwacze
+      opis:
+        pl: Test na stole probierczym, regeneracja i kodowanie.
+      ikona: syringe
+      cena: 250
+    - nazwa:
+        pl: Filtr DPF i EGR
+      opis:
+        pl: Czyszczenie DPF, naprawa zaworu EGR, wypalanie serwisowe.
+      ikona: filter
+      cena: 450
+    - nazwa:
+        pl: Diagnostyka komputerowa
+      opis:
+        pl: Odczyt błędów, parametry na żywo, pomiary ciśnienia.
+      ikona: laptop
+      cena: 150
+    - nazwa:
+        pl: Rozrząd i sprzęgło
+      opis:
+        pl: Wymiana rozrządu, sprzęgła i koła dwumasowego.
+      ikona: cog
+      cena: 900
+    - nazwa:
+        pl: Auta dostawcze i ciężarowe
+      opis:
+        pl: Busy, dostawczaki i lekkie ciężarówki do 7,5 t.
+      ikona: truck
+o_nas:
+  naglowek:
+    pl: Warsztat od diesli, nie od wszystkiego
+  tekst:
+    pl: |
+      Turbo Serwis zaczynał w 2009 roku od regeneracji turbin. Dziś mamy cztery stanowiska, w tym kanał dla ciężarówek, i stół probierczy do wtryskiwaczy.
+
+      Każdą turbinę i każdy wtryskiwacz sprawdzamy na urządzeniach, zanim wróci do auta. Dostajesz wydruk z pomiarów i gwarancję na piśmie.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Mechanik pracuje przy czerwonej ciężarówce w warsztacie
+  liczby:
+    - wartosc: '15'
+      opis:
+        pl: lat w Łodzi
+    - wartosc: 4 800
+      opis:
+        pl: zregenerowanych turbin
+    - wartosc: '4'
+      opis:
+        pl: stanowiska, w tym kanał
+marki:
+  naglowek:
+    pl: Silniki, które znamy na pamięć
+  lista:
+    - Volkswagen TDI
+    - Ford TDCi
+    - Renault dCi
+    - Fiat Multijet
+    - Mercedes CDI
+    - BMW d
+    - Iveco
+    - Peugeot HDi
+    - Toyota D-4D
+    - Opel CDTI
+  uwaga:
+    pl: Naprawiamy też auta benzynowe z turbodoładowaniem.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego kierowcy do nas wracają
+  lista:
+    - ikona: gauge
+      tytul:
+        pl: Pomiary, nie zgadywanie
+      opis:
+        pl: Każdą naprawę potwierdzamy wydrukiem z pomiarów.
+    - ikona: shield-check
+      tytul:
+        pl: Gwarancja na piśmie
+      opis:
+        pl: 24 miesiące na regenerowane turbiny, 12 miesięcy na naprawy.
+    - ikona: timer
+      tytul:
+        pl: Turbina w 24 godziny
+      opis:
+        pl: Regenerację większości turbin kończymy następnego dnia.
+    - ikona: truck
+      tytul:
+        pl: Obsługa flot
+      opis:
+        pl: Terminy priorytetowe i faktury zbiorcze dla firm.
+galeria:
+  naglowek:
+    pl: Z warsztatu
+  lista:
+    - plik: warsztat-2.jpg
+      opis:
+        pl: Kontrola podwozia
+    - plik: warsztat-1.jpg
+      opis:
+        pl: Narzędzia przy stanowisku
+    - plik: warsztat-6.jpg
+      opis:
+        pl: Naprawa ciężarówki
+    - plik: warsztat-4.jpg
+      opis:
+        pl: Prace spawalnicze
+    - plik: warsztat-3.jpg
+      opis:
+        pl: Praca na kanale
+    - plik: warsztat-5.jpg
+      opis:
+        pl: Wózek narzędziowy
+opinie:
+  ocena: 4.9
+  liczba: 368
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Rafał M.
+      tekst:
+        pl: Dwa inne warsztaty chciały wymieniać turbinę. Tu znaleźli pękniętego węża intercoolera. Naprawa za 300 zł.
+    - autor: Firma TransKur
+      tekst:
+        pl: Serwisujemy tu 12 busów. Terminy dotrzymane, faktury zbiorcze, zero problemów.
+    - autor: Łukasz P.
+      tekst:
+        pl: Wtryskiwacze zregenerowane z wydrukiem z hamowni. Auto pali o litr mniej.
+faq:
+  lista:
+    - pytanie:
+        pl: Ile kosztuje regeneracja turbiny?
+      odpowiedz:
+        pl: Zwykle od 1 200 do 2 000 zł z demontażem i montażem. Dokładną cenę podajemy po diagnostyce.
+    - pytanie:
+        pl: Czy przyjmujecie ciężarówki?
+      odpowiedz:
+        pl: Tak, auta do 7,5 tony. Mamy kanał i plac manewrowy.
+    - pytanie:
+        pl: Jak długo trwa naprawa?
+      odpowiedz:
+        pl: Regenerację turbiny kończymy zwykle w 24 godziny. Wtryskiwacze w 1–2 dni.
+    - pytanie:
+        pl: Czy dajecie gwarancję?
+      odpowiedz:
+        pl: Tak, 24 miesiące na regenerowane turbiny i 12 miesięcy na pozostałe naprawy.
+formularz:
+  typ: warsztat
+  dostawca: netlify

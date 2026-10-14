@@ -1,0 +1,18 @@
+/* Sąsiad: przyjazny, rodzinny warsztat. Duże zaokrąglenia, ciepłe kolory, lekko obrócone zdjęcia. */
+.hero--kolaz { background: radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--glowny) 12%, transparent), transparent 45%), radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--akcent) 10%, transparent), transparent 40%); }
+.hero-kolaz img { border-radius: 24px; box-shadow: 0 20px 40px -24px rgb(60 30 0 / .45); }
+.etykieta { background: color-mix(in srgb, var(--glowny) 12%, transparent); padding: 6px 14px; border-radius: 999px; letter-spacing: .06em; }
+.etykieta::before { display: none; }
+.sekcja:is([data-tlo='akcent'], [data-tlo='kolor']) .etykieta { background: color-mix(in srgb, var(--na-tle) 15%, transparent); }
+.karta { border-radius: 24px; border: 2px solid color-mix(in srgb, var(--glowny) 12%, transparent); transition: transform .3s cubic-bezier(.3,1.6,.6,1), border-color .3s ease; }
+.karta:hover { transform: translateY(-4px) rotate(-.4deg); border-color: var(--glowny); }
+.sekcja[data-tlo='akcent'] .karta { border-color: color-mix(in srgb, var(--na-tle) 20%, transparent); }
+.ikona-tlo { border-radius: 50%; background: var(--glowny); color: #fff; }
+.galeria button { border-radius: 20px; }
+.galeria button:nth-child(odd) img { transform-origin: bottom left; }
+.o-nas-zdjecie img { border-radius: 28px; transform: rotate(-1.5deg); box-shadow: 0 24px 50px -28px rgb(60 30 0 / .5); }
+.opinia { border-radius: 24px; }
+.opinia .inicjal { background: var(--akcent); }
+.sekcja-glowka h2::after { content: ''; display: block; width: 72px; height: 6px; margin-top: 16px; border-radius: 6px; background: linear-gradient(90deg, var(--glowny), var(--akcent)); }
+.sekcja-glowka.srodek h2::after { margin-inline: auto; }
+.etykieta { width: fit-content; }

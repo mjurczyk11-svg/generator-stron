@@ -1,0 +1,266 @@
+# Strona pokazowa motywu "Fach" (remonty, złota rączka i wykończenia). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: remonty
+motyw: fach
+jezyki:
+  - pl
+komunikat:
+  tekst:
+    pl: Wolne terminy na listopad. Wycena w 48 godzin od oględzin.
+firma:
+  nazwa: Fach Remonty
+  nazwa_prawna: Fach Ekipa Remontowa Łukasz Sokołowski
+  branza:
+    pl: Remonty mieszkań i domów
+  typ_schema: HomeAndConstructionBusiness
+  opis:
+    pl: Remonty mieszkań i domów w Białymstoku. Glazura, gładzie, malowanie, hydraulika, elektryka i zabudowy z płyt gipsowych.
+seo:
+  tytul:
+    pl: Remonty Białystok – Fach Ekipa Remontowa, mieszkania i łazienki
+kontakt:
+  telefon: +48 500 150 780
+  email: wycena@fach-bialystok.pl
+  adres:
+    ulica: ul. Produkcyjna 88
+    kod: 15-680
+    miasto: Białystok
+  social:
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 7:00-17:00
+  wt: 7:00-17:00
+  sr: 7:00-17:00
+  czw: 7:00-17:00
+  pt: 7:00-17:00
+  sob: 8:00-13:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Białystok i okolice do 30 km
+  tytul:
+    pl: Remont mieszkania w Białymstoku bez nerwów
+  podtytul:
+    pl: Robimy łazienki, kuchnie i całe mieszkania. Jedna ekipa od skuwania do sprzątania, cena w umowie i 3 lata gwarancji.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Fachowiec w kasku ze skrzynką narzędziową
+wyrozniki:
+  - ikona: clock
+    tekst:
+      pl: Wycena w 48 godzin
+  - ikona: file-signature
+    tekst:
+      pl: Umowa ze stałą ceną
+  - ikona: shield-check
+    tekst:
+      pl: 3 lata gwarancji
+uslugi:
+  naglowek:
+    pl: Co robimy
+  lista:
+    - nazwa:
+        pl: Remonty mieszkań
+      opis:
+        pl: Kompleksowo, od instalacji po malowanie i podłogi.
+      zdjecie: mieszkania.jpg
+      ikona: house
+      cena: 600
+    - nazwa:
+        pl: Glazura i terakota
+      opis:
+        pl: Łazienki, kuchnie, schody i tarasy. Też płytki wielkoformatowe.
+      zdjecie: glazura.jpg
+      ikona: grid-3x3
+      cena: 120
+    - nazwa:
+        pl: Hydraulika
+      opis:
+        pl: Wymiana pionów i podejść, montaż stelaży i armatury.
+      zdjecie: hydraulika.jpg
+      ikona: droplets
+    - nazwa:
+        pl: Elektryka
+      opis:
+        pl: Nowa instalacja, gniazda, oświetlenie i rozdzielnice.
+      zdjecie: elektryka.jpg
+      ikona: zap
+    - nazwa:
+        pl: Malowanie i gładzie
+      opis:
+        pl: Gładzie gipsowe, malowanie ścian i sufitów.
+      zdjecie: malowanie.jpg
+      ikona: paint-roller
+      cena: 35
+    - nazwa:
+        pl: Płyty gipsowe
+      opis:
+        pl: Sufity podwieszane, ścianki działowe i zabudowy.
+      zdjecie: gk.jpg
+      ikona: layout-panel-top
+o_nas:
+  naglowek:
+    pl: Ekipa, która robi wszystko sama
+  tekst:
+    pl: |
+      Fach to sześciu fachowców: glazurnicy, hydraulik i elektryk z uprawnieniami. Remontujemy w Białymstoku od 2011 roku.
+  liczby:
+    - wartosc: '13'
+      opis:
+        pl: lat na rynku
+    - wartosc: '850'
+      opis:
+        pl: wykonanych remontów
+    - wartosc: '6'
+      opis:
+        pl: fachowców w ekipie
+realizacje:
+  naglowek:
+    pl: Nasze remonty
+  wstep:
+    pl: Przesuń suwak, aby zobaczyć efekt.
+  lista:
+    - tytul:
+        pl: Sypialnia w bloku, 14 m²
+      miejscowosc: Białystok, Antoniuk
+      czas:
+        pl: 2 tygodnie
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Gładzie, sufit podwieszany z oświetleniem, panele i malowanie.
+      przed: przed-1.jpg
+      po: po-1.jpg
+    - tytul:
+        pl: Łazienka z wanną, 4 m²
+      miejscowosc: Białystok, Bojary
+      czas:
+        pl: 2 tygodnie
+      kategoria:
+        pl: Łazienki
+      opis:
+        pl: Skucie płytek, nowe podejścia, płytki 3D i stelaż WC.
+      zdjecia:
+        - lazienka-1.jpg
+        - lazienka-2.jpg
+    - tytul:
+        pl: Kuchnia z jadalnią
+      miejscowosc: Wasilków
+      czas:
+        pl: 3 tygodnie
+      kategoria:
+        pl: Kuchnie
+      opis:
+        pl: Płytki na ścianie, elektryka pod AGD i podłoga z paneli winylowych.
+      zdjecia:
+        - kuchnia-1.jpg
+        - kuchnia-2.jpg
+    - tytul:
+        pl: Sypialnia z garderobą
+      miejscowosc: Choroszcz
+      czas:
+        pl: 10 dni
+      kategoria:
+        pl: Mieszkania
+      opis:
+        pl: Malowanie, nowe gniazda i oświetlenie, montaż szaf.
+      zdjecia:
+        - sypialnia.jpg
+proces:
+  naglowek:
+    pl: Jak działamy
+  kroki:
+    - tytul:
+        pl: Telefon
+      opis:
+        pl: Mówisz, co trzeba zrobić. Możesz wysłać zdjęcia.
+    - tytul:
+        pl: Oględziny
+      opis:
+        pl: Przyjeżdżamy bezpłatnie i mierzymy.
+    - tytul:
+        pl: Wycena
+      opis:
+        pl: W ciągu 48 godzin dostajesz wycenę na piśmie.
+    - tytul:
+        pl: Remont
+      opis:
+        pl: Pracujemy w ustalonym terminie, codziennie sprzątamy.
+    - tytul:
+        pl: Odbiór
+      opis:
+        pl: Sprawdzamy wszystko razem i dajemy gwarancję.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego Fach
+  lista:
+    - ikona: hammer
+      tytul:
+        pl: Wszystko jedna ekipa
+      opis:
+        pl: Glazurnik, hydraulik i elektryk w jednej firmie.
+    - ikona: file-signature
+      tytul:
+        pl: Cena się nie zmienia
+      opis:
+        pl: Kwota z umowy jest ostateczna, chyba że zmienisz zakres.
+    - ikona: sparkles
+      tytul:
+        pl: Sprzątamy po sobie
+      opis:
+        pl: Codziennie, a na koniec generalnie.
+    - ikona: shield-check
+      tytul:
+        pl: 3 lata gwarancji
+      opis:
+        pl: Na wszystkie prace, z poprawkami w 7 dni.
+obszar:
+  naglowek:
+    pl: Gdzie dojeżdżamy
+  tekst:
+    pl: Białystok i miejscowości do 30 km. Oględziny są bezpłatne.
+  miejscowosci:
+    - Białystok
+    - Wasilków
+    - Choroszcz
+    - Supraśl
+    - Zabłudów
+    - Łapy
+    - Juchnowiec Kościelny
+    - Czarna Białostocka
+opinie:
+  ocena: 4.9
+  liczba: 176
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Iwona K.
+      tekst:
+        pl: Łazienka zrobiona w dwa tygodnie, tak jak obiecali. Codziennie sprzątali po sobie.
+    - autor: Damian R.
+      tekst:
+        pl: Wycenę dostałem następnego dnia. Cena na fakturze taka sama jak w umowie.
+    - autor: Małgorzata S.
+      tekst:
+        pl: Pan Łukasz doradził tańsze rozwiązanie z płytami gipsowymi. Efekt świetny.
+faq:
+  lista:
+    - pytanie:
+        pl: Ile kosztuje remont łazienki?
+      odpowiedz:
+        pl: Remont łazienki 4–5 m² kosztuje zwykle od 15 000 do 25 000 zł z robocizną. Dokładną cenę podajemy po oględzinach.
+    - pytanie:
+        pl: Czy robicie małe naprawy?
+      odpowiedz:
+        pl: Tak, jeśli mamy wolny termin. Przy małych zleceniach liczymy minimum 300 zł.
+    - pytanie:
+        pl: Czy kupujecie materiały?
+      odpowiedz:
+        pl: Tak, możemy kupić i przywieźć wszystko. Masz wtedy rabat hurtowy.
+    - pytanie:
+        pl: Kiedy możecie zacząć?
+      odpowiedz:
+        pl: Zwykle w ciągu 2–4 tygodni od podpisania umowy.
+formularz:
+  typ: wycena
+  dostawca: netlify

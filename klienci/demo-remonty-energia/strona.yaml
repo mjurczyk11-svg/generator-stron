@@ -1,0 +1,282 @@
+# Strona pokazowa motywu "Energia" (instalacje OZE). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: remonty
+motyw: energia
+jezyki:
+  - pl
+sekcje:
+  - uslugi
+  - o-nas
+  - dofinansowania
+  - realizacje
+  - proces
+  - dlaczego-my
+  - obszar
+  - opinie
+  - faq
+  - kontakt
+firma:
+  nazwa: EkoMoc Instalacje
+  nazwa_prawna: EkoMoc Instalacje Sp. z o.o.
+  branza:
+    pl: Pompy ciepła i fotowoltaika
+  typ_schema: HVACBusiness
+  opis:
+    pl: Pompy ciepła, fotowoltaika i magazyny energii w Opolu i województwie opolskim. Dobór, montaż, serwis i pomoc w uzyskaniu dofinansowania.
+seo:
+  tytul:
+    pl: Pompy ciepła i fotowoltaika Opole – EkoMoc Instalacje
+kontakt:
+  telefon: +48 500 830 470
+  email: biuro@ekomoc-opole.pl
+  adres:
+    ulica: ul. Wrocławska 132
+    kod: 45-836
+    miasto: Opole
+  social:
+    facebook: https://www.facebook.com/
+    youtube: https://www.youtube.com/
+godziny:
+  pon: 8:00-17:00
+  wt: 8:00-17:00
+  sr: 8:00-17:00
+  czw: 8:00-17:00
+  pt: 8:00-16:00
+  sob: 9:00-12:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Pompy ciepła · Fotowoltaika · Opolskie
+  tytul:
+    pl: Pompy ciepła i fotowoltaika w Opolu z dofinansowaniem
+  podtytul:
+    pl: Dobieramy instalację do Twojego domu, montujemy własną ekipą i pomagamy złożyć wniosek o dotację. Serwis przez cały okres gwarancji.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Monter instaluje panele fotowoltaiczne na dachu
+wyrozniki:
+  - ikona: badge-percent
+    tekst:
+      pl: Pomoc w uzyskaniu dotacji
+  - ikona: hard-hat
+    tekst:
+      pl: Własne ekipy montażowe
+  - ikona: wrench
+    tekst:
+      pl: Serwis 24/7 w sezonie grzewczym
+cta:
+  pl: Bezpłatny audyt
+uslugi:
+  naglowek:
+    pl: Co montujemy
+  lista:
+    - nazwa:
+        pl: Pompy ciepła powietrze-woda
+      opis:
+        pl: Ogrzewanie i ciepła woda dla domów nowych i modernizowanych.
+      zdjecie: pompa-1.jpg
+      ikona: heater
+    - nazwa:
+        pl: Fotowoltaika
+      opis:
+        pl: Instalacje na dachu i na gruncie z monitoringiem produkcji.
+      zdjecie: pv-3.jpg
+      ikona: sun
+    - nazwa:
+        pl: Magazyny energii
+      opis:
+        pl: Więcej własnego prądu wieczorem i zasilanie awaryjne.
+      zdjecie: pv-4.jpg
+      ikona: battery-charging
+    - nazwa:
+        pl: Kotłownie i zasobniki
+      opis:
+        pl: Modernizacja kotłowni, bufory i zasobniki ciepłej wody.
+      zdjecie: pompa-4.jpg
+      ikona: thermometer
+    - nazwa:
+        pl: Audyt energetyczny
+      opis:
+        pl: Obliczamy zapotrzebowanie domu na ciepło i prąd.
+      zdjecie: o-nas.jpg
+      ikona: clipboard-list
+    - nazwa:
+        pl: Serwis i przeglądy
+      opis:
+        pl: Przeglądy roczne wymagane do zachowania gwarancji.
+      zdjecie: pompa-2.jpg
+      ikona: wrench
+o_nas:
+  naglowek:
+    pl: Instalujemy tak, jak u siebie w domu
+  tekst:
+    pl: |
+      EkoMoc działa od 2016 roku. Mamy trzy ekipy montażowe, własny serwis i doradców, którzy znają programy dotacyjne od podszewki.
+
+      Pompę ciepła dobieramy na podstawie obliczeń, a nie „na oko”. Dzięki temu urządzenie pracuje oszczędnie i nie przegrzewa domu ani rachunków.
+  zdjecie: pv-1.jpg
+  zdjecie_opis:
+    pl: Monter niesie panel fotowoltaiczny na dachu
+  liczby:
+    - wartosc: 1 150
+      opis:
+        pl: instalacji fotowoltaicznych
+    - wartosc: '640'
+      opis:
+        pl: pomp ciepła
+    - wartosc: '8'
+      opis:
+        pl: lat doświadczenia
+dofinansowania:
+  naglowek:
+    pl: Pomożemy uzyskać dofinansowanie
+  tekst:
+    pl: |
+      Na pompę ciepła i fotowoltaikę możesz dostać nawet kilkadziesiąt tysięcy złotych dotacji. Sprawdzamy, z których programów możesz skorzystać, i przygotowujemy wniosek.
+
+      Rozliczenie z programu robimy razem z Tobą po montażu. Do kosztów możesz też doliczyć ulgę termomodernizacyjną.
+  punkty:
+    - pl: Czyste Powietrze
+    - pl: Mój Prąd
+    - pl: Moje Ciepło
+    - pl: Ulga termomodernizacyjna
+realizacje:
+  naglowek:
+    pl: Ostatnie montaże
+  lista:
+    - tytul:
+        pl: Pompa ciepła 10 kW w domu 160 m²
+      miejscowosc: Opole, Grudzice
+      czas:
+        pl: 3 dni
+      kategoria:
+        pl: Pompy ciepła
+      opis:
+        pl: Wymiana kotła na węgiel, bufor i zasobnik CWU. Dotacja z programu Czyste Powietrze.
+      zdjecia:
+        - pompa-3.jpg
+        - pompa-4.jpg
+    - tytul:
+        pl: Fotowoltaika 9,6 kWp z magazynem energii
+      miejscowosc: Krapkowice
+      czas:
+        pl: 2 dni
+      kategoria:
+        pl: Fotowoltaika
+      opis:
+        pl: 22 panele na dachu skośnym i magazyn 10 kWh z zasilaniem awaryjnym.
+      zdjecia:
+        - pv-3.jpg
+        - pv-2.jpg
+    - tytul:
+        pl: Pompa ciepła w nowym domu
+      miejscowosc: Dobrzeń Wielki
+      czas:
+        pl: 2 dni
+      kategoria:
+        pl: Pompy ciepła
+      opis:
+        pl: Pompa 8 kW z ogrzewaniem podłogowym i sterowaniem z telefonu.
+      zdjecia:
+        - pompa-2.jpg
+        - pompa-1.jpg
+proces:
+  naglowek:
+    pl: Jak to wygląda
+  kroki:
+    - tytul:
+        pl: Bezpłatny audyt
+      opis:
+        pl: Przyjeżdżamy, oglądamy dom i rachunki.
+    - tytul:
+        pl: Oferta i dotacja
+      opis:
+        pl: Dobór urządzeń, wycena i sprawdzenie dofinansowania.
+    - tytul:
+        pl: Montaż
+      opis:
+        pl: Zwykle 2–3 dni, z uruchomieniem i szkoleniem.
+    - tytul:
+        pl: Zgłoszenia
+      opis:
+        pl: Zgłoszenie do operatora sieci i wniosek o dotację.
+    - tytul:
+        pl: Serwis
+      opis:
+        pl: Przeglądy i pomoc przez cały okres gwarancji.
+dlaczego_my:
+  naglowek:
+    pl: Dlaczego EkoMoc
+  lista:
+    - ikona: calculator
+      tytul:
+        pl: Dobór na podstawie obliczeń
+      opis:
+        pl: Liczymy zapotrzebowanie domu na ciepło przed doborem pompy.
+    - ikona: file-check
+      tytul:
+        pl: Dotacje bez stresu
+      opis:
+        pl: Wypełniamy wnioski i pilnujemy terminów.
+    - ikona: hard-hat
+      tytul:
+        pl: Własne ekipy
+      opis:
+        pl: Montują nasi instalatorzy z uprawnieniami F-gaz i SEP.
+    - ikona: smartphone
+      tytul:
+        pl: Monitoring online
+      opis:
+        pl: Produkcję prądu i pracę pompy sprawdzisz w telefonie.
+obszar:
+  naglowek:
+    pl: Województwo opolskie
+  tekst:
+    pl: Bezpłatny audyt w promieniu 60 km od Opola.
+  miejscowosci:
+    - Opole
+    - Krapkowice
+    - Strzelce Opolskie
+    - Brzeg
+    - Nysa
+    - Kędzierzyn-Koźle
+    - Ozimek
+    - Dobrzeń Wielki
+    - Prószków
+    - Niemodlin
+opinie:
+  ocena: 4.9
+  liczba: 211
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Henryk S.
+      tekst:
+        pl: Pompa ciepła działa drugą zimę. Rachunki niższe o połowę w porównaniu z węglem.
+    - autor: Justyna B.
+      tekst:
+        pl: Pomogli z wnioskiem do Czystego Powietrza. Dotacja wypłacona bez problemu.
+    - autor: Krzysztof Ł.
+      tekst:
+        pl: Montaż fotowoltaiki w dwa dni, wszystko posprzątane. Aplikacja pokazuje produkcję na bieżąco.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy pompa ciepła sprawdzi się w starszym domu?
+      odpowiedz:
+        pl: Często tak, ale zależy to od ocieplenia i grzejników. Sprawdzamy to na bezpłatnym audycie.
+    - pytanie:
+        pl: Ile kosztuje fotowoltaika 6 kWp?
+      odpowiedz:
+        pl: Zwykle od 22 000 do 28 000 zł brutto przed dotacją, zależnie od paneli i falownika.
+    - pytanie:
+        pl: Kto składa wniosek o dotację?
+      odpowiedz:
+        pl: Wniosek składasz Ty, ale my go przygotowujemy i kompletujemy dokumenty.
+    - pytanie:
+        pl: Jak długo czeka się na montaż?
+      odpowiedz:
+        pl: Zwykle 3–5 tygodni od podpisania umowy.
+formularz:
+  typ: wycena
+  dostawca: netlify

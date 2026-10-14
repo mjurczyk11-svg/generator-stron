@@ -1,0 +1,17 @@
+/* Energia: instalacje OZE. Świeża zieleń z żółtym słońcem, zaokrąglone karty, poświata w tle. */
+.hero--podzielony { position: relative; overflow: clip; }
+.hero--podzielony::before { content: ''; position: absolute; width: 520px; aspect-ratio: 1; right: 4%; top: -180px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--akcent) 45%, transparent), transparent 65%); pointer-events: none; }
+.hero--podzielony .kontener { position: relative; }
+.hero--podzielony .hero-zdjecie::before { background: linear-gradient(135deg, var(--glowny), color-mix(in srgb, var(--glowny) 50%, var(--akcent))); opacity: .25; }
+.etykieta::before { width: 10px; height: 10px; border-radius: 50%; background: var(--akcent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--akcent) 30%, transparent); }
+.karta { border-radius: 20px; transition: transform .3s ease, box-shadow .3s ease; }
+.karta:hover { transform: translateY(-4px); box-shadow: 0 24px 40px -26px color-mix(in srgb, var(--glowny) 70%, transparent); }
+.ikona-tlo { border-radius: 16px; background: linear-gradient(135deg, color-mix(in srgb, var(--glowny) 16%, transparent), color-mix(in srgb, var(--akcent) 30%, transparent)); }
+.usluga-zdjecie { overflow: hidden; }
+.usluga-zdjecie img { transition: transform .6s ease; }
+.usluga-zdjecie:hover img { transform: scale(1.05); }
+.hero-liczby--jasne { border-radius: 20px; }
+.liczby strong, .hero-liczby strong { color: var(--glowny); }
+.info-blok .karta { background: color-mix(in srgb, #fff 12%, transparent); border-color: color-mix(in srgb, #fff 25%, transparent); }
+.info-blok li { font-weight: 650; }
+.btn { border-radius: 999px; }

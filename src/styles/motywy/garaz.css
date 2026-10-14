@@ -1,0 +1,20 @@
+/* Garaż: surowy warsztat. Żółto-czarne paski ostrzegawcze, grube obramowania, twarde cienie. */
+.hero--zdjecie::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background: repeating-linear-gradient(-45deg, var(--akcent) 0 18px, #111 18px 36px); z-index: 2; }
+.hero--zdjecie { position: relative; }
+.btn { border-radius: 2px; text-transform: uppercase; letter-spacing: .05em; font-family: var(--font-h); font-weight: 600; font-size: 1.05rem; }
+.btn-glowny, .btn-akcent { background: var(--akcent); color: #111; box-shadow: 4px 4px 0 #111; border: 2px solid #111; }
+.btn-glowny:hover, .btn-akcent:hover { background: var(--akcent); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #111; }
+.hero .btn-glowny { box-shadow: 4px 4px 0 rgb(0 0 0 / .6); }
+.etykieta::before { width: 22px; height: 8px; background: repeating-linear-gradient(-45deg, var(--akcent) 0 4px, transparent 4px 8px); }
+.karta { border: 2px solid #161616; border-radius: 2px; box-shadow: 5px 5px 0 var(--akcent); transition: transform .2s ease, box-shadow .2s ease; }
+.karta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--akcent); }
+.sekcja[data-tlo='ciemne'] .karta { border-color: color-mix(in srgb, #fff 25%, transparent); }
+.ikona-tlo { background: var(--akcent); color: #111; border-radius: 2px; }
+.sekcja[data-tlo='ciemne'] .ikona-tlo { background: var(--akcent); color: #111 !important; }
+.usluga-num-nr { background: var(--akcent); color: #111; padding: 2px 8px; font-family: var(--font-h); }
+.usluga-num:hover { background: color-mix(in srgb, var(--akcent) 14%, transparent); }
+.liczby strong { font-family: var(--font-h); }
+.galeria button, .osoba img, .o-nas-zdjecie img { border-radius: 2px; }
+.o-nas-zdjecie img { box-shadow: 10px 10px 0 var(--akcent); border: 2px solid #111; }
+.sekcja[data-tlo='akcent'] .znaczniki > * { background: #111; color: var(--akcent); border-color: #111; }
+.stopka { border-top: 10px solid; border-image: repeating-linear-gradient(-45deg, var(--akcent) 0 18px, #111 18px 36px) 10; }

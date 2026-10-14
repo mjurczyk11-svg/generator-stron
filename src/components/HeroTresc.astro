@@ -1,0 +1,24 @@
+---
+// Treść pierwszego ekranu: ocena, mały napis, tytuł, tekst, przyciski i wyróżniki. Wspólna dla wszystkich układów.
+import { strona, tlumacz, tel, glownaAkcja, ocena, p, type Jezyk } from '../lib/dane';
+import Ikona from './Ikona.astro';
+import Gwiazdki from './Gwiazdki.astro';
+interface Props { lang: Jezyk; przycisk?: string; zOcena?: boolean; klasa?: string }
+const { lang, przycisk = 'btn-glowny', zOcena = false, klasa = '' } = Astro.props;
+const { t, u } = tlumacz(lang);
+const h = strona.hero;
+const k = strona.kontakt;
+const op = strona.opinie;
+const akcja = glownaAkcja(lang);
+---
+<div class:list={['hero-tresc', klasa]}>
+  {zOcena && op?.ocena && <a class="ocena-znaczek" href={op.link ?? '#opinie'}><Gwiazdki ocena={op.ocena} /><span>{`${ocena(op.ocena, lang)} · ${op.liczba} ${u('opinie.opinii')} Google`}</span></a>}
+  {t(h.etykieta) && <div class="etykieta" {...p('hero.etykieta')}>{t(h.etykieta)}</div>}
+  <h1 {...p('hero.tytul')}>{t(h.tytul) || strona.firma.nazwa}</h1>
+  {t(h.podtytul) && <p class="hero-lead" {...p('hero.podtytul')}>{t(h.podtytul)}</p>}
+  <div class="hero-przyciski">
+    <a class:list={['btn', przycisk]} href={akcja.href} {...(akcja.zewnetrzny ? { target: '_blank', rel: 'noopener' } : {})}>{akcja.tekst}<Ikona n="arrow-right" rozmiar={19} /></a>
+    {k.telefon && <a class="btn btn-obrys" href={tel(k.telefon)}><Ikona n="phone" rozmiar={19} />{k.telefon}</a>}
+  </div>
+  {strona.wyrozniki.length > 0 && <ul class="wyrozniki">{strona.wyrozniki.map((w: any, i: number) => <li><Ikona n={w.ikona ?? 'check'} rozmiar={20} /><span {...p(`wyrozniki.${i}.tekst`)}>{t(w.tekst ?? w)}</span></li>)}</ul>}
+</div>

@@ -1,10 +1,8 @@
 ---
-import '@fontsource-variable/inter';
-import '@fontsource-variable/manrope';
-import '@fontsource-variable/fraunces';
-import '@fontsource-variable/playfair-display';
-import '@fontsource/dm-serif-display';
 import '../styles/globalne.css';
+import '../styles/animacje.css';
+// Czcionki i style motywu wybranego w pliku klienta (patrz astro.config.mjs).
+import 'virtual:motyw';
 import { getImage } from 'astro:assets';
 import { strona, tlumacz, adresTekst, PODGLAD, type Jezyk } from '../lib/dane';
 import { zdjecie } from '../lib/zdjecia';
@@ -36,13 +34,15 @@ const ikonaPlik = await zdjecie(f.ikona ?? (logo && logo.format !== 'svg' ? f.lo
 const favicon = ikonaPlik ? await getImage({ src: ikonaPlik, width: 64, height: 64, fit: 'contain', format: 'png' }) : undefined;
 const literaSvg = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${strona.kolory.glowny}"/><text x="32" y="44" font-family="Arial,sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="${tekstNa(strona.kolory.glowny)}">${(f.nazwa ?? '?').trim()[0]}</text></svg>`)}`;
 
+// Przezroczyste menu nad dużym zdjęciem (tylko na stronie głównej z pełnoekranowym zdjęciem).
+const naglowekNad = glowna && strona.naglowek === 'przezroczysty' && strona.hero?.zdjecie && ['zdjecie', 'srodek'].includes(strona.hero.uklad);
 const glowny = strona.kolory.glowny;
 const akcent = strona.kolory.akcent;
 const zmienne = `
   --glowny:${glowny}; --akcent:${akcent};
   --na-glownym:${tekstNa(glowny)}; --na-akcencie:${tekstNa(akcent)};
   --glowny-ciemny: color-mix(in srgb, ${glowny} 78%, #000);
-  --ciemny: ${strona.kolory.ciemny ?? `color-mix(in srgb, ${glowny} 22%, #0d0f10)`};
+  --ciemny: ${strona.kolory.ciemny ?? `color-mix(in srgb, ${glowny} 22%, #0d0f10)`}; --na-ciemnym: ${tekstNa(strona.kolory.ciemny ?? '#111111')};
   --tlo:${w.tlo}; --tlo2:${w.tlo2}; --tekst:${w.tekstKolor};
   --tekst-2: color-mix(in srgb, ${w.tekstKolor} 72%, ${w.tlo});
   --linia: color-mix(in srgb, ${w.tekstKolor} 12%, transparent);
@@ -69,10 +69,16 @@ const schema = glowna ? {
 } : null;
 ---
 <!doctype html>
-<html lang={lang} class={w.naglowkiStyl === 'uppercase' ? 'naglowki-wielkie' : ''} style={zmienne}>
+<html
+  lang={lang} class={w.naglowkiStyl === 'uppercase' ? 'naglowki-wielkie' : ''} style={zmienne}
+  data-motyw={strona.motyw || undefined} data-tryb={w.ciemny ? 'ciemny' : undefined} data-animacje={strona.animacje}
+  data-naglowek={naglowekNad ? 'nad' : undefined} data-podglad={PODGLAD ? '' : undefined}
+>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Animacje włączamy przed pierwszym wyświetleniem, żeby treść nie mignęła. Bez JS strona działa normalnie. -->
+  <script is:inline>(function(){var h=document.documentElement;if(!window.IntersectionObserver||matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('anim');setTimeout(function(){if(!h.classList.contains('anim-gotowe'))h.classList.remove('anim')},2500)})();</script>
   <title>{tytulStrony}</title>
   <meta name="description" content={opisStrony} />
   {(PODGLAD || bezIndeksu) && <meta name="robots" content="noindex, nofollow" />}
@@ -102,5 +108,6 @@ const schema = glowna ? {
   </main>
   <Stopka lang={lang} />
   <PasekMobilny lang={lang} />
+  <script>import '../lib/animacje';</script>
 </body>
 </html>

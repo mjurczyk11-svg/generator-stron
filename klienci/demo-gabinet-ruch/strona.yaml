@@ -1,0 +1,238 @@
+# Strona pokazowa motywu "Ruch" (gabinet, fizjoterapia). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: gabinet
+motyw: ruch
+jezyki:
+  - pl
+firma:
+  nazwa: FizjoRuch
+  nazwa_prawna: FizjoRuch Gabinet Fizjoterapii mgr Kamil Wójcik
+  branza:
+    pl: Gabinet fizjoterapii
+  typ_schema: Physiotherapy
+  opis:
+    pl: Gabinet fizjoterapii w Poznaniu. Rehabilitacja po urazach i operacjach, terapia manualna, kinesiotaping i trening medyczny.
+seo:
+  tytul:
+    pl: Fizjoterapeuta Poznań – FizjoRuch, rehabilitacja i terapia manualna
+kontakt:
+  telefon: +48 500 410 230
+  email: zapisy@fizjoruch.pl
+  adres:
+    ulica: ul. Głogowska 102
+    kod: 60-243
+    miasto: Poznań
+  dojazd:
+    pl: Parking dla pacjentów na dziedzińcu (4 miejsca). Tramwaj do przystanku „Rynek Łazarski”.
+  dostepnosc:
+    pl: Sala na parterze, wejście bez progów, szerokie drzwi.
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 7:00-20:00
+  wt: 7:00-20:00
+  sr: 7:00-20:00
+  czw: 7:00-20:00
+  pt: 7:00-18:00
+  sob: 8:00-13:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Fizjoterapia · Poznań
+  tytul:
+    pl: Wróć do ruchu po urazie, operacji albo przeciążeniu
+  podtytul:
+    pl: Pracujemy z ciałem i z ruchem. Każda wizyta to terapia jeden na jeden przez pełne 60 minut, bez dzielenia uwagi na kilku pacjentów.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Fizjoterapeutka prowadzi ćwiczenia z pacjentem
+wyrozniki:
+  - ikona: timer
+    tekst:
+      pl: Wizyta 60 minut, jeden na jeden
+  - ikona: dumbbell
+    tekst:
+      pl: Sala do treningu medycznego
+  - ikona: file-text
+    tekst:
+      pl: Bez skierowania
+uslugi:
+  naglowek:
+    pl: Z czym do nas przychodzą pacjenci
+  lista:
+    - nazwa:
+        pl: Rehabilitacja po urazach
+      opis:
+        pl: Skręcenia, złamania, urazy sportowe i powrót do aktywności.
+      ikona: activity
+    - nazwa:
+        pl: Po operacjach ortopedycznych
+      opis:
+        pl: Rekonstrukcja więzadeł, endoprotezy, operacje barku.
+      ikona: bone
+    - nazwa:
+        pl: Bóle kręgosłupa
+      opis:
+        pl: Terapia manualna i ćwiczenia przy bólach pleców i szyi.
+      ikona: person-standing
+    - nazwa:
+        pl: Terapia manualna
+      opis:
+        pl: Praca na stawach i tkankach miękkich.
+      ikona: hand
+    - nazwa:
+        pl: Kinesiotaping
+      opis:
+        pl: Plastrowanie wspierające terapię i trening.
+      ikona: bandage
+    - nazwa:
+        pl: Trening medyczny
+      opis:
+        pl: Ćwiczenia pod okiem fizjoterapeuty na naszej sali.
+      ikona: dumbbell
+o_nas:
+  naglowek:
+    pl: Terapia, która ma plan i cel
+  tekst:
+    pl: |
+      FizjoRuch to czterech fizjoterapeutów i sala do treningu medycznego. Pracujemy z osobami po urazach, po operacjach i z tymi, które chcą wrócić do sportu.
+
+      Na pierwszej wizycie badamy, rozmawiamy o celu i ustalamy plan. Dostajesz ćwiczenia do domu, a postępy sprawdzamy na kolejnych spotkaniach.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Fizjoterapeutka pracuje z pacjentem na sali ćwiczeń
+  liczby:
+    - wartosc: '4'
+      opis:
+        pl: fizjoterapeutów
+    - wartosc: 60 min
+      opis:
+        pl: każda wizyta
+    - wartosc: 3 000
+      opis:
+        pl: pacjentów od 2016 roku
+zespol:
+  naglowek:
+    pl: Fizjoterapeuci
+  lista:
+    - imie: mgr Kamil Wójcik
+      rola:
+        pl: Fizjoterapia ortopedyczna i sportowa
+      opis:
+        pl: Rehabilitacja po rekonstrukcji więzadeł i urazach kolana.
+      zdjecie: osoba-2.jpg
+    - imie: mgr Natalia Szulc
+      rola:
+        pl: Terapia manualna
+      opis:
+        pl: Bóle kręgosłupa, szyi i stawów, kinesiotaping.
+      zdjecie: osoba-1.jpg
+pierwsza_wizyta:
+  naglowek:
+    pl: Jak wygląda pierwsza wizyta
+  kroki:
+    - tytul:
+        pl: Wywiad
+      opis:
+        pl: Pytamy o dolegliwości, przebieg urazu i Twój cel.
+    - tytul:
+        pl: Badanie
+      opis:
+        pl: Sprawdzamy zakres ruchu, siłę i wzorce ruchowe.
+    - tytul:
+        pl: Terapia
+      opis:
+        pl: Już na pierwszej wizycie zaczynamy pracę.
+    - tytul:
+        pl: Plan i ćwiczenia
+      opis:
+        pl: Dostajesz plan terapii i zestaw ćwiczeń do domu.
+  uwagi:
+    pl: Weź wygodny strój i wyniki badań (RTG, rezonans, wypis ze szpitala), jeśli je masz.
+cennik:
+  wstep:
+    pl: Wizyty trwają 60 minut. Nie potrzebujesz skierowania.
+  kategorie:
+    - nazwa:
+        pl: Wizyty
+      pozycje:
+        - nazwa:
+            pl: Pierwsza wizyta z badaniem
+          cena: 220
+        - nazwa:
+            pl: Wizyta kontynuacyjna
+          cena: 200
+        - nazwa:
+            pl: Trening medyczny (60 min)
+          cena: 160
+    - nazwa:
+        pl: Pakiety
+      pozycje:
+        - nazwa:
+            pl: 5 wizyt
+          cena: 950
+        - nazwa:
+            pl: 10 wizyt
+          cena: 1850
+  od: false
+  uwaga:
+    pl: Płatność gotówką, kartą lub BLIK-iem. Wystawiamy faktury.
+galeria:
+  naglowek:
+    pl: Gabinet i sala ćwiczeń
+  lista:
+    - plik: gabinet-1.jpg
+      opis:
+        pl: Terapia na stole
+    - plik: gabinet-2.jpg
+      opis:
+        pl: Ćwiczenia z fizjoterapeutą
+    - plik: gabinet-3.jpg
+      opis:
+        pl: Kinesiotaping
+    - plik: gabinet-4.jpg
+      opis:
+        pl: Plastrowanie kolana
+    - plik: gabinet-5.jpg
+      opis:
+        pl: Praca na tkankach miękkich
+    - plik: gabinet-6.jpg
+      opis:
+        pl: Ćwiczenia z taśmą
+opinie:
+  ocena: 4.9
+  liczba: 287
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Bartek L.
+      tekst:
+        pl: Po rekonstrukcji ACL wróciłem do biegania po 8 miesiącach. Plan był jasny od pierwszej wizyty.
+    - autor: Ola N.
+      tekst:
+        pl: Ból szyi męczył mnie od roku. Po kilku wizytach i ćwiczeniach w domu jest dużo lepiej.
+    - autor: Grzegorz T.
+      tekst:
+        pl: Konkretne podejście, pełna godzina terapii, a nie 20 minut na sprzęcie.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy potrzebuję skierowania?
+      odpowiedz:
+        pl: Nie. Przyjmujemy prywatnie, bez skierowania.
+    - pytanie:
+        pl: Ile wizyt będzie potrzebnych?
+      odpowiedz:
+        pl: To zależy od problemu. Po pierwszej wizycie powiemy, ile spotkań przewidujemy i jak często.
+    - pytanie:
+        pl: Co zabrać na wizytę?
+      odpowiedz:
+        pl: Wygodny strój sportowy i wyniki badań, jeśli je masz.
+    - pytanie:
+        pl: Czy wystawiacie faktury?
+      odpowiedz:
+        pl: Tak, na firmę lub na osobę prywatną.
+formularz:
+  typ: termin
+  dostawca: netlify

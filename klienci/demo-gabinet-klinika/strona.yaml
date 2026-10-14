@@ -1,0 +1,267 @@
+# Strona pokazowa motywu "Klinika" (gabinet). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: gabinet
+motyw: klinika
+jezyki:
+  - pl
+firma:
+  nazwa: DentaPlus
+  nazwa_prawna: DentaPlus Centrum Stomatologii Sp. z o.o.
+  branza:
+    pl: Centrum stomatologii
+  typ_schema: Dentist
+  opis:
+    pl: Centrum stomatologii w Rzeszowie. Leczenie zachowawcze i kanałowe, ortodoncja, implanty, protetyka i diagnostyka 3D w jednym miejscu.
+seo:
+  tytul:
+    pl: Stomatolog Rzeszów – DentaPlus, centrum stomatologii
+kontakt:
+  telefon: +48 500 230 410
+  email: recepcja@dentaplus-rzeszow.pl
+  adres:
+    ulica: al. Piłsudskiego 34
+    kod: 35-001
+    miasto: Rzeszów
+  dojazd:
+    pl: Bezpłatny parking podziemny dla pacjentów (wjazd od ul. Dąbrowskiego). Przystanek „Piłsudskiego” 2 minuty pieszo.
+  dostepnosc:
+    pl: Winda z parkingu do recepcji, gabinety bez progów, toaleta dla osób z niepełnosprawnościami.
+  social:
+    facebook: https://www.facebook.com/
+    instagram: https://www.instagram.com/
+godziny:
+  pon: 8:00-20:00
+  wt: 8:00-20:00
+  sr: 8:00-20:00
+  czw: 8:00-20:00
+  pt: 8:00-18:00
+  sob: 9:00-14:00
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Centrum stomatologii · Rzeszów
+  tytul:
+    pl: Pełna opieka stomatologiczna w centrum Rzeszowa
+  podtytul:
+    pl: Pięć gabinetów, tomograf 3D na miejscu i zespół lekarzy różnych specjalizacji. Leczenie planujemy razem z Tobą.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Nowoczesny gabinet stomatologiczny z fotelem i sprzętem
+wyrozniki:
+  - ikona: scan-line
+    tekst:
+      pl: Tomografia 3D na miejscu
+  - ikona: calendar-clock
+    tekst:
+      pl: Otwarte do 20:00 i w soboty
+  - ikona: square-parking
+    tekst:
+      pl: Parking dla pacjentów
+uslugi:
+  naglowek:
+    pl: Specjalizacje w jednym miejscu
+  wstep:
+    pl: Nie musisz szukać kilku gabinetów. Lekarze konsultują ze sobą trudniejsze przypadki.
+  lista:
+    - nazwa:
+        pl: Stomatologia zachowawcza
+      opis:
+        pl: Leczenie próchnicy i odbudowa zębów.
+      ikona: zab
+    - nazwa:
+        pl: Endodoncja
+      opis:
+        pl: Leczenie kanałowe pod mikroskopem.
+      ikona: microscope
+    - nazwa:
+        pl: Ortodoncja
+      opis:
+        pl: Aparaty stałe, ruchome i nakładki dla dzieci i dorosłych.
+      ikona: smile
+    - nazwa:
+        pl: Implantologia
+      opis:
+        pl: Uzupełnianie braków zębowych implantami.
+      ikona: anchor
+    - nazwa:
+        pl: Protetyka
+      opis:
+        pl: Korony, mosty, licówki i protezy.
+      ikona: layers
+    - nazwa:
+        pl: Periodontologia
+      opis:
+        pl: Leczenie dziąseł i przyzębia.
+      ikona: shield-plus
+    - nazwa:
+        pl: Diagnostyka 3D
+      opis:
+        pl: Tomografia CBCT i zdjęcia pantomograficzne.
+      ikona: scan-line
+    - nazwa:
+        pl: Higienizacja
+      opis:
+        pl: Profesjonalne czyszczenie i profilaktyka.
+      ikona: sparkles
+o_nas:
+  naglowek:
+    pl: Centrum, w którym lekarze współpracują
+  tekst:
+    pl: |
+      DentaPlus działa od 2008 roku. Dziś to pięć gabinetów, pracownia RTG z tomografem 3D i zespół dziewięciu lekarzy.
+
+      Przy bardziej złożonym leczeniu plan przygotowuje kilku specjalistów naraz. Dostajesz go na piśmie, z kosztami i harmonogramem wizyt.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Lekarz omawia z pacjentem zdjęcie na monitorze
+  liczby:
+    - wartosc: '9'
+      opis:
+        pl: lekarzy specjalistów
+    - wartosc: '5'
+      opis:
+        pl: gabinetów
+    - wartosc: '16'
+      opis:
+        pl: lat w Rzeszowie
+zespol:
+  naglowek:
+    pl: Nasi lekarze
+  lista:
+    - imie: lek. dent. Piotr Mazur
+      rola:
+        pl: Implantologia, chirurgia
+      opis:
+        pl: Planuje leczenie implantologiczne na podstawie tomografii 3D.
+      zdjecie: osoba-1.jpg
+    - imie: dr n. med. Ewa Nowicka
+      rola:
+        pl: Ortodoncja
+      opis:
+        pl: Leczenie aparatami stałymi i nakładkami u dzieci i dorosłych.
+      zdjecie: osoba-2.jpg
+    - imie: lek. dent. Aisha Kowalska
+      rola:
+        pl: Endodoncja
+      opis:
+        pl: Leczenie kanałowe pod mikroskopem, także powtórne.
+      zdjecie: osoba-3.jpg
+    - imie: lek. dent. Tomasz Lee
+      rola:
+        pl: Protetyka
+      opis:
+        pl: Korony i mosty pełnoceramiczne, licówki.
+      zdjecie: osoba-4.jpg
+pierwsza_wizyta:
+  naglowek:
+    pl: Pierwsza wizyta krok po kroku
+  kroki:
+    - tytul:
+        pl: Konsultacja
+      opis:
+        pl: Rozmowa o tym, co Ci dolega i czego oczekujesz.
+    - tytul:
+        pl: Diagnostyka
+      opis:
+        pl: Badanie i zdjęcia RTG albo tomografia na miejscu.
+    - tytul:
+        pl: Plan leczenia
+      opis:
+        pl: Plan z kosztami i liczbą wizyt, do zabrania do domu.
+    - tytul:
+        pl: Leczenie
+      opis:
+        pl: Wizyty u odpowiednich specjalistów w jednym miejscu.
+  uwagi:
+    pl: Pierwsza konsultacja trwa około 45 minut. Weź ze sobą dowód osobisty i dokumentację z wcześniejszego leczenia.
+cennik:
+  wstep:
+    pl: Ceny orientacyjne. Dokładny koszt znajdziesz w planie leczenia.
+  kategorie:
+    - nazwa:
+        pl: Diagnostyka
+      pozycje:
+        - nazwa:
+            pl: Konsultacja z planem leczenia
+          cena: 180
+        - nazwa:
+            pl: Zdjęcie pantomograficzne
+          cena: 120
+        - nazwa:
+            pl: Tomografia CBCT
+          cena: 350
+    - nazwa:
+        pl: Leczenie
+      pozycje:
+        - nazwa:
+            pl: Wypełnienie kompozytowe
+          cena: 260
+        - nazwa:
+            pl: Leczenie kanałowe (ząb trzonowy)
+          cena: 1300
+        - nazwa:
+            pl: Implant z koroną
+          cena: 5200
+  uwaga:
+    pl: Płatność kartą, BLIK-iem, przelewem lub w ratach 0% (Medi Raty).
+galeria:
+  naglowek:
+    pl: Wnętrza i wyposażenie
+  lista:
+    - plik: gabinet-1.jpg
+      opis:
+        pl: Gabinet zabiegowy
+    - plik: gabinet-2.jpg
+      opis:
+        pl: Stanowisko pracy lekarza
+    - plik: gabinet-3.jpg
+      opis:
+        pl: Dobór koloru zębów
+    - plik: gabinet-4.jpg
+      opis:
+        pl: Gabinet nr 2
+opinie:
+  ocena: 4.8
+  liczba: 436
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Marcin D.
+      tekst:
+        pl: Implant i korona zrobione w jednym miejscu, od tomografii po koniec leczenia. Wszystko zgodnie z planem.
+    - autor: Joanna R.
+      tekst:
+        pl: Córka nosi aparat od roku. Wizyty zawsze o czasie, pani doktor bardzo konkretna.
+    - autor: Krzysztof B.
+      tekst:
+        pl: Przyjęli mnie w sobotę z bólem zęba. Sprawna recepcja i miła obsługa.
+faq:
+  lista:
+    - pytanie:
+        pl: Czy mogę przyjść bez skierowania?
+      odpowiedz:
+        pl: Tak. Wystarczy umówić wizytę telefonicznie albo przez internet.
+    - pytanie:
+        pl: Czy robicie tomografię dla pacjentów z innych gabinetów?
+      odpowiedz:
+        pl: Tak, wykonujemy tomografię i zdjęcia RTG na zlecenie innych lekarzy. Wynik dostajesz na płycie lub mailem.
+    - pytanie:
+        pl: Ile trwa leczenie ortodontyczne?
+      odpowiedz:
+        pl: Zwykle od 12 do 24 miesięcy. Dokładny czas podajemy po konsultacji i analizie zdjęć.
+    - pytanie:
+        pl: Czy jest parking?
+      odpowiedz:
+        pl: Tak, bezpłatny parking podziemny dla pacjentów, wjazd od ul. Dąbrowskiego.
+rezerwacja:
+  typ: link
+  url: https://www.znanylekarz.pl/
+  naglowek:
+    pl: Zarezerwuj wizytę online
+  wstep:
+    pl: Wybierz lekarza i wolny termin w serwisie ZnanyLekarz albo zadzwoń do recepcji.
+  przycisk:
+    pl: Wybierz termin
+formularz:
+  typ: termin
+  dostawca: netlify

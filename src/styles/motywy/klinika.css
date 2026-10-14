@@ -1,0 +1,15 @@
+/* Klinika: rzeczowe centrum medyczne. Czyste linie, niebieskie akcenty, karty z paskiem u góry. */
+.naglowek { box-shadow: 0 1px 0 var(--linia), 0 8px 24px -18px rgb(10 30 70 / .25); }
+.etykieta { background: color-mix(in srgb, var(--glowny) 9%, transparent); padding: 6px 12px; border-radius: 999px; letter-spacing: .1em; width: fit-content; }
+.etykieta::before { display: none; }
+.sekcja:is([data-tlo='ciemne'], [data-tlo='kolor']) .etykieta { background: color-mix(in srgb, var(--na-tle) 12%, transparent); }
+.karta { position: relative; overflow: hidden; box-shadow: 0 10px 30px -22px rgb(10 30 70 / .35); }
+.usluga-kafel::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--glowny), var(--akcent)); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.usluga-kafel:hover::before { transform: scaleX(1); }
+.usluga-kafel { transition: transform .3s ease, box-shadow .3s ease; }
+.usluga-kafel:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgb(10 30 70 / .5); }
+.hero--panorama { background: linear-gradient(180deg, color-mix(in srgb, var(--glowny) 7%, var(--tlo)) 0%, var(--tlo) 70%); }
+.hero-panorama-zdjecie img { box-shadow: 0 40px 80px -40px rgb(10 30 70 / .45); }
+.osoba { text-align: center; }
+.osoba img { aspect-ratio: 1; border-radius: 50%; width: min(78%, 220px); margin-inline: auto; box-shadow: 0 0 0 6px var(--tlo), 0 0 0 7px var(--linia); }
+.liczby strong { background: linear-gradient(90deg, var(--glowny), color-mix(in srgb, var(--glowny) 60%, var(--akcent))); -webkit-background-clip: text; background-clip: text; color: transparent; }

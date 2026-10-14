@@ -1,0 +1,18 @@
+/* Fach: konkretna ekipa remontowa. Wąskie, mocne nagłówki, pomarańczowe akcenty, twarde krawędzie. */
+.etykieta { color: var(--akcent); font-family: var(--font-h); font-size: .95rem; letter-spacing: .1em; }
+.etykieta::before { width: 10px; height: 18px; background: var(--akcent); transform: skewX(-18deg); }
+.btn { border-radius: 2px; text-transform: uppercase; letter-spacing: .05em; font-family: var(--font-h); font-weight: 700; font-size: 1.08rem; }
+.btn-glowny { background: var(--akcent); color: #fff; box-shadow: none; }
+.btn-glowny:hover { background: color-mix(in srgb, var(--akcent) 85%, #000); }
+.karta { border-radius: 2px; border-bottom: 4px solid var(--akcent); transition: transform .25s ease, box-shadow .25s ease; }
+.karta:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -24px rgb(10 20 40 / .55); }
+.usluga-zdjecie img { transition: transform .5s ease; }
+.usluga-zdjecie:hover img { transform: scale(1.05); }
+.usluga-zdjecie { overflow: hidden; }
+.usluga-cena { font-family: var(--font-h); font-size: 1.15rem; color: var(--akcent); }
+.ikona-tlo { border-radius: 2px; background: var(--glowny); color: #fff; }
+.sekcja[data-tlo='ciemne'] .ikona-tlo { background: var(--akcent); }
+.hero-liczby strong { color: var(--akcent); font-family: var(--font-h); }
+.kroki li::before { font-family: var(--font-h); color: var(--akcent); font-size: 2.8rem; }
+.sekcja[data-tlo='ciemne'] .kroki li::before { color: var(--akcent) !important; }
+.galeria button, .realizacja, .realizacja-zdjecia img, .o-nas-zdjecie img { border-radius: 2px; }

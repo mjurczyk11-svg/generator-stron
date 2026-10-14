@@ -1,0 +1,237 @@
+# Strona pokazowa motywu "Harmonia" (gabinet, fizjoterapia i osteopatia). Firma i dane są zmyślone. Zdjęcia: Pexels (darmowa licencja).
+
+szablon: gabinet
+motyw: harmonia
+jezyki:
+  - pl
+firma:
+  nazwa: Harmonia
+  nazwa_prawna: Harmonia Pracownia Fizjoterapii mgr Anna Lewandowska
+  branza:
+    pl: Fizjoterapia i osteopatia
+  typ_schema: Physiotherapy
+  opis:
+    pl: Pracownia fizjoterapii i osteopatii w Gdańsku. Fizjoterapia uroginekologiczna, opieka w ciąży i po porodzie, terapia bólu kręgosłupa.
+seo:
+  tytul:
+    pl: Fizjoterapia Gdańsk – Harmonia, fizjoterapia uroginekologiczna i osteopatia
+kontakt:
+  telefon: +48 500 560 780
+  email: kontakt@harmonia-gdansk.pl
+  adres:
+    ulica: ul. Grunwaldzka 76
+    kod: 80-244
+    miasto: Gdańsk
+  dojazd:
+    pl: Parking pod budynkiem (płatny). Tramwaj do przystanku „Miszewskiego”.
+  dostepnosc:
+    pl: Pracownia na parterze. Możesz przyjść z dzieckiem w wózku.
+  social:
+    instagram: https://www.instagram.com/
+    facebook: https://www.facebook.com/
+godziny:
+  pon: 9:00-18:00
+  wt: 9:00-18:00
+  sr: 12:00-20:00
+  czw: 9:00-18:00
+  pt: 9:00-15:00
+  sob: zamknięte
+  nd: zamknięte
+hero:
+  etykieta:
+    pl: Fizjoterapia i osteopatia · Gdańsk
+  tytul:
+    pl: Spokojna opieka nad ciałem w ciąży, po porodzie i na co dzień
+  podtytul:
+    pl: Fizjoterapia uroginekologiczna, osteopatia i terapia bólu kręgosłupa w kameralnej pracowni we Wrzeszczu.
+  zdjecie: hero.jpg
+  zdjecie_opis:
+    pl: Kobieta w ciąży ćwiczy na piłce przy oknie
+wyrozniki:
+  - ikona: flower-2
+    tekst:
+      pl: Wizyty w ciąży i po porodzie
+  - ikona: baby
+    tekst:
+      pl: Możesz przyjść z dzieckiem
+  - ikona: leaf
+    tekst:
+      pl: Kameralna pracownia
+uslugi:
+  naglowek:
+    pl: W czym pomagamy
+  lista:
+    - nazwa:
+        pl: Fizjoterapia uroginekologiczna
+      opis:
+        pl: Badanie i terapia mięśni dna miednicy, nietrzymanie moczu, bóle miednicy.
+      ikona: flower-2
+    - nazwa:
+        pl: Opieka w ciąży
+      opis:
+        pl: Bóle pleców i miednicy, przygotowanie do porodu, bezpieczne ćwiczenia.
+      ikona: heart
+    - nazwa:
+        pl: Po porodzie
+      opis:
+        pl: Ocena rozejścia mięśni brzucha, blizna po cesarskim cięciu, powrót do aktywności.
+      ikona: baby
+    - nazwa:
+        pl: Osteopatia
+      opis:
+        pl: Delikatne techniki manualne przy bólach kręgosłupa, głowy i napięciach.
+      ikona: hand-heart
+    - nazwa:
+        pl: Bóle kręgosłupa
+      opis:
+        pl: Terapia manualna i ćwiczenia dobrane do Twojego trybu życia.
+      ikona: person-standing
+    - nazwa:
+        pl: Masaż leczniczy
+      opis:
+        pl: Rozluźnienie napiętych mięśni i poprawa krążenia.
+      ikona: sparkles
+o_nas:
+  naglowek:
+    pl: Pracownia, w której jest czas na rozmowę
+  tekst:
+    pl: |
+      Harmonię założyłam w 2017 roku, po latach pracy w szpitalu na oddziale położniczym. Dziś pracujemy we dwie, w jasnej pracowni we Wrzeszczu.
+
+      Wizyta trwa godzinę. Zaczynamy od rozmowy, a terapię dopasowujemy do etapu życia, w którym jesteś.
+  zdjecie: o-nas.jpg
+  zdjecie_opis:
+    pl: Terapeutka bada napięcie mięśni szyi i barku
+  liczby:
+    - wartosc: '8'
+      opis:
+        pl: lat pracy pracowni
+    - wartosc: '2'
+      opis:
+        pl: terapeutki
+    - wartosc: 60 min
+      opis:
+        pl: każda wizyta
+zespol:
+  naglowek:
+    pl: Kto Cię przyjmie
+  lista:
+    - imie: mgr Anna Lewandowska
+      rola:
+        pl: Fizjoterapia uroginekologiczna
+      opis:
+        pl: Opieka w ciąży i po porodzie, terapia dna miednicy.
+      zdjecie: osoba-1.jpg
+    - imie: mgr Zofia Grabowska
+      rola:
+        pl: Osteopatia, terapia manualna
+      opis:
+        pl: Bóle kręgosłupa, głowy i napięcia mięśniowe.
+      zdjecie: osoba-2.jpg
+pierwsza_wizyta:
+  naglowek:
+    pl: Pierwsza wizyta
+  kroki:
+    - tytul:
+        pl: Rozmowa
+      opis:
+        pl: Opowiadasz o dolegliwościach i o tym, czego potrzebujesz.
+    - tytul:
+        pl: Badanie
+      opis:
+        pl: Ocena postawy, oddechu i napięcia mięśni.
+    - tytul:
+        pl: Terapia
+      opis:
+        pl: Pierwsze techniki i ćwiczenia już na tej wizycie.
+    - tytul:
+        pl: Plan
+      opis:
+        pl: Ustalamy, jak często się spotykać i co ćwiczyć w domu.
+  uwagi:
+    pl: Weź wygodny strój. Jeśli masz wyniki badań albo kartę ciąży, zabierz je ze sobą.
+cennik:
+  wstep:
+    pl: Wizyty trwają 60 minut.
+  kategorie:
+    - nazwa:
+        pl: Wizyty
+      pozycje:
+        - nazwa:
+            pl: Konsultacja uroginekologiczna
+          cena: 250
+        - nazwa:
+            pl: Fizjoterapia w ciąży
+          cena: 220
+        - nazwa:
+            pl: Wizyta po porodzie
+          cena: 230
+        - nazwa:
+            pl: Osteopatia
+          cena: 240
+        - nazwa:
+            pl: Masaż leczniczy (45 min)
+          cena: 180
+  od: false
+  uwaga:
+    pl: Płatność gotówką, kartą lub BLIK-iem.
+galeria:
+  naglowek:
+    pl: Pracownia
+  lista:
+    - plik: gabinet-1.jpg
+      opis:
+        pl: Terapia manualna
+    - plik: gabinet-2.jpg
+      opis:
+        pl: Gabinet terapii
+    - plik: gabinet-3.jpg
+      opis:
+        pl: Masaż leczniczy
+    - plik: gabinet-4.jpg
+      opis:
+        pl: Ćwiczenia na piłce
+    - plik: gabinet-5.jpg
+      opis:
+        pl: Zajęcia dla kobiet w ciąży
+    - plik: gabinet-6.jpg
+      opis:
+        pl: Ćwiczenia wzmacniające
+opinie:
+  naglowek:
+    pl: Co mówią pacjentki
+  ocena: 5
+  liczba: 142
+  zrodlo: Google
+  link: https://www.google.com/maps
+  lista:
+    - autor: Marta K.
+      tekst:
+        pl: Chodziłam w ciąży i po porodzie. Pani Ania wszystko tłumaczy spokojnie i bez oceniania.
+    - autor: Ewelina S.
+      tekst:
+        pl: Po cesarskim cięciu bałam się ćwiczeń. Po kilku wizytach wróciłam do biegania.
+    - autor: Iwona D.
+      tekst:
+        pl: Osteopatia u pani Zofii pomogła mi na bóle głowy, z którymi chodziłam od miesięcy.
+faq:
+  lista:
+    - pytanie:
+        pl: Kiedy po porodzie mogę przyjść na wizytę?
+      odpowiedz:
+        pl: Zwykle 6 tygodni po porodzie naturalnym i 8 tygodni po cesarskim cięciu. Wcześniej możemy pomóc przy bólach pleców i karmieniu.
+    - pytanie:
+        pl: Czy mogę przyjść z dzieckiem?
+      odpowiedz:
+        pl: Tak. W pracowni jest miejsce na wózek i mata do przewijania.
+    - pytanie:
+        pl: Czy potrzebne jest skierowanie?
+      odpowiedz:
+        pl: Nie, przyjmujemy prywatnie bez skierowania.
+    - pytanie:
+        pl: Czy w ciąży można chodzić na fizjoterapię?
+      odpowiedz:
+        pl: Tak, przez całą ciążę, jeśli lekarz prowadzący nie zalecił inaczej.
+formularz:
+  typ: termin
+  dostawca: netlify
